@@ -10,6 +10,7 @@ package controlador;
  */
 public class Prueba {
     private String name;
+    private int num;
 
     public Prueba(String name) {
         this.name = name;
