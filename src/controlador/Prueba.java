@@ -11,6 +11,7 @@ package controlador;
 public class Prueba {
     private String name;
     private int num;
+    private String mecagoenlaputa;
 
     public Prueba(String name) {
         this.name = name;
