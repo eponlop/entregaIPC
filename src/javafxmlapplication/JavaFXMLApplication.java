@@ -28,7 +28,7 @@ public class JavaFXMLApplication extends Application {
         //     - configuracion del stage
         //     - se muestra el stage de manera no modal mediante el metodo show()
         stage.setScene(scene);
-        stage.setTitle("");
+        stage.setTitle("Nombre de la app");
         stage.show();
     }
 
@@ -36,7 +36,7 @@ public class JavaFXMLApplication extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        launch(args); //FUNKA
+        launch(args);
         
     }
 
