@@ -6,7 +6,9 @@ package controlador;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.layout.VBox;
 
 /**
  * FXML Controller class
@@ -14,6 +16,9 @@ import javafx.fxml.Initializable;
  * @author esteb
  */
 public class AñadirGastoController implements Initializable {
+
+    @FXML
+    private VBox vBox;
 
     /**
      * Initializes the controller class.
