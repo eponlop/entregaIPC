@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
 <VBox fx:id="vBox" alignment="BOTTOM_RIGHT" prefHeight="359.0" prefWidth="439.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.AñadirGastoController">
    <children>
       <VBox prefHeight="90.0" prefWidth="600.0">
@@ -69,7 +68,7 @@
                   <Label text="Coste" />
                   <HBox alignment="CENTER_LEFT">
                      <children>
-                        <TextField alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="76.0" text="987654321" />
+                        <TextField alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="76.0" />
                         <Label text=" €" />
                      </children>
                   </HBox>
@@ -80,7 +79,7 @@
                   <Label text="Unidades" />
                   <HBox alignment="CENTER_LEFT">
                      <children>
-                        <TextField alignment="CENTER" maxWidth="-Infinity" prefHeight="26.0" prefWidth="50.0" text="300" />
+                        <TextField alignment="CENTER" maxWidth="-Infinity" prefHeight="26.0" prefWidth="50.0" />
                         <Label text=" uds" />
                      </children>
                   </HBox>
