@@ -82,7 +82,7 @@ public class ContenedorPrincipalController implements Initializable {
     @FXML
     private void visualizarGasto(MouseEvent event) {
         try {
-            // inicia la app con la opción de visualizar gasto
+            // cambia a la opción de visualizar gasto
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/VisualizarGasto.fxml"));
             Parent visualizarGasto = loader.load();
             borderPanePrincipal.setCenter(visualizarGasto);
@@ -94,7 +94,7 @@ public class ContenedorPrincipalController implements Initializable {
     @FXML
     private void imprimir(MouseEvent event) {
         try {
-            // inicia la app con la opción de imprimir
+            // cambia a la opción de imprimir
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/Imprimir.fxml"));
             Parent imprimir = loader.load();
             borderPanePrincipal.setCenter(imprimir);
@@ -106,7 +106,7 @@ public class ContenedorPrincipalController implements Initializable {
     @FXML
     private void añadirCategoria(MouseEvent event) {
         try {
-            // inicia la app con la opción de añadir categoría
+            // cambia a la opción de añadir categoría
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/AñadirCategoria.fxml"));
             Parent añadirCategoria = loader.load();
             borderPanePrincipal.setCenter(añadirCategoria);
@@ -118,10 +118,27 @@ public class ContenedorPrincipalController implements Initializable {
     @FXML
     private void editarCategoria(MouseEvent event) {
         try {
-            // inicia la app con la opción de editar categoría
+            // cambia a la opción de editar categoría
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/EditarCategoria.fxml"));
             Parent editarCategoria = loader.load();
             borderPanePrincipal.setCenter(editarCategoria);
+        } catch (IOException ex) {
+            Logger.getLogger(ContenedorPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void salir(MouseEvent event) {
+        // implementar el log out cambiando la escena a la autentificación        
+    }
+
+    @FXML
+    private void configuracion(MouseEvent event) {
+        try {
+            // cambia a la opción de configuración
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/Configuracion.fxml"));
+            Parent configuracion = loader.load();
+            borderPanePrincipal.setCenter(configuracion);
         } catch (IOException ex) {
             Logger.getLogger(ContenedorPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         }

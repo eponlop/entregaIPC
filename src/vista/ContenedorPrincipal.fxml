@@ -57,14 +57,14 @@
    <top>
       <BorderPane prefHeight="78.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <left>
-            <Button mnemonicParsing="false" text="Configuración de perfil" BorderPane.alignment="CENTER">
+            <Button mnemonicParsing="false" onMouseClicked="#configuracion" text="Configuración de perfil" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </BorderPane.margin>
             </Button>
          </left>
          <right>
-            <Button mnemonicParsing="false" text="Salir" BorderPane.alignment="CENTER">
+            <Button mnemonicParsing="false" onMouseClicked="#salir" text="Salir" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </BorderPane.margin>
