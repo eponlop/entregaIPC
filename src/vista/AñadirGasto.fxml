@@ -9,9 +9,10 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="vBox" alignment="BOTTOM_RIGHT" prefHeight="359.0" prefWidth="439.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.AñadirGastoController">
+<VBox fx:id="vBox" alignment="BOTTOM_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.AñadirGastoController">
    <children>
-      <VBox prefHeight="90.0" prefWidth="600.0">
+      <HBox maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
+      <VBox maxHeight="-Infinity" prefHeight="70.0" prefWidth="600.0" VBox.vgrow="NEVER">
          <children>
             <Label text="Nombre del gasto">
                <VBox.margin>
@@ -21,7 +22,7 @@
             <TextField maxWidth="-Infinity" prefHeight="26.0" prefWidth="186.0" />
          </children>
       </VBox>
-      <VBox prefHeight="90.0" prefWidth="600.0">
+      <VBox maxHeight="-Infinity" prefHeight="70.0" prefWidth="600.0" VBox.vgrow="NEVER">
          <children>
             <Label text="Descripción del gasto">
                <VBox.margin>
@@ -34,7 +35,7 @@
             <Insets top="12.0" />
          </VBox.margin>
       </VBox>
-      <VBox prefHeight="80.0" prefWidth="400.0">
+      <VBox maxHeight="-Infinity" prefHeight="70.0" prefWidth="400.0" VBox.vgrow="NEVER">
          <children>
             <HBox alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="200.0">
                <children>
@@ -61,7 +62,8 @@
             <Insets top="12.0" />
          </VBox.margin>
       </VBox>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <HBox maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
+      <HBox maxHeight="-Infinity" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="NEVER">
          <children>
             <VBox>
                <children>
@@ -102,7 +104,7 @@
             <Insets top="25.0" />
          </VBox.margin>
       </HBox>
-      <VBox>
+      <VBox maxHeight="-Infinity" VBox.vgrow="NEVER">
          <children>
             <Label text="Archivo adjunto (opcional)" />
             <HBox alignment="CENTER_LEFT" prefHeight="26.0" prefWidth="340.0">
@@ -120,8 +122,8 @@
             <Insets top="25.0" />
          </VBox.margin>
       </VBox>
-      <HBox maxHeight="1.7976931348623157E308" />
-      <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0">
+      <HBox maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
+      <HBox alignment="BOTTOM_RIGHT" maxHeight="-Infinity" prefHeight="100.0" prefWidth="200.0">
          <children>
             <Button mnemonicParsing="false" text="Aceptar" />
             <Button mnemonicParsing="false" text="Cancelar">
