@@ -68,7 +68,7 @@ public class ContenedorPrincipalController implements Initializable {
     @FXML
     private void gestionGasto(MouseEvent event) {
         try {
-            // cambia a la opción editar gasto
+            // cambia a la opción gestión gasto
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/GestionGasto.fxml"));
             Parent editarGasto = loader.load();
             borderPanePrincipal.setCenter(editarGasto);
@@ -80,7 +80,7 @@ public class ContenedorPrincipalController implements Initializable {
     @FXML
     private void gestionCategoria(MouseEvent event) {
         try {
-            // cambia a la opción de editar categoría
+            // cambia a la opción de gestión categoría
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/GestionCategoria.fxml"));
             Parent editarCategoria = loader.load();
             borderPanePrincipal.setCenter(editarCategoria);
@@ -88,7 +88,5 @@ public class ContenedorPrincipalController implements Initializable {
             Logger.getLogger(ContenedorPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
-   
     
 }
