@@ -8,61 +8,57 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="borderPanePrincipal" prefHeight="403.0" prefWidth="771.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.GestionGastoController">
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.GestionGastoController">
+   <top>
+      <HBox alignment="CENTER" prefHeight="34.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+   </top>
    <center>
-      <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity">
-         <top>
-            <HBox alignment="CENTER" prefHeight="34.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
-         </top>
-         <center>
-            <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
-               <children>
-                  <TableView fx:id="tablaGastos" maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS">
-                    <columns>
-                      <TableColumn fx:id="columnaNombre" editable="false" maxWidth="1.7976931348623157E308" prefWidth="123.20001792907715" resizable="false" text="Nombre" />
-                      <TableColumn fx:id="columnaDescripcion" editable="false" maxWidth="1.7976931348623157E308" prefWidth="103.199951171875" resizable="false" text="Descripcion" />
-                        <TableColumn fx:id="columnaCategoria" editable="false" prefWidth="125.60003662109375" resizable="false" text="Categoría" />
-                        <TableColumn fx:id="columnaCoste" editable="false" prefWidth="79.99990844726562" resizable="false" text="Coste" />
-                        <TableColumn fx:id="columnaFecha" editable="false" prefWidth="75.0" resizable="false" text="Fecha" />
-                    </columns>
-                     <VBox.margin>
-                        <Insets bottom="30.0" />
-                     </VBox.margin>
-                  </TableView>
-               </children>
-               <BorderPane.margin>
-                  <Insets left="20.0" />
-               </BorderPane.margin>
-            </VBox>
-         </center>
-         <right>
-            <VBox alignment="TOP_CENTER" prefHeight="243.0" prefWidth="100.0" BorderPane.alignment="TOP_CENTER">
-               <children>
-                  <Button fx:id="añadirGasto" mnemonicParsing="false" onMouseClicked="#añadirGasto" text="Añadir" />
-                  <Button mnemonicParsing="false" text="Editar">
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                  </Button>
-                  <Button mnemonicParsing="false" text="Eliminar">
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                  </Button>
-                  <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
-                  <Button mnemonicParsing="false" text="Visualizar">
-                     <VBox.margin>
-                        <Insets bottom="10.0" />
-                     </VBox.margin>
-                  </Button>
-                  <Button mnemonicParsing="false" text="Imprimir">
-                     <VBox.margin>
-                        <Insets bottom="30.0" />
-                     </VBox.margin>
-                  </Button>
-               </children>
-            </VBox>
-         </right>
-      </BorderPane>
+      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
+         <children>
+            <TableView fx:id="tablaGastos" maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS">
+              <columns>
+                <TableColumn fx:id="columnaNombre" editable="false" maxWidth="1.7976931348623157E308" prefWidth="123.20001792907715" resizable="false" text="Nombre" />
+                <TableColumn fx:id="columnaDescripcion" editable="false" maxWidth="1.7976931348623157E308" prefWidth="103.199951171875" resizable="false" text="Descripcion" />
+                  <TableColumn fx:id="columnaCategoria" editable="false" prefWidth="125.60003662109375" resizable="false" text="Categoría" />
+                  <TableColumn fx:id="columnaCoste" editable="false" prefWidth="79.99990844726562" resizable="false" text="Coste" />
+                  <TableColumn fx:id="columnaFecha" editable="false" prefWidth="75.0" resizable="false" text="Fecha" />
+              </columns>
+               <VBox.margin>
+                  <Insets bottom="30.0" />
+               </VBox.margin>
+            </TableView>
+         </children>
+         <BorderPane.margin>
+            <Insets left="20.0" />
+         </BorderPane.margin>
+      </VBox>
    </center>
+   <right>
+      <VBox alignment="TOP_CENTER" prefHeight="243.0" prefWidth="100.0" BorderPane.alignment="TOP_CENTER">
+         <children>
+            <Button fx:id="añadirButton" mnemonicParsing="false" onMouseClicked="#añadirGasto" text="Añadir" />
+            <Button mnemonicParsing="false" text="Editar">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" text="Eliminar">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
+            <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
+            <Button mnemonicParsing="false" text="Visualizar">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" text="Imprimir">
+               <VBox.margin>
+                  <Insets bottom="30.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </right>
 </BorderPane>

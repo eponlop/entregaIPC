@@ -26,14 +26,8 @@ import model.Charge;
  * @author esteb
  */
 public class GestionGastoController implements Initializable {
-
-    private Button añadirButton;
-    @FXML
-    private BorderPane borderPanePrincipal;
     @FXML
     private TableView<Charge> tablaGastos;
-    @FXML
-    private Button añadirGasto;
     @FXML
     private TableColumn<?, ?> columnaNombre;
     @FXML
@@ -44,6 +38,8 @@ public class GestionGastoController implements Initializable {
     private TableColumn<?, ?> columnaCoste;
     @FXML
     private TableColumn<?, ?> columnaFecha;
+    @FXML
+    private Button añadirButton;
 
 
     /**
