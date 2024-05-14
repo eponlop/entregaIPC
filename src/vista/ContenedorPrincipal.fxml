@@ -11,7 +11,7 @@
    <left>
       <VBox alignment="CENTER" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="editarGasto" mnemonicParsing="false" onMouseClicked="#editarGasto" text="Gestión de gastos">
+            <Button fx:id="editarGasto" mnemonicParsing="false" onMouseClicked="#gestionGasto" text="Gestión de gastos">
                <VBox.margin>
                   <Insets bottom="5.0" top="5.0" />
                </VBox.margin>
@@ -21,7 +21,7 @@
                   <Insets bottom="10.0" top="10.0" />
                </padding>
             </Separator>
-            <Button fx:id="añadirCategoria" mnemonicParsing="false" onMouseClicked="#añadirCategoria" text="Gestión de categorías">
+            <Button fx:id="añadirCategoria" mnemonicParsing="false" onMouseClicked="#gestionCategoria" text="Gestión de categorías">
                <VBox.margin>
                   <Insets bottom="5.0" top="5.0" />
                </VBox.margin>

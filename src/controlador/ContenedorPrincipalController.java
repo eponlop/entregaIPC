@@ -27,17 +27,9 @@ public class ContenedorPrincipalController implements Initializable {
     @FXML
     private BorderPane borderPanePrincipal;
     @FXML
-    private Button añadirGasto;
-    @FXML
     private Button editarGasto;
     @FXML
-    private Button visualizarGasto;
-    @FXML
-    private Button imprimir;
-    @FXML
     private Button añadirCategoria;
-    @FXML
-    private Button editarCategoria;
     /**
      * Initializes the controller class.
      */
@@ -47,7 +39,7 @@ public class ContenedorPrincipalController implements Initializable {
         
         try {
             // inicia la app con la opción de añadir gasto
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/EditarGasto.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/GestionGasto.fxml"));
             Parent añadirGasto = loader.load();
             borderPanePrincipal.setCenter(añadirGasto);
         } catch (IOException ex) {
@@ -55,36 +47,6 @@ public class ContenedorPrincipalController implements Initializable {
         }
     }    
 
-
-    @FXML
-    private void editarGasto(MouseEvent event) {
-        try {
-            // cambia a la opción editar gasto
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/EditarGasto.fxml"));
-            Parent editarGasto = loader.load();
-            borderPanePrincipal.setCenter(editarGasto);
-        } catch (IOException ex) {
-            Logger.getLogger(ContenedorPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    
-
-    
-
-    
-
-    @FXML
-    private void editarCategoria(MouseEvent event) {
-        try {
-            // cambia a la opción de editar categoría
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/EditarCategoria.fxml"));
-            Parent editarCategoria = loader.load();
-            borderPanePrincipal.setCenter(editarCategoria);
-        } catch (IOException ex) {
-            Logger.getLogger(ContenedorPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
 
     @FXML
     private void salir(MouseEvent event) {
@@ -102,5 +64,31 @@ public class ContenedorPrincipalController implements Initializable {
             Logger.getLogger(ContenedorPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    @FXML
+    private void gestionGasto(MouseEvent event) {
+        try {
+            // cambia a la opción editar gasto
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/GestionGasto.fxml"));
+            Parent editarGasto = loader.load();
+            borderPanePrincipal.setCenter(editarGasto);
+        } catch (IOException ex) {
+            Logger.getLogger(ContenedorPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void gestionCategoria(MouseEvent event) {
+        try {
+            // cambia a la opción de editar categoría
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/GestionCategoria.fxml"));
+            Parent editarCategoria = loader.load();
+            borderPanePrincipal.setCenter(editarCategoria);
+        } catch (IOException ex) {
+            Logger.getLogger(ContenedorPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+   
     
 }
