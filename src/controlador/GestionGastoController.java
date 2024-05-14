@@ -14,8 +14,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import model.Charge;
 
 /**
  * FXML Controller class
@@ -24,8 +27,23 @@ import javafx.scene.layout.BorderPane;
  */
 public class GestionGastoController implements Initializable {
 
-    @FXML
     private Button añadirButton;
+    @FXML
+    private BorderPane borderPanePrincipal;
+    @FXML
+    private TableView<Charge> tablaGastos;
+    @FXML
+    private Button añadirGasto;
+    @FXML
+    private TableColumn<?, ?> columnaNombre;
+    @FXML
+    private TableColumn<?, ?> columnaDescripcion;
+    @FXML
+    private TableColumn<?, ?> columnaCategoria;
+    @FXML
+    private TableColumn<?, ?> columnaCoste;
+    @FXML
+    private TableColumn<?, ?> columnaFecha;
 
 
     /**
@@ -34,6 +52,11 @@ public class GestionGastoController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        columnaNombre.setReorderable(false);
+        columnaDescripcion.setReorderable(false);
+        columnaCategoria.setReorderable(false);
+        columnaCoste.setReorderable(false);
+        columnaFecha.setReorderable(false);
     }    
 
     @FXML
