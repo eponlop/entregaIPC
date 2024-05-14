@@ -13,8 +13,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -25,6 +28,8 @@ public class ContenedorPrincipalController implements Initializable {
 
     @FXML
     private BorderPane borderPanePrincipal;
+    @FXML
+    private Button salirButton;
     
     /**
      * Initializes the controller class.
@@ -43,7 +48,19 @@ public class ContenedorPrincipalController implements Initializable {
 
     @FXML
     private void salir(MouseEvent event) {
-        // implementar el log out cambiando la escena a la autentificación        
+        try {
+            // cambia a la opción de registrar usuario            
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/InicioSesión.fxml"));
+            Parent inicioSesion = loader.load();
+            Scene scene = new Scene(inicioSesion);
+            
+            Stage stage = (Stage) salirButton.getScene().getWindow();
+            stage.setScene(scene);
+            
+            
+        } catch (IOException ex) {
+            Logger.getLogger(ContenedorPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+        }       
     }
 
     @FXML

@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21" fx:controller="vista.InicioSesiónController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.InicioSesiónController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="241.3333536783854" minWidth="10.0" prefWidth="51.333343505859375" />
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="532.999979654948" minWidth="10.0" prefWidth="505.9999898274739" />
@@ -52,12 +52,12 @@
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Regístrate" underline="true" wrappingWidth="268.13678884506226">
+            <Text onMouseClicked="#registrar" strokeType="OUTSIDE" strokeWidth="0.0" text="Regístrate" underline="true" wrappingWidth="268.13678884506226">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Text>
-            <Button mnemonicParsing="false" prefHeight="29.0" prefWidth="69.0" text="Entrar">
+            <Button fx:id="entrarButton" mnemonicParsing="false" onMouseClicked="#entrar" prefHeight="29.0" prefWidth="69.0" text="Entrar">
                <font>
                   <Font size="14.0" />
                </font>

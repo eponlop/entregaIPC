@@ -39,7 +39,7 @@
             </Button>
          </left>
          <right>
-            <Button mnemonicParsing="false" onMouseClicked="#salir" text="Salir" BorderPane.alignment="CENTER">
+            <Button fx:id="salirButton" mnemonicParsing="false" onMouseClicked="#salir" text="Salir" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />
                </BorderPane.margin>
