@@ -47,7 +47,7 @@ public class ContenedorPrincipalController implements Initializable {
         
         try {
             // inicia la app con la opción de añadir gasto
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/AñadirGasto.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/EditarGasto.fxml"));
             Parent añadirGasto = loader.load();
             borderPanePrincipal.setCenter(añadirGasto);
         } catch (IOException ex) {
@@ -55,17 +55,6 @@ public class ContenedorPrincipalController implements Initializable {
         }
     }    
 
-    @FXML
-    private void añadirGasto(MouseEvent event) {
-        try {
-            // cambia a la opción añadir gasto
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/AñadirGasto.fxml"));
-            Parent añadirGasto = loader.load();
-            borderPanePrincipal.setCenter(añadirGasto);
-        } catch (IOException ex) {
-            Logger.getLogger(ContenedorPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
 
     @FXML
     private void editarGasto(MouseEvent event) {
@@ -79,41 +68,11 @@ public class ContenedorPrincipalController implements Initializable {
         }
     }
 
-    @FXML
-    private void visualizarGasto(MouseEvent event) {
-        try {
-            // cambia a la opción de visualizar gasto
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/VisualizarGasto.fxml"));
-            Parent visualizarGasto = loader.load();
-            borderPanePrincipal.setCenter(visualizarGasto);
-        } catch (IOException ex) {
-            Logger.getLogger(ContenedorPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+    
 
-    @FXML
-    private void imprimir(MouseEvent event) {
-        try {
-            // cambia a la opción de imprimir
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/Imprimir.fxml"));
-            Parent imprimir = loader.load();
-            borderPanePrincipal.setCenter(imprimir);
-        } catch (IOException ex) {
-            Logger.getLogger(ContenedorPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+    
 
-    @FXML
-    private void añadirCategoria(MouseEvent event) {
-        try {
-            // cambia a la opción de añadir categoría
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/AñadirCategoria.fxml"));
-            Parent añadirCategoria = loader.load();
-            borderPanePrincipal.setCenter(añadirCategoria);
-        } catch (IOException ex) {
-            Logger.getLogger(ContenedorPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+    
 
     @FXML
     private void editarCategoria(MouseEvent event) {

@@ -11,12 +11,7 @@
    <left>
       <VBox alignment="CENTER" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="añadirGasto" mnemonicParsing="false" onMouseClicked="#añadirGasto" text="Añadir gasto">
-               <VBox.margin>
-                  <Insets bottom="5.0" top="5.0" />
-               </VBox.margin>
-            </Button>
-            <Button fx:id="editarGasto" mnemonicParsing="false" onMouseClicked="#editarGasto" text="Editar gasto">
+            <Button fx:id="editarGasto" mnemonicParsing="false" onMouseClicked="#editarGasto" text="Gestión de gastos">
                <VBox.margin>
                   <Insets bottom="5.0" top="5.0" />
                </VBox.margin>
@@ -26,27 +21,7 @@
                   <Insets bottom="10.0" top="10.0" />
                </padding>
             </Separator>
-            <Button fx:id="visualizarGasto" mnemonicParsing="false" onMouseClicked="#visualizarGasto" text="Visualizar gasto">
-               <VBox.margin>
-                  <Insets bottom="5.0" top="5.0" />
-               </VBox.margin>
-            </Button>
-            <Button fx:id="imprimir" mnemonicParsing="false" onMouseClicked="#imprimir" text="Imprimir">
-               <VBox.margin>
-                  <Insets bottom="5.0" top="5.0" />
-               </VBox.margin>
-            </Button>
-            <Separator prefWidth="125.0">
-               <padding>
-                  <Insets bottom="10.0" top="10.0" />
-               </padding>
-            </Separator>
-            <Button fx:id="añadirCategoria" mnemonicParsing="false" onMouseClicked="#añadirCategoria" text="Añadir categoría">
-               <VBox.margin>
-                  <Insets bottom="5.0" top="5.0" />
-               </VBox.margin>
-            </Button>
-            <Button fx:id="editarCategoria" mnemonicParsing="false" onMouseClicked="#editarCategoria" text="Editar categoría">
+            <Button fx:id="añadirCategoria" mnemonicParsing="false" onMouseClicked="#añadirCategoria" text="Gestión de categorías">
                <VBox.margin>
                   <Insets bottom="5.0" top="5.0" />
                </VBox.margin>
