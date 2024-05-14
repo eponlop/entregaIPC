@@ -24,7 +24,9 @@ import javafx.scene.layout.BorderPane;
  */
 public class AñadirGastoController implements Initializable {
 
+    @FXML
     private Button cancelarButton;
+
 
     /**
      * Initializes the controller class.

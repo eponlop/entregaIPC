@@ -45,8 +45,6 @@ public class GestionGastoController implements Initializable {
     private BorderPane borderPanePrincipal;
     @FXML
     private VBox contenedorTabla;
-    @FXML
-    private Button añadirGasto;
 
 
     /**
