@@ -13,7 +13,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 
@@ -26,19 +25,14 @@ public class ContenedorPrincipalController implements Initializable {
 
     @FXML
     private BorderPane borderPanePrincipal;
-    @FXML
-    private Button editarGasto;
-    @FXML
-    private Button añadirCategoria;
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TO DO
-        
         try {
-            // inicia la app con la opción de añadir gasto
+            // inicia la app con la opción de gestión de gasto
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/GestionGasto.fxml"));
             Parent añadirGasto = loader.load();
             borderPanePrincipal.setCenter(añadirGasto);
@@ -46,7 +40,6 @@ public class ContenedorPrincipalController implements Initializable {
             Logger.getLogger(ContenedorPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }    
-
 
     @FXML
     private void salir(MouseEvent event) {

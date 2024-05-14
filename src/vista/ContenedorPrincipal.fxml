@@ -7,11 +7,11 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="borderPanePrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="536.0" prefWidth="696.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ContenedorPrincipalController">
+<BorderPane fx:id="borderPanePrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="663.0" prefWidth="992.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ContenedorPrincipalController">
    <left>
       <VBox alignment="CENTER" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="editarGasto" mnemonicParsing="false" onMouseClicked="#gestionGasto" text="Gestión de gastos">
+            <Button mnemonicParsing="false" onMouseClicked="#gestionGasto" text="Gestión de gastos">
                <VBox.margin>
                   <Insets bottom="5.0" top="5.0" />
                </VBox.margin>
@@ -21,7 +21,7 @@
                   <Insets bottom="10.0" top="10.0" />
                </padding>
             </Separator>
-            <Button fx:id="añadirCategoria" mnemonicParsing="false" onMouseClicked="#gestionCategoria" text="Gestión de categorías">
+            <Button mnemonicParsing="false" onMouseClicked="#gestionCategoria" text="Gestión de categorías">
                <VBox.margin>
                   <Insets bottom="5.0" top="5.0" />
                </VBox.margin>

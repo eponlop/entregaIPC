@@ -4,11 +4,18 @@
  */
 package controlador;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.layout.VBox;
+import javafx.scene.Parent;
+import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 
 /**
  * FXML Controller class
@@ -18,7 +25,8 @@ import javafx.scene.layout.VBox;
 public class AñadirGastoController implements Initializable {
 
     @FXML
-    private VBox vBox;
+    private Button cancelarButton;
+
 
     /**
      * Initializes the controller class.
@@ -27,5 +35,23 @@ public class AñadirGastoController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void cancelar(MouseEvent event) {
+        
+        try {
+            // cambia a la opción de añadir gasto            
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/GestionGasto.fxml"));
+            Parent añadirGasto = loader.load();
+            
+            // seleccionamos el borderpane del contenedor principal
+            BorderPane principal = (BorderPane) cancelarButton.getParent().getParent().getParent();
+            
+            principal.setCenter(añadirGasto);
+            
+        } catch (IOException ex) {
+            Logger.getLogger(ContenedorPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
 }

@@ -5,20 +5,17 @@
 package controlador;
 
 import java.io.IOException;
-
-import java.util.logging.Level;
 import java.net.URL;
-import java.util.logging.Logger;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
-import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -28,9 +25,8 @@ import javafx.stage.Stage;
 public class GestionGastoController implements Initializable {
 
     @FXML
-    private Button añadirGasto;
-    @FXML
-    private BorderPane borderPanePrincipal;
+    private Button añadirButton;
+
 
     /**
      * Initializes the controller class.
@@ -43,15 +39,29 @@ public class GestionGastoController implements Initializable {
     @FXML
     private void añadirGasto(MouseEvent event) {
         try {
-            // cambia a la opción añadir gasto
+            // cambia a la opción de añadir gasto            
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/AñadirGasto.fxml"));
             Parent añadirGasto = loader.load();
-            borderPanePrincipal.setCenter(añadirGasto);
             
+            // seleccionamos el borderpane del contenedor principal
+            BorderPane principal = (BorderPane) añadirButton.getParent().getParent().getParent();
+            
+            principal.setCenter(añadirGasto);
             
         } catch (IOException ex) {
             Logger.getLogger(ContenedorPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }      
     }
+    
+//    private BorderPane findParentBorderPane(Button button) {
+//        Parent parent = button.getParent();
+//        while (parent != null) {
+//            if (parent instanceof BorderPane) {
+//                return (BorderPane) parent;
+//            }
+//            parent = parent.getParent();
+//        }
+//        return null;
+//    }
     
 }
