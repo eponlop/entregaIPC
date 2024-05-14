@@ -1,68 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.InicioSesiónController">
-  <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="241.3333536783854" minWidth="10.0" prefWidth="51.333343505859375" />
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="532.999979654948" minWidth="10.0" prefWidth="505.9999898274739" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.33331298828125" minWidth="0.0" prefWidth="51.333343505859375" />
-  </columnConstraints>
-  <rowConstraints>
-    <RowConstraints maxHeight="267.0" minHeight="0.0" prefHeight="54.66667556762695" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="267.0" minHeight="10.0" prefHeight="54.66667556762695" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="267.0" minHeight="10.0" prefHeight="33.999989827473954" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="348.3333333333333" minHeight="10.0" prefHeight="28.000010172526032" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="348.3333333333333" minHeight="10.0" prefHeight="42.666666666666686" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="348.3333333333333" minHeight="10.0" prefHeight="30.666666666666664" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="348.3333333333333" minHeight="10.0" prefHeight="42.666666666666686" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="348.3333333333333" minHeight="10.0" prefHeight="126.66665140787762" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="348.3333333333333" minHeight="10.0" prefHeight="30.666666666666664" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="348.3333333333333" minHeight="10.0" prefHeight="54.66667556762695" vgrow="SOMETIMES" />
-  </rowConstraints>
+
+<VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.InicioSesiónController">
    <children>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="  Usuario" GridPane.columnIndex="1" GridPane.rowIndex="3">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Text>
-      <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="  Contraseña" GridPane.columnIndex="1" GridPane.rowIndex="5">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Text>
-      <TextField GridPane.columnIndex="1" GridPane.rowIndex="6" />
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenido a -nombre-" GridPane.columnIndex="1" GridPane.rowIndex="1">
-         <font>
-            <Font size="30.0" />
-         </font>
-      </Text>
-      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+      <VBox maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
+      <VBox maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
+      <VBox alignment="CENTER" VBox.vgrow="NEVER">
+         <VBox.margin>
+            <Insets top="20.0" />
+         </VBox.margin>
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="¿Aún no te has registrado?" underline="true" wrappingWidth="166.8033447265625">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenido a -nombre-">
                <font>
-                  <Font size="14.0" />
+                  <Font size="30.0" />
                </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
             </Text>
-            <Text onMouseClicked="#registrar" strokeType="OUTSIDE" strokeWidth="0.0" text="Regístrate" underline="true" wrappingWidth="268.13678884506226">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Text>
-            <Button fx:id="entrarButton" mnemonicParsing="false" onMouseClicked="#entrar" prefHeight="29.0" prefWidth="69.0" text="Entrar">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
+         </children>
+      </VBox>
+      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
+      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
+      <HBox alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER_LEFT">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="  Usuario">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <TextField />
+               </children>
+            </VBox>
+         </children>
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox alignment="CENTER" VBox.vgrow="NEVER">
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+         <children>
+            <VBox alignment="CENTER_LEFT">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="  Contraseña">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <TextField />
+               </children>
+            </VBox>
          </children>
       </HBox>
+      <VBox maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
+      <HBox alignment="CENTER" VBox.vgrow="NEVER">
+         <VBox.margin>
+            <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+         </VBox.margin>
+         <children>
+            <HBox>
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="¿Aún no te has registrado?" underline="true" wrappingWidth="166.8033447265625">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Text onMouseClicked="#registrar" strokeType="OUTSIDE" strokeWidth="0.0" text="Regístrate" underline="true" wrappingWidth="268.13678884506226">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="entrarButton" mnemonicParsing="false" onMouseClicked="#entrar" prefHeight="29.0" prefWidth="69.0" text="Entrar">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
+      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
    </children>
-</GridPane>
+</VBox>
