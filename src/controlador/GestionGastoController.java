@@ -18,6 +18,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import model.Charge;
 
 /**
@@ -40,6 +41,12 @@ public class GestionGastoController implements Initializable {
     private TableColumn<?, ?> columnaFecha;
     @FXML
     private Button añadirButton;
+    @FXML
+    private BorderPane borderPanePrincipal;
+    @FXML
+    private VBox contenedorTabla;
+    @FXML
+    private Button añadirGasto;
 
 
     /**
@@ -53,6 +60,14 @@ public class GestionGastoController implements Initializable {
         columnaCategoria.setReorderable(false);
         columnaCoste.setReorderable(false);
         columnaFecha.setReorderable(false);
+        columnaNombre.prefWidthProperty().bind(tablaGastos.widthProperty().multiply(0.2));
+        columnaDescripcion.prefWidthProperty().bind(tablaGastos.widthProperty().multiply(0.2));
+        columnaCategoria.prefWidthProperty().bind(tablaGastos.widthProperty().multiply(0.2));
+        columnaCoste.prefWidthProperty().bind(tablaGastos.widthProperty().multiply(0.2));
+        columnaFecha.prefWidthProperty().bind(tablaGastos.widthProperty().multiply(0.2));
+        tablaGastos.prefWidthProperty().bind(contenedorTabla.widthProperty());
+        
+        
     }    
 
     @FXML
