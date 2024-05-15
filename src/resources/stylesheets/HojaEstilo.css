@@ -7,3 +7,63 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     Author     : esteb
 */
 
+.root {
+    -fx-background-color: #f7f7f7;
+}
+
+.text-title {
+
+    -fx-font-family: "Yu Gothic";
+    -fx-fill:#ff6666;
+    -fx-font-weight: bolder;
+    -fx-font-size: 30pt;
+}
+
+.text-head {
+    
+    -fx-font-family: "Yu Gothic";
+    -fx-fill: #ff6666;
+    -fx-font-weight: normal;
+    -fx-font-size: 10pt;
+    
+}
+
+.text-normal {
+    
+    -fx-font-family: "Yu Gothic";
+    -fx-fill: #000000;
+    -fx-font-weight: normal;
+    -fx-font-size: 10pt;
+    
+}
+
+.text-field {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #9b9b9b;
+    -fx-text-fill: #000000;
+    -fx-font-family: "Yu Gothic";
+    -fx-font-weight: normal;
+    -fx-font-size: 10pt;
+}
+
+.button-bold {
+    -fx-text-fill: #000000;
+    -fx-background-color: #FF6666;
+    -fx-border-width: 0;
+    -fx-text-fill: #ffffff;
+    -fx-font-family: "Yu Gothic";
+    -fx-font-weight: bolder;
+    -fx-font-size: 10pt;
+    -fx-button-radius: 0;
+}
+
+.button-only-text {
+    -fx-text-fill: #000000;
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+    -fx-text-fill: #ff6666;
+    -fx-font-family: "Yu Gothic";
+    -fx-font-weight: bold;
+    -fx-font-size: 10pt;
+    -fx-button-radius: 0;
+}
