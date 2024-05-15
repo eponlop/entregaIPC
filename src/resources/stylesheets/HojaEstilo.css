@@ -8,27 +8,27 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 */
 
 .root {
-    -fx-background-color: #f7f7f7;
+    -fx-background-color: #f1f1f1;
 }
 
 .text-title {
 
     -fx-font-family: "Yu Gothic";
-    -fx-fill:#ff6666;
+    -fx-fill:#FF6161;
     -fx-font-weight: bolder;
     -fx-font-size: 30pt;
 }
 
-.text-head {
+.texto-head {
     
     -fx-font-family: "Yu Gothic";
-    -fx-fill: #ff6666;
+    -fx-fill: #FF6161;
     -fx-font-weight: normal;
     -fx-font-size: 10pt;
     
 }
 
-.text-normal {
+.texto-normal {
     
     -fx-font-family: "Yu Gothic";
     -fx-fill: #000000;
@@ -38,32 +38,87 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 }
 
 .text-field {
+    
     -fx-background-color: #ffffff;
     -fx-border-color: #9b9b9b;
     -fx-text-fill: #000000;
     -fx-font-family: "Yu Gothic";
     -fx-font-weight: normal;
     -fx-font-size: 10pt;
+    
 }
 
 .button-bold {
-    -fx-text-fill: #000000;
+    
+    -fx-background-radius: 0;
     -fx-background-color: #FF6666;
-    -fx-border-width: 0;
     -fx-text-fill: #ffffff;
+    -fx-font-family: "Yu Gothic";
+    -fx-font-weight: bold;
+    -fx-font-size: 10pt;
+    
+}
+
+.button-bold:hover {
+    
+    -fx-button-radius: 0;
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #ff4242;
+    -fx-border-width: 1;
+    -fx-border-color: #FF6161;
     -fx-font-family: "Yu Gothic";
     -fx-font-weight: bolder;
     -fx-font-size: 10pt;
-    -fx-button-radius: 0;
+    
 }
 
-.button-only-text {
+.button-normal {
+    
     -fx-text-fill: #000000;
     -fx-background-color: transparent;
-    -fx-border-width: 0;
+    -fx-border-width: 1;
+    -fx-border-color: #FF6161;
     -fx-text-fill: #ff6666;
+    -fx-font-family: "Yu Gothic";
+    -fx-font-weight: normal;
+    -fx-font-size: 10pt;
+    -fx-button-radius: 0;
+    
+}
+
+.button-normal:hover {
+    
+    -fx-background-color: transparent;
+    -fx-border-width: 1;
+    -fx-border-color: #FF4242;
+    -fx-text-fill: #ff4242;
     -fx-font-family: "Yu Gothic";
     -fx-font-weight: bold;
     -fx-font-size: 10pt;
     -fx-button-radius: 0;
 }
+
+.button-only-text-bold {
+    -fx-text-fill: #000000;
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+    -fx-text-fill: #ff6161;
+    -fx-font-family: "Yu Gothic";
+    -fx-font-weight: bold;
+    -fx-font-size: 10pt;
+    -fx-button-radius: 0;
+}
+
+.button-only-text-bold:hover {
+    
+    -fx-text-fill: #ff4242;
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+    -fx-font-family: "Yu Gothic";
+    -fx-font-weight: bolder;
+    -fx-underline: true;
+    -fx-font-size: 10pt;
+    -fx-button-radius: 0;
+    
+}
+
