@@ -16,6 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 /**
@@ -39,15 +40,24 @@ public class RegistroUsuarioController implements Initializable {
     @FXML
     private void cancelar(MouseEvent event) {
         try {
-            // cambia a la opción de registrar usuario            
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/InicioSesión.fxml"));
-            Parent iniciarSesion = loader.load();
-            Scene scene = new Scene(iniciarSesion);
-            
-            Stage stage = (Stage) cancelarButton.getScene().getWindow();
-            stage.setScene(scene);
-            
-            
+            if (cancelarButton.getParent().getParent().getParent() instanceof BorderPane) {
+                // cambia a la opción de gestión gasto            
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/GestionGasto.fxml"));
+                Parent gestionGasto = loader.load();
+
+                // seleccionamos el borderpane del contenedor principal
+                BorderPane principal = (BorderPane) cancelarButton.getParent().getParent().getParent();
+
+                principal.setCenter(gestionGasto);
+            } else {
+                // cambia a la opción de registrar usuario            
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/InicioSesión.fxml"));
+                Parent iniciarSesion = loader.load();
+                Scene scene = new Scene(iniciarSesion);
+
+                Stage stage = (Stage) cancelarButton.getScene().getWindow();
+                stage.setScene(scene);
+            }
         } catch (IOException ex) {
             Logger.getLogger(ContenedorPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         }
