@@ -12,15 +12,9 @@
    <left>
       <VBox alignment="CENTER" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onMouseClicked="#configuracion" text="Configuración de perfil">
-               <VBox.margin>
-                  <Insets bottom="40.0" top="20.0" />
-               </VBox.margin>
-            </Button>
-            <VBox VBox.vgrow="ALWAYS" />
             <Button mnemonicParsing="false" onMouseClicked="#gestionGasto" text="Gestión de gastos">
                <VBox.margin>
-                  <Insets bottom="5.0" top="5.0" />
+                  <Insets bottom="5.0" top="20.0" />
                </VBox.margin>
             </Button>
             <Separator prefWidth="125.0">
@@ -30,13 +24,24 @@
             </Separator>
             <Button mnemonicParsing="false" onMouseClicked="#gestionCategoria" text="Gestión de categorías">
                <VBox.margin>
-                  <Insets bottom="5.0" top="5.0" />
+                  <Insets bottom="35.0" top="5.0" />
                </VBox.margin>
             </Button>
             <VBox VBox.vgrow="ALWAYS" />
+            <VBox />
+            <Button mnemonicParsing="false" onMouseClicked="#configuracion" text="Configuración de perfil">
+               <VBox.margin>
+                  <Insets bottom="5.0" top="35.0" />
+               </VBox.margin>
+            </Button>
+            <Separator prefWidth="125.0">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+            </Separator>
             <Button fx:id="salirButton" mnemonicParsing="false" onMouseClicked="#salir" text="Salir">
                <VBox.margin>
-                  <Insets bottom="30.0" top="40.0" />
+                  <Insets bottom="30.0" top="5.0" />
                </VBox.margin>
             </Button>
          </children>
