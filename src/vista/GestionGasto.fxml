@@ -48,7 +48,7 @@
                   <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
                   <Button mnemonicParsing="false" text="Visualizar">
                      <VBox.margin>
-                        <Insets bottom="10.0" />
+                        <Insets bottom="10.0" top="10.0" />
                      </VBox.margin>
                   </Button>
                   <Button mnemonicParsing="false" text="Imprimir">

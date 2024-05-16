@@ -46,7 +46,7 @@
             </Button>
          </right>
          <center>
-            <Label prefHeight="18.0" prefWidth="102.0" text="Nombre de la app" BorderPane.alignment="CENTER" />
+            <Label prefHeight="18.0" prefWidth="102.0" text="Budget Buddy" BorderPane.alignment="CENTER" />
          </center>
       </BorderPane>
    </top>
