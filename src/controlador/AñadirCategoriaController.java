@@ -37,7 +37,19 @@ public class AñadirCategoriaController implements Initializable {
 
     @FXML
     private void cancelar(MouseEvent event) {
-        
+        try {
+            // cambia a la opción de añadir gasto            
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/GestionCategoria.fxml"));
+            Parent gestionCategoria = loader.load();
+            
+            // seleccionamos el borderpane del contenedor principal
+            BorderPane principal = (BorderPane) cancelarButton.getParent().getParent().getParent();
+            
+            principal.setCenter(gestionCategoria);
+            
+        } catch (IOException ex) {
+            Logger.getLogger(ContenedorPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }
