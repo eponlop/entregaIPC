@@ -1,11 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.GestionCategoriaController">
-    
-</AnchorPane>
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.GestionCategoriaController">
+   <center>
+      <VBox fx:id="contenedorTabla" fillWidth="false" BorderPane.alignment="TOP_LEFT">
+         <BorderPane.margin>
+            <Insets bottom="30.0" left="30.0" top="20.0" />
+         </BorderPane.margin>
+         <children>
+            <TableView fx:id="tablaCategorias" VBox.vgrow="ALWAYS">
+               <columns>
+                  <TableColumn fx:id="columnaCategoria" prefWidth="75.0" text="Categoria" />
+                  <TableColumn fx:id="columnaDescripcion" prefWidth="75.0" text="Descripcion" />
+               </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </center>
+   <right>
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="añadirButton" mnemonicParsing="false" onMouseClicked="#añadirCategoria" text="Añadir" />
+            <Button fx:id="editarButton" mnemonicParsing="false" text="Editar">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="eliminarButton" mnemonicParsing="false" text="Eliminar">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="30.0" top="20.0" />
+         </BorderPane.margin>
+      </VBox>
+   </right>
+</BorderPane>

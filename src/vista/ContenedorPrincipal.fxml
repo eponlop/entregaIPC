@@ -5,12 +5,19 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
 <BorderPane fx:id="borderPanePrincipal" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ContenedorPrincipalController">
    <left>
       <VBox alignment="CENTER" BorderPane.alignment="CENTER">
          <children>
+            <Button mnemonicParsing="false" onMouseClicked="#configuracion" text="Configuración de perfil">
+               <VBox.margin>
+                  <Insets bottom="40.0" top="20.0" />
+               </VBox.margin>
+            </Button>
+            <VBox VBox.vgrow="ALWAYS" />
             <Button mnemonicParsing="false" onMouseClicked="#gestionGasto" text="Gestión de gastos">
                <VBox.margin>
                   <Insets bottom="5.0" top="5.0" />
@@ -26,28 +33,26 @@
                   <Insets bottom="5.0" top="5.0" />
                </VBox.margin>
             </Button>
+            <VBox VBox.vgrow="ALWAYS" />
+            <Button fx:id="salirButton" mnemonicParsing="false" onMouseClicked="#salir" text="Salir">
+               <VBox.margin>
+                  <Insets bottom="30.0" top="40.0" />
+               </VBox.margin>
+            </Button>
          </children>
+         <BorderPane.margin>
+            <Insets left="15.0" right="5.0" />
+         </BorderPane.margin>
       </VBox>
    </left>
    <top>
-      <BorderPane BorderPane.alignment="CENTER">
-         <left>
-            <Button mnemonicParsing="false" onMouseClicked="#configuracion" text="Configuración de perfil" BorderPane.alignment="CENTER">
-               <BorderPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </BorderPane.margin>
-            </Button>
-         </left>
-         <right>
-            <Button fx:id="salirButton" mnemonicParsing="false" onMouseClicked="#salir" text="Salir" BorderPane.alignment="CENTER">
-               <BorderPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />
-               </BorderPane.margin>
-            </Button>
-         </right>
-         <center>
-            <Label prefHeight="18.0" prefWidth="102.0" text="Budget Buddy" BorderPane.alignment="CENTER" />
-         </center>
-      </BorderPane>
+      <HBox alignment="CENTER" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Budget Buddy" HBox.hgrow="ALWAYS" />
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="15.0" top="10.0" />
+         </BorderPane.margin>
+      </HBox>
    </top>
 </BorderPane>

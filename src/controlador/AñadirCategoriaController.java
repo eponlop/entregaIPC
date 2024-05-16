@@ -4,9 +4,18 @@
  */
 package controlador;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 
 /**
  * FXML Controller class
@@ -15,6 +24,9 @@ import javafx.fxml.Initializable;
  */
 public class AñadirCategoriaController implements Initializable {
 
+    @FXML
+    private Button cancelarButton;
+
     /**
      * Initializes the controller class.
      */
@@ -22,5 +34,10 @@ public class AñadirCategoriaController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void cancelar(MouseEvent event) {
+        
+    }
     
 }

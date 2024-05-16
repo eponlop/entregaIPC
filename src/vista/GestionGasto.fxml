@@ -22,12 +22,12 @@
                         <TableColumn fx:id="columnaFecha" editable="false" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="120.0" resizable="false" text="Fecha" />
                     </columns>
                      <VBox.margin>
-                        <Insets bottom="30.0" />
+                        <Insets />
                      </VBox.margin>
                   </TableView>
                </children>
                <BorderPane.margin>
-                  <Insets left="20.0" />
+                  <Insets bottom="30.0" left="20.0" />
                </BorderPane.margin>
             </VBox>
          </center>
