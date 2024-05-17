@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="borderPanePrincipal" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.GestionGastoController">
+<BorderPane fx:id="borderPanePrincipal" prefWidth="600.0" stylesheets="@../resources/stylesheets/HojaEstilo_GestionGastos.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.GestionGastoController">
    <center>
-      <BorderPane>
+      <BorderPane styleClass="root">
          <center>
             <VBox fx:id="contenedorTabla" fillWidth="false" BorderPane.alignment="TOP_LEFT">
                <children>
@@ -27,14 +27,14 @@
                   </TableView>
                </children>
                <BorderPane.margin>
-                  <Insets bottom="30.0" left="20.0" />
+                  <Insets bottom="30.0" left="20.0" top="10.0" />
                </BorderPane.margin>
             </VBox>
          </center>
          <right>
             <VBox alignment="TOP_CENTER" prefWidth="100.0" BorderPane.alignment="TOP_CENTER">
                <children>
-                  <Button fx:id="añadirButton" mnemonicParsing="false" onMouseClicked="#añadirGasto" text="Añadir" />
+                  <Button fx:id="añadirButton" mnemonicParsing="false" onMouseClicked="#añadirGasto" styleClass="button-normal" text="Añadir" />
                   <Button mnemonicParsing="false" text="Editar">
                      <VBox.margin>
                         <Insets top="10.0" />

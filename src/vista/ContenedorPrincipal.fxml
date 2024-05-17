@@ -8,21 +8,21 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="borderPanePrincipal" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ContenedorPrincipalController">
+<BorderPane fx:id="borderPanePrincipal" stylesheets="@../resources/stylesheets/HojaEstilo_Contenedor.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ContenedorPrincipalController">
    <left>
       <VBox alignment="CENTER" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onMouseClicked="#gestionGasto" text="Gestión de gastos">
+            <Button mnemonicParsing="false" onMouseClicked="#gestionGasto" styleClass="button-menu" text="Gestión de gastos">
                <VBox.margin>
                   <Insets bottom="5.0" top="20.0" />
                </VBox.margin>
             </Button>
-            <Separator prefWidth="125.0">
+            <Separator prefWidth="125.0" styleClass="separator-custom">
                <padding>
                   <Insets bottom="10.0" top="10.0" />
                </padding>
             </Separator>
-            <Button mnemonicParsing="false" onMouseClicked="#gestionCategoria" text="Gestión de categorías">
+            <Button mnemonicParsing="false" onMouseClicked="#gestionCategoria" styleClass="button-menu" text="Gestión de categorías">
                <VBox.margin>
                   <Insets bottom="35.0" top="5.0" />
                </VBox.margin>
@@ -34,7 +34,7 @@
                   <Insets bottom="5.0" top="35.0" />
                </VBox.margin>
             </Button>
-            <Separator prefWidth="125.0">
+            <Separator prefWidth="125.0" styleClass="separator-custom">
                <padding>
                   <Insets bottom="10.0" top="10.0" />
                </padding>

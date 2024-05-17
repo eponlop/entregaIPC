@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.GestionCategoriaController">
+<BorderPane stylesheets="@../resources/stylesheets/HojaEstilo_Contenedor.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.GestionCategoriaController">
    <center>
       <VBox fx:id="contenedorTabla" fillWidth="false" BorderPane.alignment="TOP_LEFT">
          <BorderPane.margin>
@@ -26,13 +26,13 @@
    <right>
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="añadirButton" mnemonicParsing="false" onMouseClicked="#añadirCategoria" text="Añadir" />
-            <Button fx:id="editarButton" mnemonicParsing="false" text="Editar">
+            <Button fx:id="añadirButton" mnemonicParsing="false" onMouseClicked="#añadirCategoria" styleClass="button-task" text="Añadir" />
+            <Button fx:id="editarButton" mnemonicParsing="false" styleClass="button-task" text="Editar">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="eliminarButton" mnemonicParsing="false" text="Eliminar">
+            <Button fx:id="eliminarButton" mnemonicParsing="false" styleClass="button-task" text="Eliminar">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
