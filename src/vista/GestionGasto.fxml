@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="borderPanePrincipal" prefWidth="600.0" stylesheets="@../resources/stylesheets/HojaEstilo_GestionGastos.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.GestionGastoController">
+<BorderPane fx:id="borderPanePrincipal" prefWidth="600.0" stylesheets="@../resources/stylesheets/HojaEstilo_Contenedor.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.GestionGastoController">
    <center>
       <BorderPane styleClass="root">
          <center>
@@ -22,41 +22,47 @@
                         <TableColumn fx:id="columnaFecha" editable="false" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="120.0" resizable="false" text="Fecha" />
                     </columns>
                      <VBox.margin>
-                        <Insets />
+                        <Insets right="5.0" />
                      </VBox.margin>
                   </TableView>
                </children>
                <BorderPane.margin>
-                  <Insets bottom="30.0" left="20.0" top="10.0" />
+                  <Insets bottom="30.0" left="20.0" />
                </BorderPane.margin>
             </VBox>
          </center>
          <right>
             <VBox alignment="TOP_CENTER" prefWidth="100.0" BorderPane.alignment="TOP_CENTER">
                <children>
-                  <Button fx:id="añadirButton" mnemonicParsing="false" onMouseClicked="#añadirGasto" styleClass="button-normal" text="Añadir" />
-                  <Button mnemonicParsing="false" text="Editar">
+                  <Button fx:id="añadirButton" mnemonicParsing="false" onMouseClicked="#añadirGasto" styleClass="button-task" text="Añadir" />
+                  <Button mnemonicParsing="false" styleClass="button-task" text="Editar">
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" text="Eliminar">
+                  <Button mnemonicParsing="false" styleClass="button-task" text="Eliminar">
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Button>
-                  <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
-                  <Button mnemonicParsing="false" text="Visualizar">
+                  <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin></VBox>
+                  <Button mnemonicParsing="false" styleClass="button-task" text="Visualizar">
                      <VBox.margin>
                         <Insets bottom="10.0" top="10.0" />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" text="Imprimir">
+                  <Button mnemonicParsing="false" styleClass="button-task" text="Imprimir">
                      <VBox.margin>
                         <Insets bottom="30.0" />
                      </VBox.margin>
                   </Button>
                </children>
+               <BorderPane.margin>
+                  <Insets left="10.0" right="20.0" />
+               </BorderPane.margin>
             </VBox>
          </right>
          <BorderPane.margin>

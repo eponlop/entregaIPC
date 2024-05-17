@@ -9,20 +9,29 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 
 .root {
     
-    -fx-background-color: #FA5555;
+    -fx-background-color: #f1f1f1;
     
 }
 
-.separator-custom {
-    -fx-background-color: transparent; /* Fondo transparente para el Separator */
     
+.text-title {
+
+    -fx-font-family: "Yu Gothic";
+    -fx-fill:#FF6161;
+    -fx-font-weight: bolder;
+    -fx-font-size: 25pt;
+}
+
+.separator-custom {
+    
+    -fx-background-color: transparent; /* Fondo transparente para el Separator */
     
 }
 
 .separator-custom .line {
     
-    -fx-background-color: #9B0000; /* Opción rojo oscuro */
-    /* -fx-background-color: #ffb7b7; /* Opción rojo claro  */
+    /* -fx-background-color: #9B0000; /* Opción rojo oscuro */
+    -fx-background-color: #ffb7b7; /* Opción rojo claro  */
     -fx-padding: 0.3px;
     -fx-background-radius: 0;
     -fx-border-width: 0;
@@ -34,11 +43,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 .button-menu {
     
     -fx-button-radius: 0;
+    -fx-pref-width: 130pt; /* Ancho preferido del botón */
+    -fx-pref-height: 20px; /* Alto preferido del botón */
     
     -fx-background-color: #FF6161;
     
     -fx-border-width: 1;
-    -fx-border-color: #ffb7b7;
+    -fx-border-color: #ff6161;
     
     -fx-text-fill: #f1f1f1;
     -fx-font-family: "Yu Gothic";
@@ -51,15 +62,107 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     
     -fx-button-radius: 0;
     
-    -fx-background-color: #ff9191;
+    -fx-background-color: #ff3030;
     
     -fx-border-width: 1;
-    -fx-border-color: #ff9191;
+    -fx-border-color: #ff3030;
+    
+    -fx-text-fill: #ffffff;
+    -fx-font-family: "Yu Gothic";
+    -fx-font-weight: bolder;
+    -fx-font-size: 10.5pt;
+    
+}
+
+.button-menu-selected {
+    
+    -fx-button-radius: 0;
+    
+    -fx-background-color: #ff3030;
+    
+    -fx-border-width: 1;
+    -fx-border-color: #ff3030;
     
     -fx-text-fill: #ffffff;
     -fx-font-family: "Yu Gothic";
     -fx-font-weight: bolder;
     -fx-font-size: 10pt;
+    
+}
+
+
+.button-task {
+    
+    -fx-button-radius: 0;
+    
+    -fx-pref-width: 75pt; /* Ancho preferido del botón */
+    -fx-pref-height: 20px; /* Alto preferido del botón */
+    
+    -fx-background-color: transparent;
+    
+    -fx-border-width: 1;
+    -fx-border-color: #FF6161;
+    
+    -fx-text-fill: #FF6161;
+    -fx-font-family: "Yu Gothic";
+    -fx-font-weight: bold;
+    -fx-font-size: 10pt;
+    
+}
+
+.button-task:hover {
+    
+    -fx-button-radius: 0;
+    
+    -fx-background-color: transparent;
+    
+    -fx-border-width: 2;
+    -fx-border-color: #ff3b3b;
+    
+    -fx-text-fill: #ff3b3b;
+    -fx-font-family: "Yu Gothic";
+    -fx-font-weight: bolder;
+    -fx-font-size: 10.5pt;
+    
+}
+
+
+.table-view {
+    
+    -fx-background-color: transparent;
+    -fx-padding: 0; /* Elimina el relleno de la cabecera */
+    
+    -fx-border-width: 1 1 1 1;
+    -fx-border-color: #FF6161;
+    
+    -fx-text-fill: #000000;
+    -fx-font-family: "Yu Gothic";
+    -fx-font-weight: normal;
+    -fx-font-size: 10pt;
+    
+}
+
+/* Estilo para la cabecera */
+.table-view .column-header {
+    -fx-background-color: #ff6161; /* Rojo oscuro */
+    -fx-padding: 0; /* Elimina el relleno de la cabecera */
+    
+    -fx-border-width: 0 0.5 0 0.5;
+    -fx-border-color: #ffb7b7;
+    
+    -fx-text-fill: white;          /* Texto blanco */
+    -fx-font-family: "Yu Gothic";
+    -fx-font-weight: bold;
+    -fx-font-size: 10.5pt;
+}
+
+
+/* Estilo para el texto dentro de la cabecera */
+.table-view .column-header .label {
+    
+    -fx-alignment: CENTER; /* Alinea el texto al centro */
+    -fx-padding: 0; /* Elimina el relleno de la cabecera */
+    -fx-text-fill: white;
     
 }
 

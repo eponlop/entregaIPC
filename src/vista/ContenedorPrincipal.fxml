@@ -4,6 +4,8 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -51,12 +53,21 @@
       </VBox>
    </left>
    <top>
-      <HBox alignment="CENTER" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER_LEFT" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Budget Buddy" HBox.hgrow="ALWAYS" />
+            <VBox HBox.hgrow="ALWAYS" />
+            <Label styleClass="text-title" text="Budget Buddy" textFill="#ff6161" HBox.hgrow="ALWAYS" />
+            <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/images/Logo.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="5.0" right="10.0" />
+               </HBox.margin>
+            </ImageView>
          </children>
          <BorderPane.margin>
-            <Insets bottom="15.0" top="10.0" />
+            <Insets top="10.0" />
          </BorderPane.margin>
       </HBox>
    </top>
