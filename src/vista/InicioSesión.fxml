@@ -89,7 +89,7 @@
                         <String fx:value="texto-normal" />
                      </styleClass>
                   </Text>
-                  <Button mnemonicParsing="false" onMouseClicked="#registrar" text="Regístrate">
+                  <Button mnemonicParsing="false" onMouseClicked="#registrar" prefHeight="27.0" prefWidth="95.0" text="Regístrate">
                      <styleClass>
                         <String fx:value="button-only-text" />
                         <String fx:value="button-only-text-bold" />

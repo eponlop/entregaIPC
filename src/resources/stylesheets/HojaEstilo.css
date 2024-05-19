@@ -51,7 +51,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 .button-bold {
     
     -fx-button-radius: 0;
-    -fx-pref-width: 80pt; /* Ancho preferido del botón */
+    -fx-pref-width: 100pt; /* Ancho preferido del botón */
     -fx-pref-height: 20px; /* Alto preferido del botón */
     
     -fx-background-color: #FF6161;
@@ -69,6 +69,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 .button-bold:hover {
     
     -fx-button-radius: 0;
+    -fx-pref-width: 103pt; /* Ancho preferido del botón */
+    -fx-pref-height: 20px;
     
     -fx-background-color: #ff3030;
     
@@ -84,7 +86,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 
 .button-normal {
     
-    -fx-pref-width: 80pt; /* Ancho preferido del botón */
+    -fx-pref-width: 100pt; /* Ancho preferido del botón */
     -fx-pref-height: 20px; /* Alto preferido del botón */
     
     

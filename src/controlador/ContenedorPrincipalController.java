@@ -67,7 +67,7 @@ public class ContenedorPrincipalController implements Initializable {
     private void configuracion(MouseEvent event) {
         try {
             // cambia a la opción de configuración
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/RegistroUsuario.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/ConfiguraciónPerfil.fxml"));
             Parent configuracion = loader.load();
             borderPanePrincipal.setCenter(configuracion);
         } catch (IOException ex) {
