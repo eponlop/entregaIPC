@@ -12,7 +12,7 @@
 
 <BorderPane fx:id="borderPanePrincipal" stylesheets="@../resources/stylesheets/HojaEstilo_Contenedor.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ContenedorPrincipalController">
    <left>
-      <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" prefHeight="300.0" prefWidth="224.0" BorderPane.alignment="CENTER">
          <children>
             <Button mnemonicParsing="false" onMouseClicked="#gestionGasto" styleClass="button-menu" text="Gestión de gastos">
                <VBox.margin>
@@ -31,20 +31,34 @@
             </Button>
             <VBox VBox.vgrow="ALWAYS" />
             <VBox />
-            <Button mnemonicParsing="false" onMouseClicked="#configuracion" text="Configuración de perfil">
+            <Button graphicTextGap="6.0" mnemonicParsing="false" onMouseClicked="#configuracion" styleClass="button-menu" text="Configuración de perfil">
                <VBox.margin>
                   <Insets bottom="5.0" top="35.0" />
                </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="19.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/images/RuedaConfig.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
             <Separator prefWidth="125.0" styleClass="separator-custom">
                <padding>
                   <Insets bottom="10.0" top="10.0" />
                </padding>
             </Separator>
-            <Button fx:id="salirButton" mnemonicParsing="false" onMouseClicked="#salir" text="Salir">
+            <Button fx:id="salirButton" mnemonicParsing="false" onMouseClicked="#salir" styleClass="button-menu" text="Salir">
                <VBox.margin>
                   <Insets bottom="30.0" top="5.0" />
                </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="19.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/images/PuertaSalir.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
          </children>
          <BorderPane.margin>

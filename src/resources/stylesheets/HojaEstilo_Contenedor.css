@@ -43,7 +43,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 .button-menu {
     
     -fx-button-radius: 0;
-    -fx-pref-width: 130pt; /* Ancho preferido del botón */
+    -fx-pref-width: 150pt; /* Ancho preferido del botón */
     -fx-pref-height: 20px; /* Alto preferido del botón */
     
     -fx-background-color: #FF6161;
@@ -61,6 +61,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 .button-menu:hover {
     
     -fx-button-radius: 0;
+    -fx-pref-width: 153pt; /* Ancho preferido del botón */
     
     -fx-background-color: #ff3030;
     
