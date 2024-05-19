@@ -39,7 +39,7 @@
             </Button>
          </children>
          <BorderPane.margin>
-            <Insets bottom="30.0" top="20.0" />
+            <Insets bottom="30.0" left="15.0" right="20.0" top="20.0" />
          </BorderPane.margin>
       </VBox>
    </right>
