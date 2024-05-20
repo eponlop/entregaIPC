@@ -43,7 +43,7 @@
                         <String fx:value="texto-head" />
                      </styleClass>
                   </Text>
-                  <TextField />
+                  <TextField fx:id="loginText" text="eponlop" />
                </children>
             </VBox>
          </children>
@@ -67,7 +67,7 @@
                         <String fx:value="texto-head" />
                      </styleClass>
                   </Text>
-                  <TextField />
+                  <TextField fx:id="passText" text="1234abc" />
                </children>
             </VBox>
          </children>
