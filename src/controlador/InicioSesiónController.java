@@ -14,6 +14,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -77,7 +78,14 @@ public class InicioSesiónController implements Initializable {
                 stage.setScene(scene);
             } else {
                 // login failed
-                System.out.println("NOT OK");
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error login");
+                alert.setHeaderText("Error intentando acceder");
+                alert.setContentText("El usuario o la contraseña no son correctos");
+                alert.showAndWait();
+                loginText.setText("");
+                passText.setText("");
+                loginText.requestFocus();
             }
         } catch (AcountDAOException e) {
             
