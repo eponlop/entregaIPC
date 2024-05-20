@@ -4,6 +4,7 @@
  */
 package controlador;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -22,7 +23,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import model.Acount;
 import model.AcountDAOException;
@@ -46,6 +49,12 @@ public class RegistroUsuarioController implements Initializable {
     private TextField loginText;
     @FXML
     private TextField passwordText;
+    @FXML
+    private TextField repeatPassText;
+    
+    private Image image = null;
+    @FXML
+    private ImageView imageView;
 
     /**
      * Initializes the controller class.
@@ -53,6 +62,14 @@ public class RegistroUsuarioController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        loginText.textProperty().addListener((a, b, c) -> {
+            if (c.contains(" ")) {
+                loginText.setText(b);
+            }
+        });
+        
+        imageView.setImage(new Image(getClass().getResourceAsStream("/avatars/default.png")));
+        
     }    
 
     @FXML
@@ -62,7 +79,6 @@ public class RegistroUsuarioController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/InicioSesión.fxml"));
             Parent iniciarSesion = loader.load();
             Scene scene = new Scene(iniciarSesion);
-
             Stage stage = (Stage) cancelarButton.getScene().getWindow();
             stage.setScene(scene);
         } catch (IOException ex) {
@@ -77,12 +93,35 @@ public class RegistroUsuarioController implements Initializable {
         String email = emailText.getText();
         String login = loginText.getText();
         String password = passwordText.getText();
-        InputStream input = getClass().getResourceAsStream("/avatars/default.png");
-        Image image; 
+        InputStream input = getClass().getResourceAsStream("/avatars/default.png"); 
         LocalDate date = LocalDate.now();
         boolean isOK;
+        
+        if (password.length() < 6) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Error en contraseña");
+            alert.setHeaderText("La contraseña no es válida");
+            alert.setContentText("La contraseña debe ser un combinación de letras y números de al menos 6 caracteres");
+            alert.showAndWait();
+            passwordText.setText("");
+            repeatPassText.setText("");
+            passwordText.requestFocus();
+            return;
+        } else if (!password.equals(repeatPassText.getText())) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Error en contraseña");
+            alert.setHeaderText("Las contraseñas no coinciden");
+            alert.setContentText("Debe especificar la misma contraseña en ambos campos");
+            alert.showAndWait();
+            passwordText.setText("");
+            repeatPassText.setText("");
+            passwordText.requestFocus();
+            return;
+        }
         try {
-            image = new Image(input);   // falta la opción de elegir foto del usuario si selecciona una
+            if (image == null) {
+                image = new Image(input);
+            }
             isOK = Acount.getInstance().registerUser(name, surname, email, login, password, image, date);
             if (isOK) {
                 System.out.println("OK");
@@ -102,10 +141,30 @@ public class RegistroUsuarioController implements Initializable {
             }
         } catch (AcountDAOException e) {
             // este es el sitio dnd se indica que el nickname es el mismo
-            System.out.println("NOT OK");
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Error en el nickname");
+            alert.setHeaderText("El nickname no está dispobible");
+            alert.setContentText("Introduzca otro nickname por favor");
+            alert.showAndWait();
+            loginText.setText("");
+            loginText.requestFocus();
         } catch (IOException e) {
         }
         
+    }
+
+    @FXML
+    private void seleccionarArchivo(MouseEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Selecciona una imagen");
+        fileChooser.getExtensionFilters().addAll(
+            new FileChooser.ExtensionFilter("Archivos de imagen", "*.png", "*.jpg", "*.jpeg", "*.gif")
+        );
+        File file = fileChooser.showOpenDialog((Stage) cancelarButton.getScene().getWindow());
+        if (file != null) {
+            image = new Image(file.toURI().toString());
+            imageView.setImage(image);
+        }
     }
     
 }

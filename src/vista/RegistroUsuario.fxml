@@ -81,7 +81,7 @@
                         <Insets bottom="5.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField maxWidth="-Infinity" prefHeight="26.0" prefWidth="290.0" />
+                  <TextField fx:id="repeatPassText" maxWidth="-Infinity" prefHeight="26.0" prefWidth="290.0" />
                </children>
                <HBox.margin>
                   <Insets right="30.0" />
@@ -99,14 +99,14 @@
                         <Insets bottom="5.0" />
                      </VBox.margin>
                   </Label>
-                  <Button mnemonicParsing="false" styleClass="button-normal" text="Seleccionar">
+                  <Button mnemonicParsing="false" onMouseClicked="#seleccionarArchivo" styleClass="button-normal" text="Seleccionar">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
                   </Button>
                </children>
             </VBox>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <HBox.margin>
                   <Insets left="50.0" />
                </HBox.margin>
