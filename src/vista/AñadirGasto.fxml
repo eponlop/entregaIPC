@@ -10,152 +10,160 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="BOTTOM_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../resources/stylesheets/HojaEstilo.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.AñadirGastoController">
+
+<HBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.AñadirGastoController">
    <children>
-      <HBox maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
-      <VBox maxHeight="-Infinity" prefHeight="70.0" prefWidth="600.0" VBox.vgrow="NEVER">
+      <VBox maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
+      <VBox alignment="BOTTOM_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../resources/stylesheets/HojaEstilo.css">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-head" text="Nombre del gasto">
-               <VBox.margin>
-                  <Insets bottom="5.0" />
-               </VBox.margin>
-            </Text>
-            <TextField maxWidth="-Infinity" prefWidth="150.0" />
-         </children>
-      </VBox>
-      <VBox maxHeight="-Infinity" prefHeight="70.0" prefWidth="600.0" VBox.vgrow="NEVER">
-         <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-head" text="Descripcion del gasto">
-               <VBox.margin>
-                  <Insets bottom="5.0" />
-               </VBox.margin>
-            </Text>
-            <TextField maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="300.0" />
-         </children>
-         <VBox.margin>
-            <Insets top="12.0" />
-         </VBox.margin>
-      </VBox>
-      <VBox maxHeight="-Infinity" prefHeight="70.0" prefWidth="400.0" VBox.vgrow="NEVER">
-         <children>
-            <HBox alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="200.0">
+            <HBox maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
+            <VBox maxHeight="-Infinity" prefHeight="70.0" prefWidth="600.0" VBox.vgrow="NEVER">
                <children>
-                  <VBox alignment="CENTER_LEFT" prefHeight="75.0" prefWidth="228.0">
-                     <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-head" text="Categoria">
-                           <VBox.margin>
-                              <Insets bottom="5.0" />
-                           </VBox.margin>
-                        </Text>
-                        <ComboBox prefWidth="218.0" />
-                     </children>
-                  </VBox>
-               </children>
-            </HBox>
-            <Label prefHeight="18.0" prefWidth="393.0" text="Descripcion de la categoria">
-               <VBox.margin>
-                  <Insets bottom="5.0" top="5.0" />
-               </VBox.margin>
-            </Label>
-         </children>
-         <VBox.margin>
-            <Insets top="12.0" />
-         </VBox.margin>
-      </VBox>
-      <HBox maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
-      <HBox maxHeight="-Infinity" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="NEVER">
-         <children>
-            <VBox>
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-head" text="Coste">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-head" text="Nombre del gasto">
                      <VBox.margin>
-                        <Insets bottom="3.0" />
+                        <Insets bottom="5.0" />
                      </VBox.margin>
                   </Text>
-                  <HBox alignment="CENTER_LEFT">
+                  <TextField maxWidth="-Infinity" prefWidth="150.0" />
+               </children>
+            </VBox>
+            <VBox maxHeight="-Infinity" prefHeight="70.0" prefWidth="600.0" VBox.vgrow="NEVER">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-head" text="Descripcion del gasto">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Text>
+                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="300.0" />
+               </children>
+               <VBox.margin>
+                  <Insets top="12.0" />
+               </VBox.margin>
+            </VBox>
+            <VBox maxHeight="-Infinity" prefHeight="70.0" prefWidth="400.0" VBox.vgrow="NEVER">
+               <children>
+                  <HBox alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <TextField alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="57.0" />
-                        <Label text=" €" />
+                        <VBox alignment="CENTER_LEFT" prefHeight="75.0" prefWidth="228.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-head" text="Categoria">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </Text>
+                              <ComboBox prefWidth="218.0" />
+                           </children>
+                        </VBox>
                      </children>
                   </HBox>
-               </children>
-            </VBox>
-            <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="43.0" prefWidth="119.0">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-head" text="Unidades">
+                  <Label prefHeight="18.0" prefWidth="393.0" text="Descripcion de la categoria">
                      <VBox.margin>
-                        <Insets bottom="3.0" />
+                        <Insets bottom="5.0" top="5.0" />
                      </VBox.margin>
-                  </Text>
-                  <HBox alignment="CENTER_LEFT">
-                     <children>
-                        <TextField alignment="CENTER" maxWidth="-Infinity" prefWidth="40.0" />
-                        <Label text=" uds" />
-                     </children>
-                  </HBox>
-               </children>
-               <HBox.margin>
-                  <Insets left="20.0" />
-               </HBox.margin>
-            </VBox>
-            <VBox prefHeight="43.0" prefWidth="142.0">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-head" text="Fecha">
-                     <VBox.margin>
-                        <Insets bottom="3.0" />
-                     </VBox.margin>
-                  </Text>
-                  <DatePicker prefHeight="26.0" prefWidth="127.0" promptText="dd/mm/aaaa" />
-               </children>
-               <HBox.margin>
-                  <Insets left="40.0" />
-               </HBox.margin>
-            </VBox>
-         </children>
-         <VBox.margin>
-            <Insets top="25.0" />
-         </VBox.margin>
-      </HBox>
-      <VBox maxHeight="-Infinity" VBox.vgrow="NEVER">
-         <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-head" text="Archivo adjunto (opcional)" />
-            <HBox alignment="CENTER_LEFT" prefHeight="26.0" prefWidth="340.0">
-               <children>
-                  <Button mnemonicParsing="false" styleClass="button-bold" text="Seleccionar" />
-                  <Label text="Nombre de archivo">
-                     <HBox.margin>
-                        <Insets left="12.0" />
-                     </HBox.margin>
                   </Label>
                </children>
+               <VBox.margin>
+                  <Insets top="12.0" />
+               </VBox.margin>
+            </VBox>
+            <HBox maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
+            <HBox maxHeight="-Infinity" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="NEVER">
+               <children>
+                  <VBox>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-head" text="Coste">
+                           <VBox.margin>
+                              <Insets bottom="3.0" />
+                           </VBox.margin>
+                        </Text>
+                        <HBox alignment="CENTER_LEFT">
+                           <children>
+                              <TextField alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="57.0" />
+                              <Label text=" €" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="43.0" prefWidth="119.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-head" text="Unidades">
+                           <VBox.margin>
+                              <Insets bottom="3.0" />
+                           </VBox.margin>
+                        </Text>
+                        <HBox alignment="CENTER_LEFT">
+                           <children>
+                              <TextField alignment="CENTER" maxWidth="-Infinity" prefWidth="40.0" />
+                              <Label text=" uds" />
+                           </children>
+                        </HBox>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox prefHeight="43.0" prefWidth="142.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-head" text="Fecha">
+                           <VBox.margin>
+                              <Insets bottom="3.0" />
+                           </VBox.margin>
+                        </Text>
+                        <DatePicker prefHeight="26.0" prefWidth="127.0" promptText="dd/mm/aaaa" />
+                     </children>
+                     <HBox.margin>
+                        <Insets left="40.0" />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+            </HBox>
+            <VBox maxHeight="-Infinity" VBox.vgrow="NEVER">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-head" text="Archivo adjunto (opcional)" />
+                  <HBox alignment="CENTER_LEFT" prefHeight="26.0" prefWidth="340.0">
+                     <children>
+                        <Button mnemonicParsing="false" styleClass="button-bold" text="Seleccionar" />
+                        <Label text="Nombre de archivo">
+                           <HBox.margin>
+                              <Insets left="12.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+            </VBox>
+            <HBox maxHeight="1.7976931348623157E308" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <HBox prefWidth="250.0" />
+                  <Button mnemonicParsing="false" styleClass="button-bold" text="Aceptar">
+                     <HBox.margin>
+                        <Insets top="20.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="cancelarButton" mnemonicParsing="false" onMouseClicked="#cancelar" styleClass="button-normal" text="Cancelar">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <HBox.margin>
+                        <Insets left="20.0" top="20.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
             </HBox>
          </children>
-         <VBox.margin>
-            <Insets top="25.0" />
-         </VBox.margin>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets bottom="10.0" left="40.0" right="10.0" top="10.0" />
+         </padding>
       </VBox>
-      <HBox maxHeight="1.7976931348623157E308" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
-         <children>
-            <HBox prefWidth="250.0" />
-            <Button mnemonicParsing="false" styleClass="button-bold" text="Aceptar">
-               <HBox.margin>
-                  <Insets top="20.0" />
-               </HBox.margin></Button>
-            <Button fx:id="cancelarButton" mnemonicParsing="false" onMouseClicked="#cancelar" styleClass="button-normal" text="Cancelar">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <HBox.margin>
-                  <Insets left="20.0" top="20.0" />
-               </HBox.margin>
-            </Button>
-         </children>
-      </HBox>
+      <VBox maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
    </children>
-   <opaqueInsets>
-      <Insets />
-   </opaqueInsets>
-   <padding>
-      <Insets bottom="10.0" left="40.0" right="10.0" top="10.0" />
-   </padding>
-</VBox>
+</HBox>
