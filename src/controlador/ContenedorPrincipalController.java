@@ -136,4 +136,15 @@ public class ContenedorPrincipalController implements Initializable {
         }
     }
     
+//    public void setImage() {
+//        System.out.println("HASTA AQUI LLEGA");
+//        try {
+//            imageView = new ImageView(Acount.getInstance().getLoggedUser().getImage());
+//        } catch (AcountDAOException ex) {
+//            Logger.getLogger(ContenedorPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (IOException ex) {
+//            Logger.getLogger(ContenedorPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }
+    
 }

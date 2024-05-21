@@ -11,7 +11,10 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -133,6 +136,11 @@ public class ConfiguracionPerfilController implements Initializable {
                 Acount.getInstance().getLoggedUser().setEmail(correoText.getText());
                 Acount.getInstance().getLoggedUser().setPassword(passText.getText());
                 Acount.getInstance().getLoggedUser().setImage(image);
+                
+//                FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/ContenedorPrincipal.fxml"));
+//                Parent root = loader.load();
+//                ContenedorPrincipalController principal = loader.getController();
+//                principal.setImage();
                 
             } catch (AcountDAOException ex) {
                 Logger.getLogger(ConfiguracionPerfilController.class.getName()).log(Level.SEVERE, null, ex);
