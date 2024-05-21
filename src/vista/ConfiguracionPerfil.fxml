@@ -6,6 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
 <VBox alignment="BOTTOM_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../resources/stylesheets/HojaEstilo.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ConfiguracionPerfilController">
@@ -20,7 +21,7 @@
                         <Insets bottom="5.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField maxWidth="-Infinity" prefHeight="26.0" prefWidth="190.0" />
+                  <TextField editable="false" maxWidth="-Infinity" prefHeight="26.0" prefWidth="190.0" />
                </children>
                <HBox.margin>
                   <Insets right="75.0" />
@@ -33,7 +34,7 @@
                         <Insets bottom="5.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField maxWidth="-Infinity" prefHeight="26.0" prefWidth="190.0" />
+                  <TextField editable="false" maxWidth="-Infinity" prefHeight="26.0" prefWidth="190.0" />
                </children>
             </VBox>
          </children>
@@ -45,7 +46,7 @@
                   <Insets bottom="5.0" />
                </VBox.margin>
             </Label>
-            <TextField maxWidth="-Infinity" prefHeight="26.0" prefWidth="190.0" />
+            <TextField editable="false" maxWidth="-Infinity" prefHeight="26.0" prefWidth="190.0" />
          </children>
       </VBox>
       <HBox maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
@@ -58,7 +59,7 @@
                         <Insets bottom="5.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField maxWidth="-Infinity" prefHeight="26.0" prefWidth="290.0" />
+                  <TextField editable="false" maxWidth="-Infinity" prefHeight="26.0" prefWidth="290.0" />
                </children>
                <HBox.margin>
                   <Insets right="75.0" />
@@ -71,7 +72,7 @@
                         <Insets bottom="5.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField maxWidth="-Infinity" prefHeight="26.0" prefWidth="290.0" />
+                  <TextField editable="false" maxWidth="-Infinity" prefHeight="26.0" prefWidth="290.0" />
                </children>
                <HBox.margin>
                   <Insets right="30.0" />
@@ -89,14 +90,14 @@
                         <Insets bottom="5.0" />
                      </VBox.margin>
                   </Label>
-                  <Button mnemonicParsing="false" styleClass="button-normal" text="Seleccionar">
+                  <Button disable="true" mnemonicParsing="false" styleClass="button-normal" text="Seleccionar">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
                   </Button>
                </children>
             </VBox>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <HBox.margin>
                   <Insets left="50.0" />
                </HBox.margin>
@@ -105,15 +106,28 @@
       </HBox>
       <HBox alignment="BOTTOM_RIGHT" maxHeight="-Infinity" prefHeight="46.0" prefWidth="600.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="155.0" styleClass="button-bold" text="Guardar cambios" />
-            <Button fx:id="cancelarButton" mnemonicParsing="false" onMouseClicked="#cancelar" styleClass="button-normal" text="Cancelar">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <HBox.margin>
-                  <Insets left="20.0" />
-               </HBox.margin>
-            </Button>
+            <StackPane fx:id="stackPane" alignment="BOTTOM_CENTER">
+               <children>
+                  <HBox fx:id="cajaDelStack" alignment="BOTTOM_LEFT">
+                     <children>
+                        <Button fx:id="guardarButton" disable="true" mnemonicParsing="false" onMouseClicked="#guardarCambiosClick" prefHeight="28.0" prefWidth="155.0" styleClass="button-bold" text="Guardar cambios">
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="cancelarButton" disable="true" mnemonicParsing="false" onMouseClicked="#cancelarClick" styleClass="button-normal" text="Cancelar">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <Button fx:id="editarButton" mnemonicParsing="false" onMouseClicked="#editarClick" prefHeight="28.0" prefWidth="155.0" styleClass="button-bold" text="Editar" />
+               </children>
+            </StackPane>
          </children>
          <VBox.margin>
             <Insets bottom="10.0" right="30.0" />
