@@ -9,136 +9,148 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="BOTTOM_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../resources/stylesheets/HojaEstilo.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ConfiguracionPerfilController">
+
+<HBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ConfiguracionPerfilController">
    <children>
-      <HBox maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
-      <HBox VBox.vgrow="NEVER">
+      <HBox maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
+      <VBox alignment="BOTTOM_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../resources/stylesheets/HojaEstilo.css">
          <children>
-            <VBox maxHeight="-Infinity" prefHeight="70.0">
+            <HBox maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
+            <HBox VBox.vgrow="NEVER">
                <children>
-                  <Label styleClass="texto-head" text="Nombre" textFill="#ff6161">
-                     <VBox.margin>
-                        <Insets bottom="5.0" />
-                     </VBox.margin>
-                  </Label>
-                  <TextField fx:id="nombreText" editable="false" maxWidth="-Infinity" prefHeight="26.0" prefWidth="130.0" />
-               </children>
-               <HBox.margin>
-                  <Insets right="75.0" />
-               </HBox.margin>
-            </VBox>
-            <VBox maxHeight="-Infinity" prefHeight="70.0">
-               <children>
-                  <Label styleClass="texto-head" text="Primer apellido" textFill="#ff6161">
-                     <VBox.margin>
-                        <Insets bottom="5.0" />
-                     </VBox.margin>
-                  </Label>
-                  <TextField fx:id="apellidoText" editable="false" maxWidth="-Infinity" prefHeight="26.0" prefWidth="130.0" />
-               </children>
-            </VBox>
-         </children>
-      </HBox>
-      <VBox maxHeight="-Infinity" prefHeight="70.0" VBox.vgrow="NEVER">
-         <children>
-            <Label styleClass="texto-head" text="Correo electronico" textFill="#ff6161">
-               <VBox.margin>
-                  <Insets bottom="5.0" />
-               </VBox.margin>
-            </Label>
-            <TextField fx:id="correoText" editable="false" maxWidth="-Infinity" prefHeight="26.0" prefWidth="220.0" />
-         </children>
-      </VBox>
-      <HBox maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
-      <HBox>
-         <children>
-            <VBox maxHeight="-Infinity" prefHeight="70.0">
-               <children>
-                  <Label styleClass="texto-head" text="Contraseña" textFill="#ff6161">
-                     <VBox.margin>
-                        <Insets bottom="5.0" />
-                     </VBox.margin>
-                  </Label>
-                  <TextField fx:id="passText" editable="false" maxWidth="-Infinity" prefHeight="26.0" prefWidth="200.0" />
-               </children>
-               <HBox.margin>
-                  <Insets right="75.0" />
-               </HBox.margin>
-            </VBox>
-            <VBox fx:id="cajaRepitePass" disable="true" maxHeight="-Infinity" prefHeight="70.0" visible="false">
-               <children>
-                  <Label styleClass="texto-head" text="Repite tu contraseña" textFill="#ff6161">
-                     <VBox.margin>
-                        <Insets bottom="5.0" />
-                     </VBox.margin>
-                  </Label>
-                  <TextField fx:id="repitePassText" editable="false" maxWidth="-Infinity" prefHeight="26.0" prefWidth="200.0" />
-               </children>
-               <HBox.margin>
-                  <Insets right="30.0" />
-               </HBox.margin>
-            </VBox>
-         </children>
-      </HBox>
-      <HBox maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
-      <HBox>
-         <children>
-            <VBox maxHeight="-Infinity">
-               <children>
-                  <Label styleClass="texto-head" text="Cambiar foto de perfil" textFill="#ff6161">
-                     <VBox.margin>
-                        <Insets bottom="5.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Button fx:id="seleccionarButton" disable="true" mnemonicParsing="false" onMouseClicked="#seleccionarArchivo" styleClass="button-bold" text="Seleccionar">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </Button>
-               </children>
-            </VBox>
-            <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
-               <HBox.margin>
-                  <Insets left="60.0" right="30.0" />
-               </HBox.margin>
-            </ImageView>
-         </children>
-      </HBox>
-      <HBox alignment="BOTTOM_LEFT" maxHeight="-Infinity" prefHeight="46.0">
-         <children>
-            <HBox prefWidth="200.0" />
-            <StackPane fx:id="stackPane" alignment="BOTTOM_RIGHT">
-               <children>
-                  <HBox fx:id="cajaDelStack" alignment="BOTTOM_LEFT">
+                  <VBox maxHeight="-Infinity" prefHeight="70.0">
                      <children>
-                        <Button fx:id="guardarButton" disable="true" mnemonicParsing="false" onMouseClicked="#guardarCambiosClick" prefHeight="28.0" prefWidth="155.0" styleClass="button-bold" text="Guardar cambios">
-                           <HBox.margin>
-                              <Insets left="20.0" />
-                           </HBox.margin>
-                        </Button>
-                        <Button fx:id="cancelarButton" disable="true" mnemonicParsing="false" onMouseClicked="#cancelarClick" styleClass="button-normal" text="Cancelar">
-                           <opaqueInsets>
+                        <Label styleClass="texto-head" text="Nombre" textFill="#ff6161">
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="nombreText" editable="false" maxWidth="-Infinity" prefHeight="26.0" prefWidth="130.0" />
+                     </children>
+                     <HBox.margin>
+                        <Insets right="75.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox maxHeight="-Infinity" prefHeight="70.0">
+                     <children>
+                        <Label styleClass="texto-head" text="Primer apellido" textFill="#ff6161">
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="apellidoText" editable="false" maxWidth="-Infinity" prefHeight="26.0" prefWidth="130.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <VBox maxHeight="-Infinity" prefHeight="70.0" VBox.vgrow="NEVER">
+               <children>
+                  <Label styleClass="texto-head" text="Correo electronico" textFill="#ff6161">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="correoText" editable="false" maxWidth="-Infinity" prefHeight="26.0" prefWidth="220.0" />
+               </children>
+            </VBox>
+            <HBox>
+               <children>
+                  <VBox maxHeight="-Infinity" prefHeight="70.0">
+                     <children>
+                        <Label styleClass="texto-head" text="Contraseña" textFill="#ff6161">
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="passText" editable="false" maxWidth="-Infinity" prefHeight="26.0" prefWidth="200.0" />
+                     </children>
+                     <HBox.margin>
+                        <Insets right="75.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox fx:id="cajaRepitePass" disable="true" maxHeight="-Infinity" prefHeight="70.0" visible="false">
+                     <children>
+                        <Label styleClass="texto-head" text="Repite tu contraseña" textFill="#ff6161">
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="repitePassText" editable="false" maxWidth="-Infinity" prefHeight="26.0" prefWidth="200.0" />
+                     </children>
+                     <HBox.margin>
+                        <Insets right="30.0" />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox>
+               <children>
+                  <VBox maxHeight="-Infinity">
+                     <children>
+                        <Label styleClass="texto-head" text="Cambiar foto de perfil" textFill="#ff6161">
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Button fx:id="seleccionarButton" disable="true" mnemonicParsing="false" onMouseClicked="#seleccionarArchivo" styleClass="button-bold" text="Seleccionar">
+                           <VBox.margin>
                               <Insets />
-                           </opaqueInsets>
-                           <HBox.margin>
-                              <Insets left="20.0" />
-                           </HBox.margin>
+                           </VBox.margin>
                         </Button>
                      </children>
-                  </HBox>
-                  <Button fx:id="editarButton" mnemonicParsing="false" onMouseClicked="#editarClick" prefHeight="28.0" prefWidth="155.0" styleClass="button-bold" text="Editar" />
+                  </VBox>
+                  <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
+                     <HBox.margin>
+                        <Insets left="60.0" right="30.0" />
+                     </HBox.margin>
+                  </ImageView>
                </children>
-            </StackPane>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="BOTTOM_LEFT" maxHeight="-Infinity" prefHeight="46.0">
+               <children>
+                  <HBox prefWidth="200.0" />
+                  <StackPane fx:id="stackPane" alignment="BOTTOM_RIGHT">
+                     <children>
+                        <HBox fx:id="cajaDelStack" alignment="BOTTOM_LEFT">
+                           <children>
+                              <Button fx:id="guardarButton" disable="true" mnemonicParsing="false" onMouseClicked="#guardarCambiosClick" prefHeight="28.0" prefWidth="155.0" styleClass="button-bold" text="Guardar cambios">
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="cancelarButton" disable="true" mnemonicParsing="false" onMouseClicked="#cancelarClick" styleClass="button-normal" text="Cancelar">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <Button fx:id="editarButton" mnemonicParsing="false" onMouseClicked="#editarClick" prefHeight="28.0" prefWidth="155.0" styleClass="button-bold" text="Editar" />
+                     </children>
+                  </StackPane>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" right="30.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
          </children>
-         <VBox.margin>
-            <Insets bottom="10.0" right="30.0" />
-         </VBox.margin>
-      </HBox>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets bottom="10.0" left="40.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+      <HBox maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
    </children>
-   <opaqueInsets>
-      <Insets />
-   </opaqueInsets>
-   <padding>
-      <Insets bottom="10.0" left="40.0" right="10.0" top="10.0" />
-   </padding>
-</VBox>
+</HBox>

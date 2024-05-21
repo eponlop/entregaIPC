@@ -4,37 +4,40 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../resources/stylesheets/HojaEstilo.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.InicioSesiónController">
+<VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="450.0" prefWidth="700.0" stylesheets="@../resources/stylesheets/HojaEstilo.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.InicioSesiónController">
    <children>
       <VBox maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
       <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
-      <VBox maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
-      <VBox alignment="CENTER" VBox.vgrow="NEVER">
-         <VBox.margin>
-            <Insets top="20.0" />
-         </VBox.margin>
+      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
+      <HBox alignment="CENTER">
          <children>
             <Text fill="#020202" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-title" text="Bienvenido a Budget Buddy">
                <font>
                   <Font name="Yu Gothic Regular" size="30.0" />
                </font>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
             </Text>
+            <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/images/Logo.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="5.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </ImageView>
          </children>
-      </VBox>
-      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
+      </HBox>
       <HBox alignment="CENTER">
          <children>
             <VBox alignment="CENTER_LEFT">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="  Usuario">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -42,6 +45,9 @@
                         <String fx:value="text-head" />
                         <String fx:value="texto-head" />
                      </styleClass>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
                   </Text>
                   <TextField fx:id="loginText" text="eponlop" />
                </children>
@@ -58,7 +64,7 @@
          <children>
             <VBox alignment="CENTER_LEFT">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="  Contraseña">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -66,13 +72,15 @@
                         <String fx:value="text-head" />
                         <String fx:value="texto-head" />
                      </styleClass>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
                   </Text>
                   <TextField fx:id="passText" text="1234abc" />
                </children>
             </VBox>
          </children>
       </HBox>
-      <VBox maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
       <HBox alignment="CENTER" VBox.vgrow="NEVER">
          <VBox.margin>
             <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
@@ -93,7 +101,8 @@
                      <styleClass>
                         <String fx:value="button-only-text" />
                         <String fx:value="button-only-text-bold" />
-                     </styleClass></Button>
+                     </styleClass>
+                  </Button>
                   <HBox prefHeight="0.0" prefWidth="200.0" />
                   <Button fx:id="entrarButton" mnemonicParsing="false" onMouseClicked="#entrar" prefHeight="29.0" prefWidth="69.0" styleClass="button-bold" text="Entrar">
                      <font>
@@ -104,6 +113,8 @@
             </HBox>
          </children>
       </HBox>
+      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
+      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
       <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
       <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
    </children>

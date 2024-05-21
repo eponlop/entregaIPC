@@ -125,8 +125,10 @@ public class RegistroUsuarioController implements Initializable {
             isOK = Acount.getInstance().registerUser(name, surname, email, login, password, image, date);
             if (isOK) {
                 System.out.println("OK");
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Registro Correcto");
+                alert.setHeaderText("Registro Correcto");
+                alert.setContentText("Su cuenta ha sido registrada exitosamente");
                 
                 Optional<ButtonType> respuesta = alert.showAndWait();
                 if (respuesta.isPresent() && respuesta.get() == ButtonType.OK) {
@@ -148,9 +150,7 @@ public class RegistroUsuarioController implements Initializable {
             alert.showAndWait();
             loginText.setText("");
             loginText.requestFocus();
-        } catch (IOException e) {
-        }
-        
+       } catch (IOException e) {}
     }
 
     @FXML

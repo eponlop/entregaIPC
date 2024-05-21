@@ -7,45 +7,53 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.AñadirCategoriaController">
+
+<HBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.AñadirCategoriaController">
    <children>
-      <HBox maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
-      <VBox prefHeight="70.0" VBox.vgrow="NEVER">
+      <VBox maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
+      <VBox>
          <children>
-            <Label text="Nombre de la categoria">
-               <VBox.margin>
-                  <Insets bottom="5.0" />
-               </VBox.margin>
-            </Label>
-            <TextField maxWidth="-Infinity" prefHeight="26.0" prefWidth="186.0" />
+            <HBox maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
+            <VBox prefHeight="70.0" VBox.vgrow="NEVER">
+               <children>
+                  <Label text="Nombre de la categoria">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField maxWidth="-Infinity" prefHeight="26.0" prefWidth="125.0" />
+               </children>
+            </VBox>
+            <VBox prefHeight="70.0" VBox.vgrow="NEVER">
+               <children>
+                  <Label text="Descripción de la categoria">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="26.0" prefWidth="250.0" />
+               </children>
+            </VBox>
+            <HBox alignment="BOTTOM_LEFT" maxHeight="-Infinity" prefHeight="100.0">
+               <children>
+                  <VBox maxWidth="1.7976931348623157E308" prefWidth="250.0" />
+                  <Button mnemonicParsing="false" text="Aceptar" />
+                  <Button fx:id="cancelarButton" mnemonicParsing="false" onMouseClicked="#cancelar" text="Cancelar">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
          </children>
+         <padding>
+            <Insets bottom="10.0" left="40.0" right="10.0" top="10.0" />
+         </padding>
       </VBox>
-      <VBox prefHeight="70.0" VBox.vgrow="NEVER">
-         <children>
-            <Label text="Descripción de la categoria">
-               <VBox.margin>
-                  <Insets bottom="5.0" />
-               </VBox.margin>
-            </Label>
-            <TextField maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="400.0" />
-         </children>
-      </VBox>
-      <HBox maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
-      <HBox alignment="BOTTOM_RIGHT" maxHeight="-Infinity" prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <Button mnemonicParsing="false" text="Aceptar" />
-            <Button fx:id="cancelarButton" mnemonicParsing="false" onMouseClicked="#cancelar" text="Cancelar">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <HBox.margin>
-                  <Insets left="20.0" />
-               </HBox.margin>
-            </Button>
-         </children>
-      </HBox>
+      <VBox maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
    </children>
-   <padding>
-      <Insets bottom="10.0" left="40.0" right="10.0" top="10.0" />
-   </padding>
-</VBox>
+</HBox>

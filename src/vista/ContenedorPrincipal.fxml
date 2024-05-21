@@ -77,7 +77,10 @@
             <HBox alignment="CENTER_LEFT">
                <children>
                   <VBox HBox.hgrow="ALWAYS" />
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                     <HBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </HBox.margin></ImageView>
                   <Label styleClass="text-title" text="Budget Buddy" textFill="#ff6161" HBox.hgrow="ALWAYS" />
                   <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                      <image>
