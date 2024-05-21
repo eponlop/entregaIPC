@@ -30,12 +30,20 @@ public class ContenedorPrincipalController implements Initializable {
     private BorderPane borderPanePrincipal;
     @FXML
     private Button salirButton;
+    @FXML
+    private Button gestionGastoButton;
+    @FXML
+    private Button gestionCategoriaButton;
+    @FXML
+    private Button configuracionButton;
     
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        gestionGastoButton.getStyleClass().add("button-menu-hover");
+        
         try {
             // inicia la app con la opción de gestión de gasto
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/GestionGasto.fxml"));
@@ -65,6 +73,10 @@ public class ContenedorPrincipalController implements Initializable {
 
     @FXML
     private void configuracion(MouseEvent event) {
+        // resaltar el seleccionado
+        gestionGastoButton.getStyleClass().remove("button-menu-hover");
+        gestionCategoriaButton.getStyleClass().remove("button-menu-hover");
+        configuracionButton.getStyleClass().add("button-menu-hover");
         try {
             // cambia a la opción de configuración
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/ConfiguracionPerfil.fxml"));
@@ -77,6 +89,11 @@ public class ContenedorPrincipalController implements Initializable {
 
     @FXML
     private void gestionGasto(MouseEvent event) {
+        // resaltar el seleccionado
+        gestionGastoButton.getStyleClass().add("button-menu-hover");
+        gestionCategoriaButton.getStyleClass().remove("button-menu-hover");
+        configuracionButton.getStyleClass().remove("button-menu-hover");
+        
         try {
             // cambia a la opción gestión gasto
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/GestionGasto.fxml"));
@@ -89,6 +106,10 @@ public class ContenedorPrincipalController implements Initializable {
 
     @FXML
     private void gestionCategoria(MouseEvent event) {
+        // resaltar el seleccionado
+        gestionGastoButton.getStyleClass().remove("button-menu-hover");
+        gestionCategoriaButton.getStyleClass().add("button-menu-hover");
+        configuracionButton.getStyleClass().remove("button-menu-hover");
         try {
             // cambia a la opción de gestión categoría
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/GestionCategoria.fxml"));

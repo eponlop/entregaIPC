@@ -75,9 +75,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     
 }
 
-.button-menu-selected {
+.button-menu-hover {
     
     -fx-button-radius: 0;
+    -fx-pref-width: 153pt; /* Ancho preferido del botón */
     
     -fx-background-color: #ff3030;
     
@@ -87,10 +88,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-text-fill: #ffffff;
     -fx-font-family: "Yu Gothic";
     -fx-font-weight: bolder;
-    -fx-font-size: 10pt;
+    -fx-font-size: 10.5pt;
     
 }
-
 
 .button-task {
     

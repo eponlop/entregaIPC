@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="borderPanePrincipal" stylesheets="@../resources/stylesheets/HojaEstilo_Contenedor.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ContenedorPrincipalController">
+<BorderPane fx:id="borderPanePrincipal" stylesheets="@../resources/stylesheets/HojaEstilo_Contenedor.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ContenedorPrincipalController">
    <left>
       <HBox BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -19,19 +19,19 @@
          <children>
             <VBox alignment="CENTER" prefHeight="300.0" prefWidth="224.0">
                <children>
-                  <Button mnemonicParsing="false" onMouseClicked="#gestionGasto" styleClass="button-menu" text="Gestión de gastos">
+                  <Button fx:id="gestionGastoButton" mnemonicParsing="false" onMouseClicked="#gestionGasto" styleClass="button-menu" text="Gestión de gastos">
                      <VBox.margin>
                         <Insets bottom="5.0" top="20.0" />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onMouseClicked="#gestionCategoria" styleClass="button-menu" text="Gestión de categorías">
+                  <Button fx:id="gestionCategoriaButton" mnemonicParsing="false" onMouseClicked="#gestionCategoria" styleClass="button-menu" text="Gestión de categorías">
                      <VBox.margin>
                         <Insets bottom="35.0" top="5.0" />
                      </VBox.margin>
                   </Button>
                   <VBox VBox.vgrow="ALWAYS" />
                   <VBox />
-                  <Button graphicTextGap="6.0" mnemonicParsing="false" onMouseClicked="#configuracion" styleClass="button-menu" text="Configuración de perfil">
+                  <Button fx:id="configuracionButton" graphicTextGap="6.0" mnemonicParsing="false" onMouseClicked="#configuracion" styleClass="button-menu" text="Configuración de perfil">
                      <VBox.margin>
                         <Insets bottom="5.0" top="35.0" />
                      </VBox.margin>
