@@ -6,16 +6,30 @@ package controlador;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.util.StringConverter;
+import model.Acount;
+import model.AcountDAOException;
+import model.Category;
 
 /**
  * FXML Controller class
@@ -26,6 +40,22 @@ public class AñadirGastoController implements Initializable {
 
     @FXML
     private Button cancelarButton;
+    
+    private Image scanImage;
+    @FXML
+    private TextField nombreText;
+    @FXML
+    private TextField descripcionText;
+    @FXML
+    private ComboBox<Category> categoriaChooser;
+    @FXML
+    private TextField costeText;
+    @FXML
+    private TextField unitsText;
+    @FXML
+    private DatePicker datePicker;
+    @FXML
+    private Button aceptarButton;
 
 
     /**
@@ -33,24 +63,78 @@ public class AñadirGastoController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        try {
+            // TODO
+            ObservableList<Category> datos = FXCollections.observableList(Acount.getInstance().getUserCategories());
+            categoriaChooser.setItems(datos);
+            categoriaChooser.setConverter(new StringConverter<Category>() {
+                @Override
+                public String toString(Category category) {
+                    return category != null ? category.getName(): "";
+                }
+
+                @Override
+                public Category fromString(String string) {
+                    return null;
+                }
+            });
+            
+        } catch (AcountDAOException ex) {
+            Logger.getLogger(AñadirGastoController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(AñadirGastoController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }    
 
     @FXML
     private void cancelar(MouseEvent event) {
-        
         try {
             // cambia a la opción de añadir gasto            
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/GestionGasto.fxml"));
             Parent gestionGasto = loader.load();
-            
+
             // seleccionamos el borderpane del contenedor principal
             BorderPane principal = (BorderPane) cancelarButton.getParent().getParent().getParent().getParent();
-            
+
             principal.setCenter(gestionGasto);
-            
         } catch (IOException ex) {
-            Logger.getLogger(ContenedorPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AñadirCategoriaController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void guardarGasto(MouseEvent event) {
+        try {
+            String nombre = nombreText.getText();
+            String descripcion = descripcionText.getText();
+            double cost = Double.parseDouble(costeText.getText());
+            int units = Integer.parseInt(unitsText.getText());
+            LocalDate date = datePicker.getValue();
+            Category category = categoriaChooser.getValue();
+            
+            boolean isOK = Acount.getInstance().registerCharge(nombre, descripcion, cost, units, scanImage, date, category);
+            if (isOK) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Añadir gasto");
+                alert.setHeaderText("Gasto añadido");
+                alert.setContentText("El gasto " + nombre + " ha sido añadido con éxito");
+                
+                Optional<ButtonType> respuesta = alert.showAndWait();
+                if (respuesta.isPresent() && respuesta.get() == ButtonType.OK) {
+                    // cambia a la opción de añadir gasto            
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/GestionGasto.fxml"));
+                    Parent gestionGasto = loader.load();
+
+                    // seleccionamos el borderpane del contenedor principal
+                    BorderPane principal = (BorderPane) cancelarButton.getParent().getParent().getParent().getParent();
+
+                    principal.setCenter(gestionGasto);
+                }
+            }
+        } catch (AcountDAOException ex) {
+            Logger.getLogger(AñadirCategoriaController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(AñadirCategoriaController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
 
 <BorderPane fx:id="borderPanePrincipal" stylesheets="@../resources/stylesheets/HojaEstilo_Contenedor.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ContenedorPrincipalController">
    <left>
@@ -76,11 +77,12 @@
          <children>
             <HBox alignment="CENTER_LEFT">
                <children>
-                  <VBox HBox.hgrow="ALWAYS" />
-                  <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imageView" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                      <HBox.margin>
-                        <Insets left="10.0" top="10.0" />
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </HBox.margin></ImageView>
+                  <Text fx:id="bienvenidaText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-title" />
+                  <HBox maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
                   <Label styleClass="text-title" text="Budget Buddy" textFill="#ff6161" HBox.hgrow="ALWAYS" />
                   <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                      <image>

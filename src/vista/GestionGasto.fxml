@@ -35,12 +35,12 @@
             <VBox alignment="TOP_CENTER" prefWidth="100.0" BorderPane.alignment="TOP_CENTER">
                <children>
                   <Button fx:id="añadirButton" mnemonicParsing="false" onMouseClicked="#añadirGasto" styleClass="button-task" text="Añadir" />
-                  <Button mnemonicParsing="false" styleClass="button-task" text="Editar">
+                  <Button fx:id="editarButton" mnemonicParsing="false" onMouseClicked="#editar" styleClass="button-task" text="Editar">
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" styleClass="button-task" text="Eliminar">
+                  <Button fx:id="eliminarButton" mnemonicParsing="false" onMouseClicked="#eliminar" styleClass="button-task" text="Eliminar">
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>

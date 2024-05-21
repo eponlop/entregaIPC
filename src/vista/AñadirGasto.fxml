@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-
 <HBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.AñadirGastoController">
    <children>
       <VBox maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
@@ -24,7 +23,7 @@
                         <Insets bottom="5.0" />
                      </VBox.margin>
                   </Text>
-                  <TextField maxWidth="-Infinity" prefWidth="150.0" />
+                  <TextField fx:id="nombreText" maxWidth="-Infinity" prefWidth="150.0" />
                </children>
             </VBox>
             <VBox maxHeight="-Infinity" prefHeight="70.0" prefWidth="600.0" VBox.vgrow="NEVER">
@@ -34,7 +33,7 @@
                         <Insets bottom="5.0" />
                      </VBox.margin>
                   </Text>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="300.0" />
+                  <TextField fx:id="descripcionText" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="300.0" />
                </children>
                <VBox.margin>
                   <Insets top="12.0" />
@@ -51,7 +50,7 @@
                                     <Insets bottom="5.0" />
                                  </VBox.margin>
                               </Text>
-                              <ComboBox prefWidth="218.0" />
+                              <ComboBox fx:id="categoriaChooser" prefWidth="218.0" />
                            </children>
                         </VBox>
                      </children>
@@ -78,7 +77,7 @@
                         </Text>
                         <HBox alignment="CENTER_LEFT">
                            <children>
-                              <TextField alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="57.0" />
+                              <TextField fx:id="costeText" alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="57.0" />
                               <Label text=" €" />
                            </children>
                         </HBox>
@@ -93,7 +92,7 @@
                         </Text>
                         <HBox alignment="CENTER_LEFT">
                            <children>
-                              <TextField alignment="CENTER" maxWidth="-Infinity" prefWidth="40.0" />
+                              <TextField fx:id="unitsText" alignment="CENTER" maxWidth="-Infinity" prefWidth="40.0" />
                               <Label text=" uds" />
                            </children>
                         </HBox>
@@ -109,7 +108,7 @@
                               <Insets bottom="3.0" />
                            </VBox.margin>
                         </Text>
-                        <DatePicker prefHeight="26.0" prefWidth="127.0" promptText="dd/mm/aaaa" />
+                        <DatePicker fx:id="datePicker" prefHeight="26.0" prefWidth="127.0" promptText="dd/mm/aaaa" />
                      </children>
                      <HBox.margin>
                         <Insets left="40.0" />
@@ -141,7 +140,7 @@
             <HBox maxHeight="1.7976931348623157E308" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                <children>
                   <HBox prefWidth="250.0" />
-                  <Button mnemonicParsing="false" styleClass="button-bold" text="Aceptar">
+                  <Button fx:id="aceptarButton" mnemonicParsing="false" onMouseClicked="#guardarGasto" styleClass="button-bold" text="Aceptar">
                      <HBox.margin>
                         <Insets top="20.0" />
                      </HBox.margin>

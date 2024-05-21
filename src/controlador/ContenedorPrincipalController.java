@@ -15,9 +15,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import model.Acount;
+import model.AcountDAOException;
 
 /**
  * FXML Controller class
@@ -36,6 +40,10 @@ public class ContenedorPrincipalController implements Initializable {
     private Button gestionCategoriaButton;
     @FXML
     private Button configuracionButton;
+    @FXML
+    private ImageView imageView;
+    @FXML
+    private Text bienvenidaText;
     
     /**
      * Initializes the controller class.
@@ -43,6 +51,14 @@ public class ContenedorPrincipalController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         gestionGastoButton.getStyleClass().add("button-menu-hover");
+        try {
+            imageView.setImage(Acount.getInstance().getLoggedUser().getImage());
+            bienvenidaText.setText("Bienvenido " + Acount.getInstance().getLoggedUser().getNickName() + "!");
+        } catch (AcountDAOException ex) {
+            Logger.getLogger(ContenedorPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(ContenedorPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         try {
             // inicia la app con la opción de gestión de gasto
