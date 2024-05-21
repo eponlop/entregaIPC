@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="BOTTOM_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../resources/stylesheets/HojaEstilo.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ConfiguracionPerfilController">
+<VBox alignment="BOTTOM_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../resources/stylesheets/HojaEstilo.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ConfiguracionPerfilController">
    <children>
       <HBox maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
       <HBox VBox.vgrow="NEVER">
@@ -21,7 +21,7 @@
                         <Insets bottom="5.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField editable="false" maxWidth="-Infinity" prefHeight="26.0" prefWidth="190.0" />
+                  <TextField fx:id="nombreText" editable="false" maxWidth="-Infinity" prefHeight="26.0" prefWidth="130.0" />
                </children>
                <HBox.margin>
                   <Insets right="75.0" />
@@ -34,7 +34,7 @@
                         <Insets bottom="5.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField editable="false" maxWidth="-Infinity" prefHeight="26.0" prefWidth="190.0" />
+                  <TextField fx:id="apellidoText" editable="false" maxWidth="-Infinity" prefHeight="26.0" prefWidth="130.0" />
                </children>
             </VBox>
          </children>
@@ -46,7 +46,7 @@
                   <Insets bottom="5.0" />
                </VBox.margin>
             </Label>
-            <TextField editable="false" maxWidth="-Infinity" prefHeight="26.0" prefWidth="190.0" />
+            <TextField fx:id="correoText" editable="false" maxWidth="-Infinity" prefHeight="26.0" prefWidth="220.0" />
          </children>
       </VBox>
       <HBox maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
@@ -54,25 +54,25 @@
          <children>
             <VBox maxHeight="-Infinity" prefHeight="70.0">
                <children>
-                  <Label styleClass="texto-head" text="Nueva contraseña" textFill="#ff6161">
+                  <Label styleClass="texto-head" text="Contraseña" textFill="#ff6161">
                      <VBox.margin>
                         <Insets bottom="5.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField editable="false" maxWidth="-Infinity" prefHeight="26.0" prefWidth="290.0" />
+                  <TextField fx:id="passText" editable="false" maxWidth="-Infinity" prefHeight="26.0" prefWidth="200.0" />
                </children>
                <HBox.margin>
                   <Insets right="75.0" />
                </HBox.margin>
             </VBox>
-            <VBox maxHeight="-Infinity" prefHeight="70.0">
+            <VBox fx:id="cajaRepitePass" disable="true" maxHeight="-Infinity" prefHeight="70.0" visible="false">
                <children>
-                  <Label styleClass="texto-head" text="Repite tu nueva contraseña" textFill="#ff6161">
+                  <Label styleClass="texto-head" text="Repite tu contraseña" textFill="#ff6161">
                      <VBox.margin>
                         <Insets bottom="5.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField editable="false" maxWidth="-Infinity" prefHeight="26.0" prefWidth="290.0" />
+                  <TextField fx:id="repitePassText" editable="false" maxWidth="-Infinity" prefHeight="26.0" prefWidth="200.0" />
                </children>
                <HBox.margin>
                   <Insets right="30.0" />
@@ -90,23 +90,24 @@
                         <Insets bottom="5.0" />
                      </VBox.margin>
                   </Label>
-                  <Button disable="true" mnemonicParsing="false" styleClass="button-normal" text="Seleccionar">
+                  <Button fx:id="seleccionarButton" disable="true" mnemonicParsing="false" onMouseClicked="#seleccionarArchivo" styleClass="button-bold" text="Seleccionar">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
                   </Button>
                </children>
             </VBox>
-            <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
                <HBox.margin>
-                  <Insets left="50.0" />
+                  <Insets left="60.0" right="30.0" />
                </HBox.margin>
             </ImageView>
          </children>
       </HBox>
-      <HBox alignment="BOTTOM_RIGHT" maxHeight="-Infinity" prefHeight="46.0" prefWidth="600.0">
+      <HBox alignment="BOTTOM_LEFT" maxHeight="-Infinity" prefHeight="46.0">
          <children>
-            <StackPane fx:id="stackPane" alignment="BOTTOM_CENTER">
+            <HBox prefWidth="200.0" />
+            <StackPane fx:id="stackPane" alignment="BOTTOM_RIGHT">
                <children>
                   <HBox fx:id="cajaDelStack" alignment="BOTTOM_LEFT">
                      <children>

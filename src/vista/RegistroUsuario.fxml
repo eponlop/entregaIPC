@@ -20,7 +20,7 @@
                         <Insets bottom="5.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="nombreText" maxWidth="-Infinity" prefHeight="26.0" prefWidth="190.0" />
+                  <TextField fx:id="nombreText" maxWidth="-Infinity" prefHeight="26.0" prefWidth="130.0" />
                </children>
                <HBox.margin>
                   <Insets right="75.0" />
@@ -33,7 +33,7 @@
                         <Insets bottom="5.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="apellidoText" maxWidth="-Infinity" prefHeight="26.0" prefWidth="190.0" />
+                  <TextField fx:id="apellidoText" maxWidth="-Infinity" prefHeight="26.0" prefWidth="130.0" />
                </children>
             </VBox>
          </children>
@@ -45,7 +45,7 @@
                   <Insets bottom="5.0" />
                </VBox.margin>
             </Label>
-            <TextField fx:id="emailText" maxWidth="-Infinity" prefHeight="26.0" prefWidth="190.0" />
+            <TextField fx:id="emailText" maxWidth="-Infinity" prefHeight="26.0" prefWidth="220.0" />
          </children>
       </VBox>
       <HBox maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
@@ -56,7 +56,7 @@
                   <Insets bottom="5.0" />
                </VBox.margin>
             </Label>
-            <TextField fx:id="loginText" maxWidth="-Infinity" prefHeight="26.0" prefWidth="125.0" />
+            <TextField fx:id="loginText" maxWidth="-Infinity" prefHeight="27.0" prefWidth="115.0" />
          </children>
       </VBox>
       <HBox>
@@ -68,7 +68,7 @@
                         <Insets bottom="5.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="passwordText" maxWidth="-Infinity" prefHeight="26.0" prefWidth="290.0" />
+                  <TextField fx:id="passwordText" maxWidth="-Infinity" prefHeight="26.0" prefWidth="200.0" />
                </children>
                <HBox.margin>
                   <Insets right="75.0" />
@@ -81,7 +81,7 @@
                         <Insets bottom="5.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="repeatPassText" maxWidth="-Infinity" prefHeight="26.0" prefWidth="290.0" />
+                  <TextField fx:id="repeatPassText" maxWidth="-Infinity" prefHeight="26.0" prefWidth="200.0" />
                </children>
                <HBox.margin>
                   <Insets right="30.0" />
@@ -99,23 +99,27 @@
                         <Insets bottom="5.0" />
                      </VBox.margin>
                   </Label>
-                  <Button mnemonicParsing="false" onMouseClicked="#seleccionarArchivo" styleClass="button-normal" text="Seleccionar">
+                  <Button mnemonicParsing="false" onMouseClicked="#seleccionarArchivo" styleClass="button-bold" text="Seleccionar">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
                   </Button>
                </children>
             </VBox>
-            <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                <HBox.margin>
-                  <Insets left="50.0" />
+                  <Insets left="60.0" />
                </HBox.margin>
             </ImageView>
          </children>
       </HBox>
-      <HBox alignment="BOTTOM_RIGHT" maxHeight="-Infinity" prefHeight="46.0" prefWidth="600.0">
+      <HBox alignment="BOTTOM_LEFT" maxHeight="-Infinity" prefHeight="46.0" prefWidth="600.0">
          <children>
-            <Button mnemonicParsing="false" onMouseClicked="#aceptar" styleClass="button-bold" text="Aceptar" />
+            <HBox prefWidth="200.0" />
+            <Button mnemonicParsing="false" onMouseClicked="#aceptar" styleClass="button-bold" text="Aceptar">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin></Button>
             <Button fx:id="cancelarButton" mnemonicParsing="false" onMouseClicked="#cancelar" styleClass="button-normal" text="Cancelar">
                <opaqueInsets>
                   <Insets />

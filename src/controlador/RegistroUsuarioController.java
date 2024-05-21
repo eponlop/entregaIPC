@@ -158,7 +158,7 @@ public class RegistroUsuarioController implements Initializable {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Selecciona una imagen");
         fileChooser.getExtensionFilters().addAll(
-            new FileChooser.ExtensionFilter("Archivos de imagen", "*.png", "*.jpg", "*.jpeg", "*.gif")
+            new FileChooser.ExtensionFilter("Archivos de imagen", "*.png", "*.jpg", "*.jpeg")
         );
         File file = fileChooser.showOpenDialog((Stage) cancelarButton.getScene().getWindow());
         if (file != null) {
