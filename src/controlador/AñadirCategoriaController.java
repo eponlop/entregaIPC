@@ -43,7 +43,7 @@ public class AñadirCategoriaController implements Initializable {
             Parent gestionCategoria = loader.load();
             
             // seleccionamos el borderpane del contenedor principal
-            BorderPane principal = (BorderPane) cancelarButton.getParent().getParent().getParent();
+            BorderPane principal = (BorderPane) cancelarButton.getParent().getParent().getParent().getParent();
             
             principal.setCenter(gestionCategoria);
             

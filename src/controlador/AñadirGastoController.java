@@ -45,7 +45,7 @@ public class AñadirGastoController implements Initializable {
             Parent gestionGasto = loader.load();
             
             // seleccionamos el borderpane del contenedor principal
-            BorderPane principal = (BorderPane) cancelarButton.getParent().getParent().getParent();
+            BorderPane principal = (BorderPane) cancelarButton.getParent().getParent().getParent().getParent();
             
             principal.setCenter(gestionGasto);
             
