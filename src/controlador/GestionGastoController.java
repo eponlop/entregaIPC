@@ -136,12 +136,16 @@ public class GestionGastoController implements Initializable {
         try {
             // cambia a la opción de añadir gasto            
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/AñadirGasto.fxml"));
-            Parent añadirGasto = loader.load();
+            Parent root = loader.load();
+            
+            AñadirGastoController añadirGasto = loader.getController();
+            
+            añadirGasto.setIndex(tablaGastos.getSelectionModel().getSelectedIndex());
             
             // seleccionamos el borderpane del contenedor principal
             BorderPane principal = (BorderPane) añadirButton.getParent().getParent().getParent();
             
-            principal.setCenter(añadirGasto);
+            principal.setCenter(root);
             
         } catch (IOException ex) {
             Logger.getLogger(ContenedorPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
