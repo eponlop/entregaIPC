@@ -4,6 +4,21 @@
  */
 package controlador;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.Font;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+
+
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -27,6 +42,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import model.Acount;
 import model.AcountDAOException;
 import model.Charge;
@@ -175,4 +192,68 @@ public class GestionGastoController implements Initializable {
         }
     }
     
+    @FXML
+    private void imprimir(MouseEvent event) {
+            generatePDF();
+    }
+    
+    private void generatePDF() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Save PDF");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("PDF Files", "*.pdf"));
+        File file = fileChooser.showSaveDialog((Stage) añadirButton.getScene().getWindow());
+        if (file != null) {
+               writePDF(file, tablaGastos.getItems());
+        }
+    }
+    
+    private void writePDF(File file, List<Charge> data) {
+        try {
+            Document document = new Document();
+            PdfWriter.getInstance(document, new FileOutputStream(file));
+            document.open();
+            document.add(new Paragraph("Resumen de todos los gastos"));
+            
+            PdfPTable table = new PdfPTable(5); // Number of columns
+            Font headFont = new Font(Font.FontFamily.HELVETICA,16,Font.BOLD);
+            table.setWidthPercentage(100);
+            table.setSpacingBefore(10f);
+            table.setSpacingAfter(10f);
+            
+            PdfPCell cell1 = new PdfPCell(new Phrase("Nombre",headFont));
+            cell1.setHorizontalAlignment(Element.ALIGN_CENTER);
+            table.addCell(cell1);
+            
+            PdfPCell cell2 = new PdfPCell(new Phrase("Descripción",headFont));
+            cell2.setHorizontalAlignment(Element.ALIGN_CENTER);
+            table.addCell(cell2);
+            
+            PdfPCell cell3 = new PdfPCell(new Phrase("Categoria",headFont));
+            cell3.setHorizontalAlignment(Element.ALIGN_CENTER);
+            table.addCell(cell3);
+            
+            PdfPCell cell4 = new PdfPCell(new Phrase("Coste",headFont));
+            cell4.setHorizontalAlignment(Element.ALIGN_CENTER);
+            table.addCell(cell4);
+            
+            PdfPCell cell5 = new PdfPCell(new Phrase("Fecha",headFont));
+            cell5.setHorizontalAlignment(Element.ALIGN_CENTER);
+            table.addCell(cell5);
+            
+            for (Charge charge : data) {
+                table.addCell(charge.getName());
+                table.addCell(charge.getDescription());
+                table.addCell(charge.getCategory().getName());
+                table.addCell(Double.toString(charge.getCost()));
+                table.addCell(charge.getDate().toString());
+            }
+            
+            document.add(table);
+            document.close();
+        } catch (DocumentException ex) {
+            Logger.getLogger(GestionGastoController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (FileNotFoundException ex) {
+         //JIJI
+        }
+    }
 }
