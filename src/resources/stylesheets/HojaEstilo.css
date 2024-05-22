@@ -26,7 +26,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 
 .texto-head {
     
-    -fx-text-fill: #489FEA;
+    -fx-fill: #489FEA;
     
     -fx-font-family: "Yu Gothic";
     -fx-font-weight: normal;
@@ -36,13 +36,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 
 .texto-normal {
     
-    -fx-text-fill: black;
+    -fx-fill: black;
     
     -fx-font-family: "Yu Gothic";    
     -fx-font-weight: normal;
     -fx-font-size: 10pt;
     
 }
+
+
 
 /* CAMPOS DE TEXTO */
 
@@ -80,7 +82,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 .button-bold:hover {
     
     -fx-button-radius: 0;
-    -fx-pref-width: 150pt;
+    -fx-pref-width: 100pt;
     -fx-pref-height: 20px;
     
     -fx-background-color: #485DEA;
@@ -136,7 +138,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     
     -fx-background-color: transparent;
     
-    -fx-border-width: 1;
+    -fx-border-width: 2;
     -fx-border-color: #485DEA;
     
     -fx-text-fill: #485DEA;
@@ -217,6 +219,242 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-text-fill: white;
     
 }
+
+.table-view .arrow {
+    
+    -fx-background-color: white;
+    
+}
+
+.table-view .scroll-bar:vertical,
+.table-view .scroll-bar:horizontal {
+    -fx-background-color: white; /* Cambia el color de fondo */
+}
+
+/* Estilo para los botones de la barra de desplazamiento horizontal */
+.table-view .scroll-bar:vertical .increment-button,
+.table-view .scroll-bar:vertical .decrement-button,
+.table-view .scroll-bar:horizontal .increment-button,
+.table-view .scroll-bar:horizontal .decrement-button {
+    -fx-background-color: white; /* Cambia el color de fondo de los botones */
+}
+
+.table-view .scroll-bar:vertical .increment-button .arrow,
+.table-view .scroll-bar:vertical .decrement-button .arrow,
+.table-view .scroll-bar:horizontal .increment-button .arrow,
+.table-view .scroll-bar:horizontal .decrement-button .arrow {
+     -fx-background-color: white; /* Cambia el color de fondo */
+     -fx-border-radius:0;
+}
+
+/* Estilo para el thumb (manija) de la barra de desplazamiento horizontal */
+.table-view .scroll-bar:vertical .thumb,
+.table-view .scroll-bar:horizontal .thumb {
+    -fx-background-color: #80C4FF; /* Cambia el color de fondo del thumb */
+    -fx-border-radius:0;
+    -fx-border-width: 0;
+    -fx-padding: 0; /* Ajusta el padding del thumb */
+}
+
+.table-view .scroll-bar:horizontal .thumb:pressed {
+    -fx-background-color: #485DEA; /* Cambia el color de fondo del thumb */
+    -fx-background-insets: 0, 0, 0; /* Ajusta los márgenes del thumb */
+    -fx-padding: 0; /* Ajusta el padding del thumb */
+}
+
+
+.table-view .table-column {
+    
+    -fx-border-width: 0.2;
+    -fx-border-color: #80C4FF;
+    
+    -fx-alignment: center;
+    
+}
+
+.table-view .table-row-cell:selected {
+    
+    -fx-background-color: #485DEA;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    
+}
+
+/* COMBO BOX */
+
+/* Estilo para el ComboBox en general */
+.combo-box {
+    
+    -fx-background-color: white; /* Color de fondo del ComboBox */
+    
+    -fx-border-color: gray; /* Color del borde de las opciones */
+    
+    -fx-font-family: "Yu Gothic"; /* Familia de la fuente */
+    -fx-font-size: 12px; /* Tamaño de la fuente */
+    -fx-text-fill: black; /* Color del texto */
+}
+
+/* Estilo para las celdas del ComboBox cuando se despliega */
+.combo-box .list-cell {
+    
+    -fx-background-color: white; /* Color de fondo de las opciones */
+    -fx-text-fill: black; /* Color del texto de las opciones */
+    -fx-font-family: "Yu Gothic";
+    
+}
+
+.combo-box .list-cell:filled:hover{
+    -fx-background-color: #80C4FF; /* Color de fondo al seleccionar o pasar el ratón por encima */
+    -fx-text-fill: black; /* Color del texto al seleccionar o pasar el ratón por encima */
+}
+
+/* Estilo para la flecha del ComboBox */
+.combo-box .arrow {
+    -fx-background-color: black; /* Color de fondo de la flecha */
+    
+}
+
+/* Estilo para el área desplegable del ComboBox */
+.combo-box-popup {
+    -fx-background-color: #f9f9f9; /* Color de fondo del área desplegable */
+    -fx-border-color: #cccccc; /* Color del borde del área desplegable */
+    -fx-border-width: 1px; /* Ancho del borde */
+}
+
+/* DATE PICKER */
+
+/* Estilo general del DatePicker */
+.date-picker {
+    
+    -fx-background-color: white; /* Fondo blanco */
+    -fx-border-color: #9b9b9b; /* Borde gris claro */
+    -fx-border-radius: 0;
+}
+
+/* Estilo del campo de texto del DatePicker */
+.date-picker .text-field {
+    
+    -fx-border-width: 0;
+    -fx-text-fill: black; /* Color del texto */
+    -fx-font-family: "Yu Gothic";
+    -fx-font-size: 12px; /* Tamaño de la fuente */
+}
+
+/* Estilo del botón de la flecha */
+.date-picker .arrow-button {
+    
+    -fx-background-color: white; /* Fondo del botón */
+    
+}
+
+/* Estilo del calendario emergente */
+.date-picker-popup {
+    
+    -fx-background-color: white; /* Fondo del calendario */
+    -fx-border-color: #9b9b9b; /* Borde del calendario */
+    -fx-border-radius: 0;
+    
+}
+
+/* Estilo para ajustar la posición del calendario emergente */
+.date-picker-popup .popup-content {
+    -fx-alignment: center; /* Centra el contenido horizontalmente */
+}
+
+/* Estilo de los días del calendario */
+.date-picker-popup .day-cell {
+    
+    -fx-background-color: white; /* Fondo del día */
+    
+    -fx-border-color: #9b9b9b;
+    -fx-border-width: 0.2px;
+    
+    -fx-text-fill: black; /* Color del texto */
+    -fx-font-family: "Yu Gothic";
+    -fx-font-size: 12px; /* Tamaño de la fuente */
+    
+}
+
+.date-picker-popup .day-cell:hover {
+    
+    -fx-background-color: #485DEA; /* Fondo del día */
+    
+    -fx-border-color: #9b9b9b;
+    -fx-border-width: 0.2px;
+    
+    -fx-text-fill: white; /* Color del texto */
+    -fx-font-family: "Yu Gothic";
+    -fx-font-weight: bold;
+    -fx-font-size: 12px; /* Tamaño de la fuente */
+    
+}
+
+/* Estilo del encabezado del calendario (días de la semana) */
+.date-picker-popup .day-name-cell {
+    
+    -fx-background-color: #489FEA; /* Fondo del encabezado */
+    -fx-border-width: 0;
+    
+    -fx-text-fill: white; /* Color del texto del encabezado */
+    -fx-font-family: "Yu Gothic";
+    -fx-font-weight: bold;
+    
+}
+
+.date-picker .week-number-cell {
+
+    -fx-opacity: 0;
+    -fx-pref-width: 0;
+    -fx-max-width: 0;
+    -fx-min-width: 0;
+    
+}
+
+.date-picker .date-picker-popup .month-year-pane {
+    
+    -fx-background-color: #489FEA; /* Cambia el color de fondo */
+    -fx-text-fill: white; /* Cambia el color del texto */
+    -fx-font-family: "Yu Gothic";
+    -fx-font-size: 11px; /* Cambia el tamaño de la fuente */
+    -fx-font-weight: bold;
+    
+}
+
+.date-picker .date-picker-popup .month-year-pane .label {
+    
+    -fx-text-fill: white; /* Cambia el color del texto */
+    -fx-font-family: "Yu Gothic";
+    -fx-font-size: 11px; /* Cambia el tamaño de la fuente */
+    -fx-font-weight: bold;
+    
+}
+
+.date-picker .date-picker-popup .month-year-pane .button {
+    
+    -fx-background-color: transparent; /* Cambia el color de fondo */
+    
+    -fx-border-width: 0;
+    
+}
+
+.date-picker .date-picker-popup .month-year-pane .button:hover,
+.date-picker .date-picker-popup .month-year-pane .button:selected{
+    
+    -fx-background-color: transparent; /* Cambia el color de fondo */
+    
+    -fx-border-width: 1;
+    -fx-border-color: white;
+    
+}
+
+/* Estilo para las flechas */
+.date-picker .date-picker-popup .left-arrow,
+.date-picker .date-picker-popup .right-arrow {
+    -fx-background-color: white; /* Color de fondo */
+    -fx-border-width: 0; /* Grosor del borde */
+    
+}
+
 
 /* SEPARADORES */
 
