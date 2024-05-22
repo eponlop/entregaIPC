@@ -22,7 +22,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 .texto-head {
     
     -fx-font-family: "Yu Gothic";
-    -fx-fill: #FF6161;
+    -fx-text-fill: #FF6161;
     -fx-font-weight: normal;
     -fx-font-size: 10pt;
     
