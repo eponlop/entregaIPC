@@ -104,7 +104,7 @@
                      </styleClass>
                   </Button>
                   <HBox prefHeight="0.0" prefWidth="200.0" />
-                  <Button fx:id="entrarButton" mnemonicParsing="false" onMouseClicked="#entrar" prefHeight="29.0" prefWidth="69.0" styleClass="button-bold" text="Entrar">
+                  <Button fx:id="entrarButton" mnemonicParsing="false" onMouseClicked="#entrar" prefHeight="29.0" prefWidth="69.0" style="-fx-pref-width: 100pt;" styleClass="button-bold" text="Entrar">
                      <font>
                         <Font size="14.0" />
                      </font>

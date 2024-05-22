@@ -55,7 +55,7 @@
                         </VBox>
                      </children>
                   </HBox>
-                  <Label prefHeight="18.0" prefWidth="393.0" text="Descripcion de la categoria">
+                  <Label prefHeight="18.0" prefWidth="393.0" style="-fx-font-size: 12px;" styleClass="texto-normal" text="Descripcion de la categoria">
                      <VBox.margin>
                         <Insets bottom="5.0" top="5.0" />
                      </VBox.margin>
@@ -78,7 +78,7 @@
                         <HBox alignment="CENTER_LEFT">
                            <children>
                               <TextField fx:id="costeText" alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="57.0" />
-                              <Label text=" €" />
+                              <Label style="-fx-font-size: 12px;" styleClass="texto-normal" text=" €" />
                            </children>
                         </HBox>
                      </children>
@@ -93,7 +93,7 @@
                         <HBox alignment="CENTER_LEFT">
                            <children>
                               <TextField fx:id="unitsText" alignment="CENTER" maxWidth="-Infinity" prefWidth="40.0" />
-                              <Label text=" uds" />
+                              <Label style="-fx-font-size: 12px;" styleClass="texto-normal" text=" uds" />
                            </children>
                         </HBox>
                      </children>

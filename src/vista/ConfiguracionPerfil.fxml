@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<HBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ConfiguracionPerfilController">
+<HBox stylesheets="@../resources/stylesheets/HojaEstilo.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ConfiguracionPerfilController">
    <children>
       <HBox maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
       <VBox alignment="BOTTOM_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../resources/stylesheets/HojaEstilo.css">
@@ -20,7 +19,7 @@
                <children>
                   <VBox maxHeight="-Infinity" prefHeight="70.0">
                      <children>
-                        <Label styleClass="texto-head" text="Nombre" textFill="#ff6161">
+                        <Label styleClass="texto-head" text="Nombre" textFill="#489fea">
                            <VBox.margin>
                               <Insets bottom="5.0" />
                            </VBox.margin>
@@ -33,7 +32,7 @@
                   </VBox>
                   <VBox maxHeight="-Infinity" prefHeight="70.0">
                      <children>
-                        <Label styleClass="texto-head" text="Primer apellido" textFill="#ff6161">
+                        <Label styleClass="texto-head" text="Primer apellido" textFill="#489fea">
                            <VBox.margin>
                               <Insets bottom="5.0" />
                            </VBox.margin>
@@ -45,7 +44,7 @@
             </HBox>
             <VBox maxHeight="-Infinity" prefHeight="70.0" VBox.vgrow="NEVER">
                <children>
-                  <Label styleClass="texto-head" text="Correo electronico" textFill="#ff6161">
+                  <Label styleClass="texto-head" text="Correo electronico" textFill="#489fea">
                      <VBox.margin>
                         <Insets bottom="5.0" />
                      </VBox.margin>
@@ -57,7 +56,7 @@
                <children>
                   <VBox maxHeight="-Infinity" prefHeight="70.0">
                      <children>
-                        <Label styleClass="texto-head" text="Contraseña" textFill="#ff6161">
+                        <Label styleClass="texto-head" text="Contraseña" textFill="#489fea">
                            <VBox.margin>
                               <Insets bottom="5.0" />
                            </VBox.margin>
@@ -70,7 +69,7 @@
                   </VBox>
                   <VBox fx:id="cajaRepitePass" disable="true" maxHeight="-Infinity" prefHeight="70.0" visible="false">
                      <children>
-                        <Label styleClass="texto-head" text="Repite tu contraseña" textFill="#ff6161">
+                        <Label styleClass="texto-head" text="Repite tu contraseña" textFill="#489fea">
                            <VBox.margin>
                               <Insets bottom="5.0" />
                            </VBox.margin>
@@ -90,12 +89,12 @@
                <children>
                   <VBox maxHeight="-Infinity">
                      <children>
-                        <Label styleClass="texto-head" text="Cambiar foto de perfil" textFill="#ff6161">
+                        <Label styleClass="texto-head" text="Cambiar foto de perfil" textFill="#489fea">
                            <VBox.margin>
                               <Insets bottom="5.0" />
                            </VBox.margin>
                         </Label>
-                        <Button fx:id="seleccionarButton" disable="true" mnemonicParsing="false" onMouseClicked="#seleccionarArchivo" styleClass="button-bold" text="Seleccionar">
+                        <Button fx:id="seleccionarButton" disable="true" mnemonicParsing="false" onMouseClicked="#seleccionarArchivo" style="-fx-pref-width: 100pt;" styleClass="button-bold" text="Seleccionar">
                            <VBox.margin>
                               <Insets />
                            </VBox.margin>
@@ -119,12 +118,12 @@
                      <children>
                         <HBox fx:id="cajaDelStack" alignment="BOTTOM_LEFT">
                            <children>
-                              <Button fx:id="guardarButton" disable="true" mnemonicParsing="false" onMouseClicked="#guardarCambiosClick" prefHeight="28.0" prefWidth="155.0" styleClass="button-bold" text="Guardar cambios">
+                              <Button fx:id="guardarButton" disable="true" mnemonicParsing="false" onMouseClicked="#guardarCambiosClick" prefHeight="28.0" prefWidth="155.0" style="-fx-pref-width: 100pt;" styleClass="button-bold" text="Guardar cambios">
                                  <HBox.margin>
                                     <Insets left="20.0" />
                                  </HBox.margin>
                               </Button>
-                              <Button fx:id="cancelarButton" disable="true" mnemonicParsing="false" onMouseClicked="#cancelarClick" styleClass="button-normal" text="Cancelar">
+                              <Button fx:id="cancelarButton" disable="true" mnemonicParsing="false" onMouseClicked="#cancelarClick" style="-fx-pref-width: 100pt;" styleClass="button-normal" text="Cancelar">
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>
@@ -134,7 +133,7 @@
                               </Button>
                            </children>
                         </HBox>
-                        <Button fx:id="editarButton" mnemonicParsing="false" onMouseClicked="#editarClick" prefHeight="28.0" prefWidth="155.0" styleClass="button-bold" text="Editar" />
+                        <Button fx:id="editarButton" mnemonicParsing="false" onMouseClicked="#editarClick" prefHeight="28.0" prefWidth="155.0" style="-fx-pref-width: 100pt;" styleClass="button-bold" text="Editar" />
                      </children>
                   </StackPane>
                </children>

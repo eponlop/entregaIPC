@@ -50,7 +50,7 @@ public class ContenedorPrincipalController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        gestionGastoButton.getStyleClass().add("button-menu-hover");
+        gestionGastoButton.getStyleClass().add("button-bold-hover");
         try {
             imageView.setImage(Acount.getInstance().getLoggedUser().getImage());
             bienvenidaText.setText("Bienvenido " + Acount.getInstance().getLoggedUser().getNickName() + "!");
@@ -90,9 +90,9 @@ public class ContenedorPrincipalController implements Initializable {
     @FXML
     private void configuracion(MouseEvent event) {
         // resaltar el seleccionado
-        gestionGastoButton.getStyleClass().removeAll("button-menu-hover");
-        gestionCategoriaButton.getStyleClass().removeAll("button-menu-hover");
-        configuracionButton.getStyleClass().add("button-menu-hover");
+        gestionGastoButton.getStyleClass().removeAll("button-bold-hover");
+        gestionCategoriaButton.getStyleClass().removeAll("button-bold-hover");
+        configuracionButton.getStyleClass().add("button-bold-hover");
         try {
             // cambia a la opción de configuración
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/ConfiguracionPerfil.fxml"));
@@ -106,9 +106,9 @@ public class ContenedorPrincipalController implements Initializable {
     @FXML
     private void gestionGasto(MouseEvent event) {
         // resaltar el seleccionado
-        gestionGastoButton.getStyleClass().add("button-menu-hover");
-        gestionCategoriaButton.getStyleClass().removeAll("button-menu-hover");
-        configuracionButton.getStyleClass().removeAll("button-menu-hover");
+        gestionGastoButton.getStyleClass().add("button-bold-hover");
+        gestionCategoriaButton.getStyleClass().removeAll("button-bold-hover");
+        configuracionButton.getStyleClass().removeAll("button-bold-hover");
         
         try {
             // cambia a la opción gestión gasto
@@ -123,9 +123,9 @@ public class ContenedorPrincipalController implements Initializable {
     @FXML
     private void gestionCategoria(MouseEvent event) {
         // resaltar el seleccionado
-        gestionGastoButton.getStyleClass().removeAll("button-menu-hover");
-        gestionCategoriaButton.getStyleClass().add("button-menu-hover");
-        configuracionButton.getStyleClass().removeAll("button-menu-hover");
+        gestionGastoButton.getStyleClass().removeAll("button-bold-hover");
+        gestionCategoriaButton.getStyleClass().add("button-bold-hover");
+        configuracionButton.getStyleClass().removeAll("button-bold-hover");
         try {
             // cambia a la opción de gestión categoría
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/GestionCategoria.fxml"));

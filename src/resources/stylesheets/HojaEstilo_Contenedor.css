@@ -17,7 +17,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 .text-title {
 
     -fx-font-family: "Yu Gothic";
-    -fx-fill:#FF6161;
+    -fx-fill:#489FEA;
     -fx-font-weight: bolder;
     -fx-font-size: 25pt;
 }
@@ -31,7 +31,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 .separator-custom .line {
     
     /* -fx-background-color: #9B0000; /* Opción rojo oscuro */
-    -fx-background-color: #ffb7b7; /* Opción rojo claro  */
+    -fx-background-color: #489FEA; /* Opción rojo claro  */
     -fx-padding: 0.3px;
     -fx-background-radius: 0;
     -fx-border-width: 0;
@@ -40,16 +40,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 }
 
 
-.button-menu {
+.button-menu { /* BUTTON BOLD */
     
     -fx-button-radius: 0;
     -fx-pref-width: 150pt; /* Ancho preferido del botón */
     -fx-pref-height: 20px; /* Alto preferido del botón */
     
-    -fx-background-color: #FF6161;
+    -fx-background-color: #489FEA;
     
     -fx-border-width: 1;
-    -fx-border-color: #ff6161;
+    -fx-border-color: #489FEA;
     
     -fx-text-fill: #f1f1f1;
     -fx-font-family: "Yu Gothic";
@@ -75,7 +75,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     
 }
 
-.button-menu-hover {
+.button-menu-hover { 
     
     -fx-button-radius: 0;
     -fx-pref-width: 153pt; /* Ancho preferido del botón */
@@ -85,14 +85,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-border-width: 1;
     -fx-border-color: #ff3030;
     
-    -fx-text-fill: #ffffff;
+    -fx-text-fill: white;
     -fx-font-family: "Yu Gothic";
     -fx-font-weight: bolder;
     -fx-font-size: 10.5pt;
     
 }
 
-.button-task {
+.button-task { /* BUTTON NORMAL */
     
     -fx-button-radius: 0;
     
@@ -102,9 +102,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-background-color: transparent;
     
     -fx-border-width: 1;
-    -fx-border-color: #FF6161;
+    -fx-border-color: #489FEA;
     
-    -fx-text-fill: #FF6161;
+    -fx-text-fill: #489FEA;
     -fx-font-family: "Yu Gothic";
     -fx-font-weight: bold;
     -fx-font-size: 10pt;
@@ -118,9 +118,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-background-color: transparent;
     
     -fx-border-width: 2;
-    -fx-border-color: #ff3b3b;
+    -fx-border-color: #485DEA;
     
-    -fx-text-fill: #ff3b3b;
+    -fx-text-fill: #485DEA;
     -fx-font-family: "Yu Gothic";
     -fx-font-weight: bolder;
     -fx-font-size: 10.5pt;
@@ -134,7 +134,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-padding: 0; /* Elimina el relleno de la cabecera */
     
     -fx-border-width: 1 1 1 1;
-    -fx-border-color: #FF6161;
+    -fx-border-color: #489FEA;
     
     -fx-text-fill: #000000;
     -fx-font-family: "Yu Gothic";
@@ -145,7 +145,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 
 /* Estilo para la cabecera */
 .table-view .column-header {
-    -fx-background-color: #ff6161; /* Rojo oscuro */
+    -fx-background-color: #489FEA; /* Rojo oscuro */
     -fx-padding: 0; /* Elimina el relleno de la cabecera */
     
     -fx-border-width: 0 0.5 0 0.5;
