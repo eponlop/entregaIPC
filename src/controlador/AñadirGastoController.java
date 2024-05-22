@@ -4,6 +4,7 @@
  */
 package controlador;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -22,10 +23,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import javafx.util.StringConverter;
 import model.Acount;
 import model.AcountDAOException;
@@ -56,6 +60,8 @@ public class AñadirGastoController implements Initializable {
     private DatePicker datePicker;
     @FXML
     private Button aceptarButton;
+    @FXML
+    private Label nombreArchivo;
 
 
     /**
@@ -135,6 +141,20 @@ public class AñadirGastoController implements Initializable {
             Logger.getLogger(AñadirCategoriaController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(AñadirCategoriaController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void seleccionarArchivo(MouseEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Selecciona una imagen");
+        fileChooser.getExtensionFilters().addAll(
+            new FileChooser.ExtensionFilter("Archivos de imagen", "*.png", "*.jpg", "*.jpeg")
+        );
+        File file = fileChooser.showOpenDialog((Stage) cancelarButton.getScene().getWindow());
+        if (file != null) {
+            scanImage = new Image(file.toURI().toString());
+            nombreArchivo.setText(file.getName());
         }
     }
     

@@ -124,8 +124,8 @@
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-head" text="Archivo adjunto (opcional)" />
                   <HBox alignment="CENTER_LEFT" prefHeight="26.0" prefWidth="340.0">
                      <children>
-                        <Button mnemonicParsing="false" styleClass="button-bold" text="Seleccionar" />
-                        <Label text="Nombre de archivo">
+                        <Button mnemonicParsing="false" onMouseClicked="#seleccionarArchivo" styleClass="button-bold" text="Seleccionar" />
+                        <Label fx:id="nombreArchivo" text="Nombre de archivo">
                            <HBox.margin>
                               <Insets left="12.0" />
                            </HBox.margin>
