@@ -6,10 +6,14 @@ package controlador;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -24,6 +28,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import model.Acount;
 import model.AcountDAOException;
+import model.Category;
 
 /**
  * FXML Controller class
@@ -40,10 +45,32 @@ public class AñadirCategoriaController implements Initializable {
     private TextField nombreText;
     @FXML
     private TextField descripcionText;
-
+    
+    private ObservableList<Category> datos;
+    
+    private List<Category> misDatos;
+    private boolean editado = false;
+    
+    private Category categoria;
     /**
      * Initializes the controller class.
      */
+    
+    public void setIndex(int i) {
+        try {
+            misDatos = Acount.getInstance().getUserCategories();
+            datos = FXCollections.observableList(misDatos);
+            categoria = datos.get(i);
+            nombreText.setText(categoria.getName());
+            descripcionText.setText(categoria.getDescription());
+            editado = true;
+        } catch (AcountDAOException ex) {
+            Logger.getLogger(AñadirCategoriaController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(AñadirCategoriaController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -71,14 +98,35 @@ public class AñadirCategoriaController implements Initializable {
         try {
             String nombre = nombreText.getText();
             String descripcion = descripcionText.getText();
-            
-            boolean isOK = Acount.getInstance().registerCategory(nombre, descripcion);
-            if (isOK) {
+            if (!editado) {
+                boolean isOK = Acount.getInstance().registerCategory(nombre, descripcion);
+                if (isOK) {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Añadir categoría");
+                    alert.setHeaderText("Categoría añadida");
+                    alert.setContentText("La categoría " + nombre + " ha sido añadida con éxito");
+
+                    Optional<ButtonType> respuesta = alert.showAndWait();
+                    if (respuesta.isPresent() && respuesta.get() == ButtonType.OK) {
+                        // cambia a la opción de gestion categoria
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/GestionCategoria.fxml"));
+                        Parent gestionCategoria = loader.load();
+
+                        // seleccionamos el borderpane del contenedor principal
+                        BorderPane principal = (BorderPane) cancelarButton.getParent().getParent().getParent().getParent();
+
+                        principal.setCenter(gestionCategoria);
+                    }
+                }
+            } else {
+                categoria.setName(nombre);
+                categoria.setDescription(descripcion);
+                
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Añadir categoría");
-                alert.setHeaderText("Categoría añadida");
-                alert.setContentText("La categoría " + nombre + " ha sido añadida con éxito");
-                
+                alert.setHeaderText("Categoría editada");
+                alert.setContentText("La categoría " + nombre + " ha sido editada con éxito");
+
                 Optional<ButtonType> respuesta = alert.showAndWait();
                 if (respuesta.isPresent() && respuesta.get() == ButtonType.OK) {
                     // cambia a la opción de gestion categoria
@@ -91,8 +139,10 @@ public class AñadirCategoriaController implements Initializable {
                     principal.setCenter(gestionCategoria);
                 }
             }
+            
         } catch (AcountDAOException ex) {
-            Logger.getLogger(AñadirCategoriaController.class.getName()).log(Level.SEVERE, null, ex);
+            // la categoria ya existe
+            System.out.println("NOT OK");
         } catch (IOException ex) {
             Logger.getLogger(AñadirCategoriaController.class.getName()).log(Level.SEVERE, null, ex);
         }

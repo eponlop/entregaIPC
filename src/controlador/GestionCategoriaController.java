@@ -112,12 +112,16 @@ public class GestionCategoriaController implements Initializable {
         try {
             // cambia a la opción de añadir categoria            
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/AñadirCategoria.fxml"));
-            Parent añadirCategoria = loader.load();
+            Parent root = loader.load();
+            
+            AñadirCategoriaController añadirCategoria = loader.getController();
+            
+            añadirCategoria.setIndex(tablaCategorias.getSelectionModel().getSelectedIndex());
             
             // seleccionamos el borderpane del contenedor principal
             BorderPane principal = (BorderPane) añadirButton.getParent().getParent().getParent();
             
-            principal.setCenter(añadirCategoria);
+            principal.setCenter(root);
             
         } catch (IOException ex) {
             Logger.getLogger(ContenedorPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
