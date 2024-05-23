@@ -27,6 +27,7 @@ import java.io.FileOutputStream;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -124,8 +125,9 @@ public class GestionGastoController implements Initializable {
             columnaDescripcion.setCellValueFactory((gastoFila) -> {
                 return new SimpleStringProperty(gastoFila.getValue().getDescription());
             });
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             columnaFecha.setCellValueFactory((gastoFila) -> {
-                return new SimpleStringProperty(gastoFila.getValue().getDate().toString());
+                return new SimpleStringProperty(gastoFila.getValue().getDate().format(formatter));
             });
             columnaCoste.setCellValueFactory((gastoFila) -> {
                 return new SimpleStringProperty(Double.toString(gastoFila.getValue().getCost()));
@@ -219,12 +221,12 @@ public class GestionGastoController implements Initializable {
             PdfWriter.getInstance(document, new FileOutputStream(file));
             document.open();
             
-            //Image img = Image.getInstance(getClass().getClassLoader().getResource("..\\resources\\images\\Logo.png\""));
+            Image img = Image.getInstance(getClass().getResource("/resources/images/Logo.png"));
 
 
-          //  img.scaleToFit(19, 19); // Escalar la imagen al tamaño deseado
-            //img.setAbsolutePosition(document.getPageSize().getWidth() - 100, document.getPageSize().getHeight() - 100); // Posicionar la imagen en la esquina superior derecha
-          //  document.add(img);
+            img.scaleToFit(60, 60); // Escalar la imagen al tamaño deseado
+            img.setAbsolutePosition(document.getPageSize().getWidth() - 90, document.getPageSize().getHeight() - 70); // Posicionar la imagen en la esquina superior derecha
+            document.add(img);
             
             BaseColor customColorAzul = new BaseColor(0x48, 0x9f, 0xea); // RGB color #489fea
             Font titleFont = FontFactory.getFont("YuGothic-Regular.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED, 30, Font.NORMAL, customColorAzul);
@@ -295,6 +297,7 @@ public class GestionGastoController implements Initializable {
             table.addCell(cell5);
             
             Font fontText = FontFactory.getFont("YuGothic-Regular.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED, 12, Font.NORMAL, BaseColor.BLACK);
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             
             for (Charge charge : data) {
                 
@@ -331,7 +334,7 @@ public class GestionGastoController implements Initializable {
                 cellr5.setHorizontalAlignment(Element.ALIGN_CENTER);
                 cellr5.setVerticalAlignment(Element.ALIGN_MIDDLE);
                 cellr5.setBorderColor(customColorGris);
-                cellr5.setPhrase(new Phrase(charge.getDate().toString(), fontText));
+                cellr5.setPhrase(new Phrase(charge.getDate().format(formatter), fontText));
                 
                 table.addCell(cellr1);
                 table.addCell(cellr2);

@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<HBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.AñadirGastoController">
+<HBox styleClass="root-2" stylesheets="@../resources/stylesheets/HojaEstilo.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.AñadirGastoController">
    <children>
       <VBox maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
       <VBox alignment="BOTTOM_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../resources/stylesheets/HojaEstilo.css">

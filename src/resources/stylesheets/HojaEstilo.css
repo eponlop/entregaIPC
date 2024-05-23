@@ -7,9 +7,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     Author     : esteb
 */
 
-.root {
+.root-1 {
     
-    -fx-background-color: #f1f1f1;
+    -fx-background-color: #E1ECFF;
+    
+}
+
+.root-2 {
+    
+    -fx-background-color: F1F6FF;
     
 }
 
@@ -21,6 +27,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     
     -fx-font-family: "Yu Gothic";
     -fx-font-weight: bolder;
+    -fx-font-size: 25pt;
+}
+
+.text-title-2 {
+
+    -fx-fill:#489FEA;
+    
+    -fx-font-family: "Yu Gothic";
+    -fx-font-weight: normal;
     -fx-font-size: 25pt;
 }
 
@@ -53,6 +68,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-background-color: white;
     -fx-border-color: #9b9b9b;
     -fx-text-fill: black;
+    -fx-font-family: "Yu Gothic";
+    -fx-font-weight: normal;
+    -fx-font-size: 10pt;
+    
+}
+
+.text-field-non-editable {
+    
+    -fx-background-color: white;
+    -fx-border-color: #9b9b9b;
+    -fx-text-fill: #9b9b9b;
     -fx-font-family: "Yu Gothic";
     -fx-font-weight: normal;
     -fx-font-size: 10pt;

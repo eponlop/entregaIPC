@@ -120,6 +120,11 @@ public class ConfiguracionPerfilController implements Initializable {
             cancelarButton.setVisible(false);
             editarButton.setVisible(true);
             editarButton.setDisable(false);
+            
+            nombreText.getStyleClass().add("text-field-non-editable");
+            apellidoText.getStyleClass().add("text-field-non-editable");
+            correoText.getStyleClass().add("text-field-non-editable");
+            passText.getStyleClass().add("text-field-non-editable");
 
             nombreText.setEditable(false);
             apellidoText.setEditable(false);
@@ -166,6 +171,11 @@ public class ConfiguracionPerfilController implements Initializable {
             editarButton.setDisable(false);
             editarButton.toFront();
             
+            nombreText.getStyleClass().add("text-field-non-editable");
+            apellidoText.getStyleClass().add("text-field-non-editable");
+            correoText.getStyleClass().add("text-field-non-editable");
+            passText.getStyleClass().add("text-field-non-editable");
+            
             nombreText.setEditable(false);
             apellidoText.setEditable(false);
             correoText.setEditable(false);
@@ -207,6 +217,11 @@ public class ConfiguracionPerfilController implements Initializable {
         guardarButton.setVisible(true);
         cancelarButton.setDisable(false);
         cancelarButton.setVisible(true);
+        
+        nombreText.getStyleClass().removeAll("text-field-non-editable");
+        apellidoText.getStyleClass().removeAll("text-field-non-editable");
+        correoText.getStyleClass().removeAll("text-field-non-editable");
+        passText.getStyleClass().removeAll("text-field-non-editable");
         
         nombreText.setEditable(true);
         apellidoText.setEditable(true);

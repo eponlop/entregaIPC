@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox stylesheets="@../resources/stylesheets/HojaEstilo.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ConfiguracionPerfilController">
+<HBox styleClass="root-2" stylesheets="@../resources/stylesheets/HojaEstilo.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ConfiguracionPerfilController">
    <children>
       <HBox maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
       <VBox alignment="BOTTOM_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../resources/stylesheets/HojaEstilo.css">
@@ -24,7 +24,7 @@
                               <Insets bottom="5.0" />
                            </VBox.margin>
                         </Label>
-                        <TextField fx:id="nombreText" editable="false" maxWidth="-Infinity" prefHeight="26.0" prefWidth="130.0" />
+                        <TextField fx:id="nombreText" editable="false" maxWidth="-Infinity" prefHeight="26.0" prefWidth="130.0" styleClass="text-field-non-editable" />
                      </children>
                      <HBox.margin>
                         <Insets right="75.0" />
@@ -37,7 +37,7 @@
                               <Insets bottom="5.0" />
                            </VBox.margin>
                         </Label>
-                        <TextField fx:id="apellidoText" editable="false" maxWidth="-Infinity" prefHeight="26.0" prefWidth="130.0" />
+                        <TextField fx:id="apellidoText" editable="false" maxWidth="-Infinity" prefHeight="26.0" prefWidth="130.0" styleClass="text-field-non-editable" />
                      </children>
                   </VBox>
                </children>
@@ -49,7 +49,7 @@
                         <Insets bottom="5.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="correoText" editable="false" maxWidth="-Infinity" prefHeight="26.0" prefWidth="220.0" />
+                  <TextField fx:id="correoText" editable="false" maxWidth="-Infinity" prefHeight="26.0" prefWidth="220.0" styleClass="text-field-non-editable" />
                </children>
             </VBox>
             <HBox>
@@ -61,7 +61,7 @@
                               <Insets bottom="5.0" />
                            </VBox.margin>
                         </Label>
-                        <TextField fx:id="passText" editable="false" maxWidth="-Infinity" prefHeight="26.0" prefWidth="200.0" />
+                        <TextField fx:id="passText" editable="false" maxWidth="-Infinity" prefHeight="26.0" prefWidth="200.0" styleClass="text-field-non-editable" />
                      </children>
                      <HBox.margin>
                         <Insets right="75.0" />

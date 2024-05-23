@@ -11,16 +11,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="borderPanePrincipal" stylesheets="@../resources/stylesheets/HojaEstilo.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ContenedorPrincipalController">
+<BorderPane fx:id="borderPanePrincipal" styleClass="root-1" stylesheets="@../resources/stylesheets/HojaEstilo.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ContenedorPrincipalController">
    <left>
       <HBox BorderPane.alignment="CENTER">
          <BorderPane.margin>
-            <Insets left="15.0" right="5.0" />
+            <Insets left="15.0" />
          </BorderPane.margin>
          <children>
             <VBox alignment="CENTER" prefHeight="300.0" prefWidth="224.0">
                <children>
-                  <Button fx:id="gestionGastoButton" mnemonicParsing="false" onMouseClicked="#gestionGasto" style="-fx-pref-width: 180pt; -fx-pref-width: hover: 200pt;" styleClass="button-bold" text="Gestión de gastos">
+                  <Button fx:id="gestionGastoButton" mnemonicParsing="false" onMouseClicked="#gestionGasto" style="-fx-pref-width: 180pt;" styleClass="button-bold" text="Gestión de gastos">
                      <VBox.margin>
                         <Insets bottom="5.0" top="20.0" />
                      </VBox.margin>
@@ -32,7 +32,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="gestionCategoriaButton" mnemonicParsing="false" onMouseClicked="#gestionCategoria" style="-fx-pref-width: 180pt; -fx-pref-width: hover: 200pt;" styleClass="button-bold" text="Gestión de categorías">
+                  <Button fx:id="gestionCategoriaButton" mnemonicParsing="false" onMouseClicked="#gestionCategoria" style="-fx-pref-width: 180pt;" styleClass="button-bold" text="Gestión de categorías">
                      <VBox.margin>
                         <Insets bottom="35.0" top="5.0" />
                      </VBox.margin>
@@ -46,7 +46,7 @@
                   </Button>
                   <VBox VBox.vgrow="ALWAYS" />
                   <VBox />
-                  <Button fx:id="configuracionButton" graphicTextGap="6.0" mnemonicParsing="false" onMouseClicked="#configuracion" style="-fx-pref-width: 180pt; -fx-pref-width: hover: 200pt;" styleClass="button-bold" text="Configuración de perfil">
+                  <Button fx:id="configuracionButton" graphicTextGap="6.0" mnemonicParsing="false" onMouseClicked="#configuracion" style="-fx-pref-width: 180pt;" styleClass="button-bold" text="Configuración de perfil">
                      <VBox.margin>
                         <Insets bottom="5.0" top="35.0" />
                      </VBox.margin>
@@ -58,7 +58,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="salirButton" mnemonicParsing="false" onMouseClicked="#salir" style="-fx-pref-width: 180pt; -fx-pref-width: hover: 200pt;" styleClass="button-bold" text="Salir">
+                  <Button fx:id="salirButton" mnemonicParsing="false" onMouseClicked="#salir" style="-fx-pref-width: 180pt;" styleClass="button-bold" text="Salir">
                      <VBox.margin>
                         <Insets bottom="30.0" top="5.0" />
                      </VBox.margin>
@@ -76,9 +76,6 @@
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>
-               <padding>
-                  <Insets bottom="10.0" />
-               </padding>
             </Separator>
          </children>
       </HBox>
@@ -95,7 +92,7 @@
                      <HBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </HBox.margin></ImageView>
-                  <Text fx:id="bienvenidaText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-title" />
+                  <Text fx:id="bienvenidaText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-title-2" />
                   <HBox maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
                   <Label style="-fx-fill: #489fea;" styleClass="text-title" text="Budget Buddy" textFill="#489fea" HBox.hgrow="ALWAYS" />
                   <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
@@ -108,11 +105,7 @@
                   </ImageView>
                </children>
             </HBox>
-            <Separator prefWidth="200.0" styleClass="separator-custom">
-               <padding>
-                  <Insets left="10.0" right="10.0" />
-               </padding>
-            </Separator>
+            <Separator prefWidth="200.0" styleClass="separator-custom" />
          </children>
       </VBox>
    </top>
