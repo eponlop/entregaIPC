@@ -9,6 +9,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -16,8 +17,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.Acount;
 import model.AcountDAOException;
@@ -35,6 +38,15 @@ public class InicioSesiónController implements Initializable {
     private TextField loginText;
     @FXML
     private TextField passText;
+    @FXML
+    private VBox boxUser;
+    @FXML
+    private VBox boxPass;
+    @FXML
+    private PasswordField passTextOculto;
+    
+    private boolean verPass = true; //CAMBIAR ESTO LUEGO
+    
 
     /**
      * Initializes the controller class.
@@ -42,6 +54,11 @@ public class InicioSesiónController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        boxUser.prefWidthProperty().bind(boxPass.widthProperty());
+        loginText.maxWidthProperty().bind(passText.widthProperty());
+        passText.textProperty().bindBidirectional(passTextOculto.textProperty());
+        passText.setText("1234abc");
+        
     }    
 
     @FXML
@@ -92,5 +109,15 @@ public class InicioSesiónController implements Initializable {
         } catch (IOException e) {
         
         }
+    }
+
+    @FXML
+    private void ver(MouseEvent event) {
+        if (verPass) {
+            passTextOculto.toFront();
+        } else {
+            passText.toFront();
+        }
+        verPass = !verPass;
     }
 }

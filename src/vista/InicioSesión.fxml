@@ -3,10 +3,12 @@
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -35,7 +37,7 @@
       </HBox>
       <HBox alignment="CENTER">
          <children>
-            <VBox alignment="CENTER_LEFT">
+            <VBox fx:id="boxUser" alignment="CENTER_LEFT">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario">
                      <font>
@@ -49,7 +51,7 @@
                         <Insets bottom="5.0" />
                      </VBox.margin>
                   </Text>
-                  <TextField fx:id="loginText" text="eponlop" />
+                  <TextField fx:id="loginText" text="eponlop" VBox.vgrow="NEVER" />
                </children>
             </VBox>
          </children>
@@ -62,7 +64,7 @@
             <Insets top="10.0" />
          </VBox.margin>
          <children>
-            <VBox alignment="CENTER_LEFT">
+            <VBox fx:id="boxPass" alignment="CENTER_LEFT">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña">
                      <font>
@@ -76,7 +78,28 @@
                         <Insets bottom="5.0" />
                      </VBox.margin>
                   </Text>
-                  <TextField fx:id="passText" text="1234abc" />
+                  <HBox alignment="CENTER">
+                     <children>
+                        <StackPane>
+                           <children>
+                              <PasswordField fx:id="passTextOculto" />
+                              <TextField fx:id="passText" />
+                           </children>
+                        </StackPane>
+                        <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#ver" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                           <graphic>
+                              <ImageView fitHeight="23.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/images/RuedaConfig.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </HBox>
                </children>
             </VBox>
          </children>

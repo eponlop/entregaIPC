@@ -98,6 +98,8 @@ public class AñadirCategoriaController implements Initializable {
         try {
             String nombre = nombreText.getText();
             String descripcion = descripcionText.getText();
+            
+            if (nombre.equals("") || descripcion.equals("")) {throw new IllegalArgumentException();}
             if (!editado) {
                 boolean isOK = Acount.getInstance().registerCategory(nombre, descripcion);
                 if (isOK) {
@@ -139,10 +141,20 @@ public class AñadirCategoriaController implements Initializable {
                     principal.setCenter(gestionCategoria);
                 }
             }
-            
+        } catch (IllegalArgumentException ex) {
+            // La categoria no tiene nombre
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setTitle("Añadir categoría");
+            alerta.setHeaderText("No se ha podido añadir la categoría");
+            alerta.setContentText("Por favor rellena todos los campos");
+            alerta.showAndWait();
         } catch (AcountDAOException ex) {
             // la categoria ya existe
-            System.out.println("NOT OK");
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setTitle("Añadir categoría");
+            alerta.setHeaderText("No se ha podido añadir la categoría");
+            alerta.setContentText("Se ha intentado añadir una categoría ya existente");
+            alerta.showAndWait();
         } catch (IOException ex) {
             Logger.getLogger(AñadirCategoriaController.class.getName()).log(Level.SEVERE, null, ex);
         }

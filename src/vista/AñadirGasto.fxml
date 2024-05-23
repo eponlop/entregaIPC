@@ -6,6 +6,7 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
@@ -119,19 +120,28 @@
                   <Insets top="25.0" />
                </VBox.margin>
             </HBox>
-            <VBox maxHeight="-Infinity" VBox.vgrow="NEVER">
-               <children>
-                  <Text fill="#489fea" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-head" text="Archivo adjunto (opcional)" />
-                  <HBox alignment="CENTER_LEFT" prefHeight="26.0" prefWidth="340.0">
-                     <children>
-                        <Button mnemonicParsing="false" onMouseClicked="#seleccionarArchivo" styleClass="button-bold" text="Seleccionar" />
-                     </children>
-                  </HBox>
-               </children>
+            <HBox VBox.vgrow="NEVER">
                <VBox.margin>
                   <Insets top="25.0" />
                </VBox.margin>
-            </VBox>
+               <children>
+                  <VBox maxHeight="-Infinity">
+                     <children>
+                        <Text fill="#489fea" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-head" text="Archivo adjunto (opcional)" />
+                        <HBox alignment="CENTER_LEFT">
+                           <children>
+                              <Button mnemonicParsing="false" onMouseClicked="#seleccionarArchivo" styleClass="button-bold" text="Seleccionar" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+            </HBox>
             <HBox maxHeight="1.7976931348623157E308" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                <children>
                   <HBox prefWidth="250.0" />

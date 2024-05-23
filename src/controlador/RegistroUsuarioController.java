@@ -29,6 +29,9 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import model.Acount;
 import model.AcountDAOException;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+import javafx.scene.control.PasswordField;
 
 /**
  * FXML Controller class
@@ -55,6 +58,16 @@ public class RegistroUsuarioController implements Initializable {
     private Image image = null;
     @FXML
     private ImageView imageView;
+    
+    private boolean verPass = false;
+    
+    
+    // Expresión regular para validar el formato de correo electrónico
+    private static final String EMAIL_REGEX = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$";
+    @FXML
+    private PasswordField passTextOculto;
+    @FXML
+    private PasswordField repitePassTextOculto;
 
     /**
      * Initializes the controller class.
@@ -62,6 +75,9 @@ public class RegistroUsuarioController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        passwordText.textProperty().bindBidirectional(passTextOculto.textProperty());
+        repitePassTextOculto.textProperty().bindBidirectional(repeatPassText.textProperty());
+        
         loginText.textProperty().addListener((a, b, c) -> {
             if (c.contains(" ")) {
                 loginText.setText(b);
@@ -96,6 +112,34 @@ public class RegistroUsuarioController implements Initializable {
         InputStream input = getClass().getResourceAsStream("/avatars/default.png"); 
         LocalDate date = LocalDate.now();
         boolean isOK;
+        
+        if (name.equals("") || surname.equals("") || email.equals("")) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Error en registro");
+            alert.setHeaderText("Faltan datos");
+            alert.setContentText("Por favor introduce todos los datos personales faltantes");
+            alert.showAndWait();
+            if (email.equals("")) {
+            emailText.requestFocus();
+            }
+            if (surname.equals("")) {
+            apellidoText.requestFocus();
+            }
+            if (name.equals("")) {
+            nombreText.requestFocus();
+            }
+            return;
+        }
+        
+        if (!isValidEmail(email)) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Error en registro");
+            alert.setHeaderText("El e-mail no es valido");
+            alert.setContentText("Por favor introduce un formato de e-mail válido");
+            alert.showAndWait();
+            emailText.requestFocus();
+            return;
+        }
         
         if (password.length() < 6) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -167,4 +211,38 @@ public class RegistroUsuarioController implements Initializable {
         }
     }
     
+        public static boolean isValidEmail(String email) {
+        // Comprobar si el correo electrónico es nulo o está vacío
+        if (email == null || email.isEmpty()) {
+            return false;
+        }
+
+        // Crear un patrón con la expresión regular
+        Pattern pattern = Pattern.compile(EMAIL_REGEX);
+        // Crear un comparador para la cadena de entrada
+        Matcher matcher = pattern.matcher(email);
+
+        // Devolver si coincide con el patrón
+        return matcher.matches();
+    }
+
+    @FXML
+    private void ver(MouseEvent event) {
+        if (verPass) {
+            passTextOculto.toFront();
+            repitePassTextOculto.toFront();
+            passwordText.setVisible(false);
+            repeatPassText.setVisible(false);
+            passTextOculto.setVisible(true);
+            repitePassTextOculto.setVisible(true);
+        } else {
+            passwordText.toFront();
+            repeatPassText.toFront();
+            passwordText.setVisible(true);
+            repeatPassText.setVisible(true);
+            passTextOculto.setVisible(false);
+            repitePassTextOculto.setVisible(false);
+        }
+        verPass = !verPass;
+    }
 }

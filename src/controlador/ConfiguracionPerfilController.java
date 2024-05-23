@@ -18,6 +18,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -67,13 +68,28 @@ public class ConfiguracionPerfilController implements Initializable {
     private TextField passText;
 
     private Image image;
+    @FXML
+    private PasswordField passTextOculto;
     
+    private boolean verPass = false;
+    private boolean editando = false;
+    
+    @FXML
+    private Button verButton1;
+    @FXML
+    private PasswordField repitePassTextOculto;
+    @FXML
+    private Button verButton2;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
             // TODO
             cancelarButton.setVisible(false);
             guardarButton.setVisible(false);
+            
+            passText.textProperty().bindBidirectional(passTextOculto.textProperty());
+            repitePassTextOculto.textProperty().bindBidirectional(repitePassText.textProperty());
+            
         try {
             nombreText.setText(Acount.getInstance().getLoggedUser().getName());
             apellidoText.setText(Acount.getInstance().getLoggedUser().getSurname());
@@ -94,6 +110,7 @@ public class ConfiguracionPerfilController implements Initializable {
    
     @FXML
     private void guardarCambiosClick(MouseEvent event) {
+        editando = !editando;
         //Cambios en la interfaz
         if (passText.getText().length() < 6) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -114,6 +131,7 @@ public class ConfiguracionPerfilController implements Initializable {
             repitePassText.setText("");
             passText.requestFocus();
         } else {
+            verButton1.setVisible(true);
             cajaDelStack.toBack();
             guardarButton.setDisable(true);
             guardarButton.setVisible(false);
@@ -121,6 +139,8 @@ public class ConfiguracionPerfilController implements Initializable {
             cancelarButton.setVisible(false);
             editarButton.setVisible(true);
             editarButton.setDisable(false);
+            passTextOculto.setEditable(false);
+            repitePassTextOculto.setEditable(false);
             
             nombreText.getStyleClass().add("text-field-non-editable");
             apellidoText.getStyleClass().add("text-field-non-editable");
@@ -135,6 +155,8 @@ public class ConfiguracionPerfilController implements Initializable {
             seleccionarButton.setDisable(true);
             cajaRepitePass.setVisible(false);
             cajaRepitePass.setDisable(true);
+            passTextOculto.setDisable(true);
+            repitePassTextOculto.setDisable(true);
             
             try {
                 Acount.getInstance().getLoggedUser().setName(nombreText.getText());
@@ -160,30 +182,36 @@ public class ConfiguracionPerfilController implements Initializable {
     }
     @FXML
     private void cancelarClick(MouseEvent event) {
-        
-            //Cambios en la interfaz
-            cajaDelStack.toBack();
-            guardarButton.setDisable(true);
-            guardarButton.setVisible(false);
-            cancelarButton.setDisable(true);
-            cancelarButton.setVisible(false);
-            editarButton.setVisible(true);
-            editarButton.setDisable(false);
-            editarButton.toFront();
-            
-            nombreText.getStyleClass().add("text-field-non-editable");
-            apellidoText.getStyleClass().add("text-field-non-editable");
-            correoText.getStyleClass().add("text-field-non-editable");
-            passText.getStyleClass().add("text-field-non-editable");
-            
-            nombreText.setEditable(false);
-            apellidoText.setEditable(false);
-            correoText.setEditable(false);
-            passText.setEditable(false);
-            repitePassText.setEditable(false);
-            seleccionarButton.setDisable(true);
-            cajaRepitePass.setVisible(false);
-            cajaRepitePass.setDisable(true);
+        editando = !editando;
+
+        //Cambios en la interfaz
+        cajaDelStack.toBack();
+        guardarButton.setDisable(true);
+        guardarButton.setVisible(false);
+        cancelarButton.setDisable(true);
+        cancelarButton.setVisible(false);
+        editarButton.setVisible(true);
+        editarButton.setDisable(false);
+        editarButton.toFront();
+        verButton1.setVisible(true);
+
+        nombreText.getStyleClass().add("text-field-non-editable");
+        apellidoText.getStyleClass().add("text-field-non-editable");
+        correoText.getStyleClass().add("text-field-non-editable");
+        passText.getStyleClass().add("text-field-non-editable");
+
+        nombreText.setEditable(false);
+        apellidoText.setEditable(false);
+        correoText.setEditable(false);
+        passText.setEditable(false);
+        repitePassText.setEditable(false);
+        seleccionarButton.setDisable(true);
+        cajaRepitePass.setVisible(false);
+        cajaRepitePass.setDisable(true);
+        passTextOculto.setEditable(false);
+        repitePassTextOculto.setEditable(false);
+        passTextOculto.setDisable(true);
+        repitePassTextOculto.setDisable(true);
             
             
         try {    
@@ -209,6 +237,8 @@ public class ConfiguracionPerfilController implements Initializable {
 
     @FXML
     private void editarClick(MouseEvent event) {
+        editando = !editando;
+        
         //Cambios en la interfaz
         editarButton.toBack();
         editarButton.setVisible(false);
@@ -217,6 +247,10 @@ public class ConfiguracionPerfilController implements Initializable {
         guardarButton.setVisible(true);
         cancelarButton.setDisable(false);
         cancelarButton.setVisible(true);
+        verButton1.setVisible(false);
+        verButton2.setVisible(true);
+        passTextOculto.setDisable(false);
+        repitePassTextOculto.setDisable(false);
         
         nombreText.getStyleClass().removeAll("text-field-non-editable");
         apellidoText.getStyleClass().removeAll("text-field-non-editable");
@@ -228,6 +262,8 @@ public class ConfiguracionPerfilController implements Initializable {
         correoText.setEditable(true);
         passText.setEditable(true);
         repitePassText.setEditable(true);
+        passTextOculto.setEditable(true);
+        repitePassTextOculto.setEditable(true);
         seleccionarButton.setDisable(false);
         cajaRepitePass.setVisible(true);
         cajaRepitePass.setDisable(false);
@@ -246,4 +282,25 @@ public class ConfiguracionPerfilController implements Initializable {
             imageView.setImage(image);
         }
     }
+
+    @FXML
+    private void verPass(MouseEvent event) {
+        if (verPass) {
+            passTextOculto.toFront();
+            repitePassTextOculto.toFront();
+            passText.setVisible(false);
+            repitePassText.setVisible(false);
+            passTextOculto.setVisible(true);
+            repitePassTextOculto.setVisible(true);
+        } else {
+            passText.toFront();
+            repitePassText.toFront();
+            passText.setVisible(true);
+            repitePassText.setVisible(true);
+            passTextOculto.setVisible(false);
+            repitePassTextOculto.setVisible(false);
+        }
+        verPass = !verPass;
+    }
+
 }

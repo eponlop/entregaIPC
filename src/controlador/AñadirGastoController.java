@@ -27,6 +27,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.FileChooser;
@@ -70,6 +71,12 @@ public class AñadirGastoController implements Initializable {
     private boolean editado = false;
     
     
+    private Charge prevGasto;
+    @FXML
+    private ImageView imageView;
+    
+    
+    
     
     
     public void setIndex(int i) {
@@ -77,6 +84,7 @@ public class AñadirGastoController implements Initializable {
             misDatos = Acount.getInstance().getUserCharges();
             datos = FXCollections.observableList(misDatos);
             gasto = datos.get(i);
+            prevGasto = datos.get(i);
             nombreText.setText(gasto.getName());
             descripcionText.setText(gasto.getDescription());
             categoriaChooser.setValue(gasto.getCategory());
@@ -84,8 +92,7 @@ public class AñadirGastoController implements Initializable {
             unitsText.setText(Integer.toString(gasto.getUnits()));
             datePicker.setValue(gasto.getDate());
             scanImage = gasto.getImageScan();
-            // falta el imageview
-           
+            imageView.setImage(scanImage);
             
             editado = true;
         } catch (AcountDAOException ex) {
@@ -116,7 +123,7 @@ public class AñadirGastoController implements Initializable {
                     return null;
                 }
             });
-            
+        
         } catch (AcountDAOException ex) {
             Logger.getLogger(AñadirGastoController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
@@ -143,13 +150,26 @@ public class AñadirGastoController implements Initializable {
     @FXML
     private void guardarGasto(MouseEvent event) {
         try {
+            
+            if (costeText.getText().equals("") || unitsText.getText().equals("")) {
+                throw new AcountDAOException("");
+            }
+            
             String nombre = nombreText.getText();
             String descripcion = descripcionText.getText();
             double cost = Double.parseDouble(costeText.getText());
             int units = Integer.parseInt(unitsText.getText());
             LocalDate date = datePicker.getValue();
             Category category = categoriaChooser.getValue();
+
+            if (category == null || nombre.equals("") || descripcion.equals("") || date == null) {
+                throw new AcountDAOException("");
+            }
             
+            if (cost <= 0 || units <= 0) {
+                throw new IllegalArgumentException();
+            }
+           
             if (!editado) {
                 boolean isOK = Acount.getInstance().registerCharge(nombre, descripcion, cost, units, scanImage, date, category);
                 if (isOK) {
@@ -170,6 +190,7 @@ public class AñadirGastoController implements Initializable {
                         principal.setCenter(gestionGasto);
                     }
                 }
+                
             } else {
                 gasto.setName(nombre);
                 gasto.setDescription(descripcion);
@@ -194,17 +215,26 @@ public class AñadirGastoController implements Initializable {
 
                     principal.setCenter(gestionGasto);
                 }
-            }
+            } 
             
             
             
             
         } catch (AcountDAOException ex) {
-            // no se edita y se guarda
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setTitle("Añadir gasto");
+            alerta.setHeaderText("No se ha podido guardar el gasto");
+            alerta.setContentText("Faltan datos para añadir el gasto");
+            alerta.showAndWait();
         } catch (IOException ex) {
-            Logger.getLogger(AñadirCategoriaController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalArgumentException ex) {
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setTitle("Añadir gasto");
+            alerta.setHeaderText("No se ha podido guardar el gasto");
+            alerta.setContentText("Se ha intentado añadir una gasto con un formato no válido");
+            alerta.showAndWait();
         }
-    }
+    }   
 
     @FXML
     private void seleccionarArchivo(MouseEvent event) {
@@ -217,6 +247,7 @@ public class AñadirGastoController implements Initializable {
         if (file != null) {
             scanImage = new Image(file.toURI().toString());
             // poner en el imageview la imagen
+            imageView.setImage(scanImage);
         }
     }
     
