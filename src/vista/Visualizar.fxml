@@ -7,6 +7,7 @@
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.ToolBar?>
@@ -15,9 +16,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.VisualizarController">
+<BorderPane minHeight="-Infinity" minWidth="-Infinity" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.VisualizarController">
    <center>
-      <BarChart fx:id="grafica" animated="false" prefHeight="300.0" prefWidth="484.0" BorderPane.alignment="CENTER">
+      <BarChart fx:id="grafica" animated="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="200.0" BorderPane.alignment="CENTER">
         <xAxis>
           <CategoryAxis side="BOTTOM" />
         </xAxis>
@@ -30,7 +31,7 @@
       </BarChart>
    </center>
    <right>
-      <ToolBar orientation="VERTICAL" BorderPane.alignment="CENTER">
+      <ToolBar orientation="VERTICAL" prefHeight="200.0" BorderPane.alignment="CENTER">
          <items>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-head" text="Categoria" />
             <ComboBox fx:id="categoriaChooser" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" onAction="#categoriaElegida" prefHeight="30.0" prefWidth="100.0" />
@@ -42,7 +43,7 @@
             <DatePicker fx:id="fechaChooser" minHeight="-Infinity" minWidth="-Infinity" onAction="#fechaElegida" prefHeight="30.0" prefWidth="160.0" showWeekNumbers="true" />
          </items>
          <BorderPane.margin>
-            <Insets left="10.0" right="10.0" />
+            <Insets left="10.0" />
          </BorderPane.margin>
          <padding>
             <Insets left="10.0" right="10.0" top="10.0" />
@@ -50,12 +51,13 @@
       </ToolBar>
    </right>
    <bottom>
-      <VBox BorderPane.alignment="CENTER">
+      <VBox prefWidth="500.0" BorderPane.alignment="CENTER">
          <BorderPane.margin>
-            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+            <Insets />
          </BorderPane.margin>
          <children>
-            <TableView fx:id="tablaFiltrada" prefHeight="256.0" prefWidth="698.0">
+            <Separator prefWidth="200.0" styleClass="separator-custom" />
+            <TableView fx:id="tablaFiltrada" maxHeight="1.7976931348623157E308" minHeight="-Infinity" prefHeight="200.0" VBox.vgrow="ALWAYS">
               <columns>
                 <TableColumn fx:id="columnaNombre" prefWidth="75.0" text="Nombre" />
                 <TableColumn fx:id="columnaDescripcion" prefWidth="83.20001220703125" text="Descripcion" />
@@ -63,6 +65,9 @@
                   <TableColumn fx:id="columnaCoste" prefWidth="75.0" text="Coste" />
                   <TableColumn fx:id="columnaFecha" prefWidth="75.0" text="Fecha" />
               </columns>
+               <VBox.margin>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </VBox.margin>
             </TableView>
          </children>
       </VBox>
