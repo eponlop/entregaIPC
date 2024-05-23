@@ -49,7 +49,7 @@
                      <VBox.margin>
                         <Insets />
                      </VBox.margin></VBox>
-                  <Button mnemonicParsing="false" styleClass="button-normal" text="Visualizar">
+                  <Button mnemonicParsing="false" onMouseClicked="#visualizar" styleClass="button-normal" text="Visualizar">
                      <VBox.margin>
                         <Insets bottom="10.0" top="10.0" />
                      </VBox.margin>

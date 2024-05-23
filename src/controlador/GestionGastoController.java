@@ -351,4 +351,21 @@ public class GestionGastoController implements Initializable {
          //JIJI
         }
     }
+
+    @FXML
+    private void visualizar(MouseEvent event) {
+        try {
+            // cambia a la opción de visualizar            
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/Visualizar.fxml"));
+            Parent añadirGasto = loader.load();
+            
+            // seleccionamos el borderpane del contenedor principal
+            BorderPane principal = (BorderPane) añadirButton.getParent().getParent().getParent();
+            
+            principal.setCenter(añadirGasto);
+            
+        } catch (IOException ex) {
+            Logger.getLogger(ContenedorPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+        }      
+    }
 }
