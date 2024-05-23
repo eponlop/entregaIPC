@@ -268,33 +268,33 @@ public class VisualizarController implements Initializable {
 
         switch (periodoChooser.getValue()) {
             case "Semana seleccionada":
-
-
                 break;
+                
             case "Mes seleccionado":
-            int diasMes = fecha.lengthOfMonth();
-            for (int i = 1;i <= diasMes;i++) {
-                sumaGasto = 0;
-                for (int j = 0;cargos.size() > j;j++) {
-                    if (cargos.get(j).getDate().getDayOfMonth() == i) {
-                        sumaGasto += cargos.get(j).getCost();
+                int diasMes = fecha.lengthOfMonth();
+                for (int i = 1;i <= diasMes;i++) {
+                    sumaGasto = 0;
+                    for (int j = 0; j < cargos.size(); j++) {
+                        if (cargos.get(j).getDate().getDayOfMonth() == i) {
+                            sumaGasto += cargos.get(j).getCost();
+                        }
                     }
+                    datosGrafica.getData().add(new XYChart.Data<>(Integer.toString(i), sumaGasto));
                 }
-                datosGrafica.getData().add(new XYChart.Data<>(Integer.toString(i), sumaGasto));
-            }
-
-            break;
-            case "Año seleccionado":
-            for (int i = 1;i <= 12;i++) {
-                sumaGasto = 0;
-                for (int j = 0;cargos.size() > j;j++) {
-                    if (cargos.get(j).getDate().getMonthValue() == i) {
-                        sumaGasto += cargos.get(j).getCost();
-                    }
-                }
-                datosGrafica.getData().add(new XYChart.Data<>(getMonthAbbreviation(i), sumaGasto));
-            }
                 break;
+                
+            case "Año seleccionado":
+                for (int i = 1; i <= 12; i++) {
+                    sumaGasto = 0;
+                    for (int j = 0; j < cargos.size(); j++) {
+                        if (cargos.get(j).getDate().getMonthValue() == i) {
+                            sumaGasto += cargos.get(j).getCost();
+                        }
+                    }
+                    datosGrafica.getData().add(new XYChart.Data<>(getMonthAbbreviation(i), sumaGasto));
+                }
+                break;
+                
             default:
                 throw new AssertionError();
         }
@@ -304,9 +304,6 @@ public class VisualizarController implements Initializable {
     }
 
     public static String getMonthAbbreviation(int month) {
-        if (month < 1 || month > 12) {
-            throw new IllegalArgumentException("El mes debe estar entre 1 y 12");
-        }
         Month monthEnum = Month.of(month);
         return monthEnum.getDisplayName(TextStyle.SHORT, new Locale("es"));
     }
