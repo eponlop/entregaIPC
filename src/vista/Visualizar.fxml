@@ -17,7 +17,7 @@
 
 <BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.VisualizarController">
    <center>
-      <BarChart fx:id="grafica" prefHeight="300.0" prefWidth="484.0" BorderPane.alignment="CENTER">
+      <BarChart fx:id="grafica" animated="false" prefHeight="300.0" prefWidth="484.0" BorderPane.alignment="CENTER">
         <xAxis>
           <CategoryAxis side="BOTTOM" />
         </xAxis>

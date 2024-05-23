@@ -6,6 +6,7 @@ package controlador;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;
@@ -84,7 +85,6 @@ public class VisualizarController implements Initializable {
         // TODO 
         try {
             // TODO
-            
             // tabla de gastos
             columnaNombre.setReorderable(false);
             columnaDescripcion.setReorderable(false);
@@ -138,9 +138,15 @@ public class VisualizarController implements Initializable {
             periodoChooser.setItems(listaPeriodo);
             periodoChooser.setValue("Semana");
             
+            datosGrafica = new XYChart.Series<String, Number>();
+            
             if (!misDatos.isEmpty()) {
                 filtrar();
-//                graficaSet();
+                grafica.getData().clear();
+                datosGrafica.getData().clear();
+            }
+            if (!datosfiltrados.isEmpty()) {
+                graficaSet();
             }
             
         } catch (AcountDAOException ex) {
@@ -242,20 +248,38 @@ public class VisualizarController implements Initializable {
 
     @FXML
     private void categoriaElegida(ActionEvent event) {
-        filtrar();
-//        graficaSet();
+        if (!misDatos.isEmpty()) {
+                filtrar();
+                grafica.getData().clear();
+                datosGrafica.getData().clear();
+            }
+        if (!datosfiltrados.isEmpty()) {
+            graficaSet();
+        }
     }
 
     @FXML
     private void fechaElegida(ActionEvent event) {
-        filtrar();
-//        graficaSet();
+        if (!misDatos.isEmpty()) {
+                filtrar();
+                grafica.getData().clear();
+                datosGrafica.getData().clear();
+            }
+        if (!datosfiltrados.isEmpty()) {
+            graficaSet();
+        }
     }
     
     @FXML
     private void periodoElegido(ActionEvent event) {
-        filtrar();
-//        graficaSet();
+        if (!misDatos.isEmpty()) {
+                filtrar();
+                grafica.getData().clear();
+                datosGrafica.getData().clear();
+            }
+        if (!datosfiltrados.isEmpty()) {
+            graficaSet();
+        }
     }
     
     
@@ -267,10 +291,19 @@ public class VisualizarController implements Initializable {
         ObservableList<Charge> cargos = tablaFiltrada.getItems();
 
         switch (periodoChooser.getValue()) {
-            case "Semana seleccionada":
+            case "Semana":
+                for (int i = 1; i <= 7; i++) {
+                    sumaGasto = 0;
+                    for (int j = 0; j < cargos.size(); j++) {
+                        if (cargos.get(j).getDate().getDayOfWeek().getValue() == i) {
+                            sumaGasto += cargos.get(j).getCost();
+                        }
+                    }
+                    datosGrafica.getData().add(new XYChart.Data<String, Number>(getDayOfWeekAbbreviation(i), sumaGasto));
+                }
                 break;
                 
-            case "Mes seleccionado":
+            case "Mes":
                 int diasMes = fecha.lengthOfMonth();
                 for (int i = 1;i <= diasMes;i++) {
                     sumaGasto = 0;
@@ -279,26 +312,25 @@ public class VisualizarController implements Initializable {
                             sumaGasto += cargos.get(j).getCost();
                         }
                     }
-                    datosGrafica.getData().add(new XYChart.Data<>(Integer.toString(i), sumaGasto));
+                    datosGrafica.getData().add(new XYChart.Data<String, Number>(Integer.toString(i), sumaGasto));
                 }
                 break;
                 
-            case "Año seleccionado":
-                for (int i = 1; i <= 12; i++) {
+            case "Año":
+                for (int i = 1;i <= 12;i++) {
                     sumaGasto = 0;
                     for (int j = 0; j < cargos.size(); j++) {
                         if (cargos.get(j).getDate().getMonthValue() == i) {
                             sumaGasto += cargos.get(j).getCost();
                         }
                     }
-                    datosGrafica.getData().add(new XYChart.Data<>(getMonthAbbreviation(i), sumaGasto));
+                    datosGrafica.getData().add(new XYChart.Data<String, Number>(getMonthAbbreviation(i), sumaGasto));
                 }
                 break;
                 
             default:
                 throw new AssertionError();
         }
-
         grafica.getData().addAll(datosGrafica);
 
     }
@@ -306,5 +338,10 @@ public class VisualizarController implements Initializable {
     public static String getMonthAbbreviation(int month) {
         Month monthEnum = Month.of(month);
         return monthEnum.getDisplayName(TextStyle.SHORT, new Locale("es"));
+    }
+  
+    public static String getDayOfWeekAbbreviation(int day) {
+        DayOfWeek dayOfWeek = DayOfWeek.of(day);
+        return dayOfWeek.getDisplayName(TextStyle.SHORT, new Locale("es"));
     }
 }
