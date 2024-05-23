@@ -13,10 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
-import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.stream.Collectors;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -34,7 +32,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
-import javafx.util.StringConverter;
 import model.Acount;
 import model.AcountDAOException;
 import model.Category;
@@ -70,13 +67,13 @@ public class VisualizarController implements Initializable {
     @FXML
     private TableColumn<Charge, String> columnaCoste;
     
-    private ObservableList<Category> categorias;
-    
     private ObservableList<Charge> datos;
     
     private List<Charge> misDatos;
     
-    private XYChart.Series<String, Number> datosGrafica = new XYChart.Series<>();
+    private XYChart.Series<String, Number> datosGrafica;
+    
+    private ObservableList<Charge> datosfiltrados;
     /**
      * Initializes the controller class.
      */
@@ -85,85 +82,63 @@ public class VisualizarController implements Initializable {
         // TODO 
         try {
             // TODO
-        columnaNombre.setReorderable(false);
-        columnaDescripcion.setReorderable(false);
-        columnaCategoria.setReorderable(false);
-        columnaCoste.setReorderable(false);
-        columnaFecha.setReorderable(false);
-        columnaNombre.prefWidthProperty().bind(tablaFiltrada.widthProperty().multiply(0.2));
-        columnaDescripcion.prefWidthProperty().bind(tablaFiltrada.widthProperty().multiply(0.2));
-        columnaCategoria.prefWidthProperty().bind(tablaFiltrada.widthProperty().multiply(0.2));
-        columnaCoste.prefWidthProperty().bind(tablaFiltrada.widthProperty().multiply(0.2));
-        columnaFecha.prefWidthProperty().bind(tablaFiltrada.widthProperty().multiply(0.2));
-        
-        misDatos = Acount.getInstance().getUserCharges();
-        datos = FXCollections.observableList(misDatos);
-        tablaFiltrada.setItems(datos);
-        fechaChooser.setValue(LocalDate.now());
-        
-        columnaNombre.setCellValueFactory((gastoFila) -> {
-            return new SimpleStringProperty(gastoFila.getValue().getName());
-        });
-        columnaCategoria.setCellValueFactory((gastoFila) -> {
-            return new SimpleStringProperty(gastoFila.getValue().getCategory().getName());
-        });
-        columnaDescripcion.setCellValueFactory((gastoFila) -> {
-            return new SimpleStringProperty(gastoFila.getValue().getDescription());
-        });
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        columnaFecha.setCellValueFactory((gastoFila) -> {
-            return new SimpleStringProperty(gastoFila.getValue().getDate().format(formatter));
-        });
-        columnaCoste.setCellValueFactory((gastoFila) -> {
-            return new SimpleStringProperty(Double.toString(gastoFila.getValue().getCost()));
-        });
-         
-        
-        
-//         String nombre = "Todas";
-//         String descripcion = "";
-//         Acount.getInstance().registerCategory(nombre,descripcion);  
-//         System.out.println("Registrada");
-         ObservableList<Category> datos = FXCollections.observableList(Acount.getInstance().getUserCategories());
-//         System.out.println("datos leidos");
-         
-        ObservableList<String> categorias= FXCollections.observableArrayList();
-        categorias.add("Todasㅤㅤㅤ");
-        for (int i = 0; i < datos.size() ;i++) {
-            categorias.add(datos.get(i).getName());
-        }
-        
-        
-        categoriaChooser.setItems(categorias);
-        categoriaChooser.setValue("Todasㅤㅤㅤ");
+            
+            // tabla de gastos
+            columnaNombre.setReorderable(false);
+            columnaDescripcion.setReorderable(false);
+            columnaCategoria.setReorderable(false);
+            columnaCoste.setReorderable(false);
+            columnaFecha.setReorderable(false);
+            columnaNombre.prefWidthProperty().bind(tablaFiltrada.widthProperty().multiply(0.2));
+            columnaDescripcion.prefWidthProperty().bind(tablaFiltrada.widthProperty().multiply(0.2));
+            columnaCategoria.prefWidthProperty().bind(tablaFiltrada.widthProperty().multiply(0.2));
+            columnaCoste.prefWidthProperty().bind(tablaFiltrada.widthProperty().multiply(0.2));
+            columnaFecha.prefWidthProperty().bind(tablaFiltrada.widthProperty().multiply(0.2));
 
+            misDatos = Acount.getInstance().getUserCharges();
+            datos = FXCollections.observableList(misDatos);
+            
+            fechaChooser.setValue(LocalDate.now());
 
-//            categoriaChooser.setItems(datos);
-//            categoriaChooser.setConverter(new StringConverter<Category>() {
-//                @Override
-//                public String toString(Category category) {
-//                    return category != null ? category.getName(): "";
-//                }
-//
-//                @Override
-//                public Category fromString(String string) {
-//                    return null;
-//                }
-//            });
-            
-//         Acount.getInstance().removeCategory(datos.get(datos.size()-1));
-//         System.out.println("Eliminada");
-            
-            
-            
-            ObservableList<String> observableList = FXCollections.observableArrayList();
-            observableList.addAll("Semana seleccionada", "Mes seleccionado", "Año seleccionado");
-            periodoChooser.setItems(observableList);
-            periodoChooser.setValue("Semana seleccionada");
+            columnaNombre.setCellValueFactory((gastoFila) -> {
+                return new SimpleStringProperty(gastoFila.getValue().getName());
+            });
+            columnaCategoria.setCellValueFactory((gastoFila) -> {
+                return new SimpleStringProperty(gastoFila.getValue().getCategory().getName());
+            });
+            columnaDescripcion.setCellValueFactory((gastoFila) -> {
+                return new SimpleStringProperty(gastoFila.getValue().getDescription());
+            });
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            columnaFecha.setCellValueFactory((gastoFila) -> {
+                return new SimpleStringProperty(gastoFila.getValue().getDate().format(formatter));
+            });
+            columnaCoste.setCellValueFactory((gastoFila) -> {
+                return new SimpleStringProperty(Double.toString(gastoFila.getValue().getCost()));
+            });
             
             
-            filtrar();
-            graficaSet();
+            // creamos la lista de categorias a mostrar en el combobox
+            ObservableList<Category> listaCategorias = FXCollections.observableList(Acount.getInstance().getUserCategories());
+            ObservableList<String> listaCategoriasString = FXCollections.observableArrayList();
+            listaCategoriasString.add("Todasㅤㅤㅤ");
+            
+            if (listaCategorias != null) {
+                for (int i = 0; i < listaCategorias.size(); i++) {
+                    listaCategoriasString.add(listaCategorias.get(i).getName());
+                }
+                categoriaChooser.setItems(listaCategoriasString);
+                categoriaChooser.setValue("Todasㅤㅤㅤ");
+            }
+            
+            ObservableList<String> listaPeriodo = FXCollections.observableArrayList();
+            listaPeriodo.addAll("Semana", "Mes", "Año");
+            periodoChooser.setItems(listaPeriodo);
+            periodoChooser.setValue("Semana");
+            
+            if (!misDatos.isEmpty()) {
+                filtrar();
+            }
             
         } catch (AcountDAOException ex) {
             Logger.getLogger(AñadirGastoController.class.getName()).log(Level.SEVERE, null, ex);
@@ -177,9 +152,6 @@ public class VisualizarController implements Initializable {
     @FXML
     private void atras(MouseEvent event) throws AcountDAOException {
         try {
-            
-            
-            
             // cambia a la opción de añadir gasto            
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/GestionGasto.fxml"));
             Parent root = loader.load();
@@ -188,44 +160,35 @@ public class VisualizarController implements Initializable {
             BorderPane principal = (BorderPane) atrasButton.getParent().getParent().getParent().getParent();
             
             principal.setCenter(root);
-            
-            
         } catch (IOException ex) {
             Logger.getLogger(ContenedorPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
     }
 
     public void filtrar() {
-        try {
         String periodo = periodoChooser.getValue();
         List<Charge> filteredDates;
-        
         switch (periodo) {
-            case "Semana seleccionada":
-                filteredDates = filterDatesInSameWeek(Acount.getInstance().getUserCharges(), fechaChooser.getValue());
+            case "Semana":
+                filteredDates = filterDatesInSameWeek(misDatos, fechaChooser.getValue());
                 break;
-            case "Mes seleccionado":
-                filteredDates = filterDatesInSameMonth(Acount.getInstance().getUserCharges(), fechaChooser.getValue());
+            case "Mes":
+                filteredDates = filterDatesInSameMonth(misDatos, fechaChooser.getValue());
                 break;
-            case "Año seleccionado":
-                filteredDates = filterDatesInSameYear(Acount.getInstance().getUserCharges(), fechaChooser.getValue());
+            case "Año":
+                filteredDates = filterDatesInSameYear(misDatos, fechaChooser.getValue());
                 break;
             default:
                 throw new AssertionError();
         }
         if (!categoriaChooser.getValue().equals("Todasㅤㅤㅤ")) {
-        List<Charge> filteredDateCategory;
-        filteredDateCategory = filterCategory(filteredDates, categoriaChooser.getValue());
-        datos = FXCollections.observableList(filteredDateCategory);
+            List<Charge> filteredDateCategory;
+            filteredDateCategory = filterCategory(filteredDates, categoriaChooser.getValue());
+            datosfiltrados = FXCollections.observableArrayList(filteredDateCategory);
         } else {
-        datos = FXCollections.observableList(filteredDates);
+            datosfiltrados = FXCollections.observableArrayList(filteredDates);
         }
-        tablaFiltrada.setItems(datos);
-    } catch (AcountDAOException ex)    {
-    } catch (IOException ex)           {}
-    
+        tablaFiltrada.setItems(datosfiltrados);
     } 
     
     public static List<Charge> filterDatesInSameWeek(List<Charge> cargos, LocalDate referenceDate) {
@@ -234,163 +197,117 @@ public class VisualizarController implements Initializable {
         WeekFields weekFields = WeekFields.of(Locale.getDefault());
         int referenceWeek = referenceDate.get(weekFields.weekOfWeekBasedYear());
         int referenceYear = referenceDate.get(weekFields.weekBasedYear());
-
-        cargos.get(1).getDate();
         
-        for (int i = 0; i < cargos.size() ;i++) {
-        System.out.println("filtrando");    
-        int semanaAFiltrar = cargos.get(i).getDate().get(weekFields.weekOfWeekBasedYear());
-        int añoAFiltrar = cargos.get(i).getDate().get(weekFields.weekBasedYear());
-            
+        for (int i = 0; i < cargos.size(); i++) {
+            Charge gastoAux = cargos.get(i);
+            int semanaAFiltrar = gastoAux.getDate().get(weekFields.weekOfWeekBasedYear());
+            int añoAFiltrar = gastoAux.getDate().get(weekFields.weekBasedYear());
             if (semanaAFiltrar == referenceWeek && añoAFiltrar == referenceYear) {
-                filteredDates.add(cargos.get(i));
-                System.out.println("Si");
+                filteredDates.add(gastoAux);
             }
-        }
-       return filteredDates;
+            }
+        return filteredDates;
     }
     
-        public static List<Charge> filterDatesInSameMonth(List<Charge> cargos, LocalDate referenceDate) {
-    // Obtener el número de semana del año de la fecha de referencia
-    List<Charge> filteredDates = new ArrayList<Charge>();
-    WeekFields weekFields = WeekFields.of(Locale.getDefault());
-    int referenceMonth = referenceDate.getMonthValue();
-    int referenceYear = referenceDate.get(weekFields.weekBasedYear());
+    public static List<Charge> filterDatesInSameMonth(List<Charge> cargos, LocalDate referenceDate) {
+        // Obtener el número de semana del año de la fecha de referencia
+        List<Charge> filteredDates = new ArrayList<Charge>();
+        WeekFields weekFields = WeekFields.of(Locale.getDefault());
+        int referenceMonth = referenceDate.getMonthValue();
+        int referenceYear = referenceDate.get(weekFields.weekBasedYear());
 
-    cargos.get(1).getDate();
-
-    for (int i = 0; i < cargos.size() ;i++) {
-    System.out.println("filtrando");    
-    int semanaAFiltrar = cargos.get(i).getDate().getMonthValue();
-    int añoAFiltrar = cargos.get(i).getDate().get(weekFields.weekBasedYear());
-
-        if (semanaAFiltrar == referenceMonth && añoAFiltrar == referenceYear) {
-            filteredDates.add(cargos.get(i));
-            System.out.println("Si");
+        for (int i = 0; i < cargos.size() ;i++) {  
+            int semanaAFiltrar = cargos.get(i).getDate().getMonthValue();
+            int añoAFiltrar = cargos.get(i).getDate().get(weekFields.weekBasedYear());
+            if (semanaAFiltrar == referenceMonth && añoAFiltrar == referenceYear) {
+                filteredDates.add(cargos.get(i));
+            }
         }
-    }
-   return filteredDates;
+        return filteredDates;
     }
     
         
    public static List<Charge> filterDatesInSameYear(List<Charge> cargos, LocalDate referenceDate) {
-    // Obtener el número de semana del año de la fecha de referencia
-    List<Charge> filteredDates = new ArrayList<Charge>();
-    WeekFields weekFields = WeekFields.of(Locale.getDefault());
-    int referenceYear = referenceDate.get(weekFields.weekBasedYear());
+        // Obtener el número de semana del año de la fecha de referencia
+        List<Charge> filteredDates = new ArrayList<Charge>();
+        WeekFields weekFields = WeekFields.of(Locale.getDefault());
+        int referenceYear = referenceDate.get(weekFields.weekBasedYear());
 
-    cargos.get(1).getDate();
-
-    for (int i = 0; i < cargos.size() ;i++) {
-    System.out.println("filtrando");
-    int añoAFiltrar = cargos.get(i).getDate().get(weekFields.weekBasedYear());
-
-        if (añoAFiltrar == referenceYear) {
-            filteredDates.add(cargos.get(i));
-            System.out.println("Si");
+        for (int i = 0; i < cargos.size() ;i++) {
+            int añoAFiltrar = cargos.get(i).getDate().get(weekFields.weekBasedYear());
+            if (añoAFiltrar == referenceYear) {
+                filteredDates.add(cargos.get(i));
+            }
         }
-    }
-   return filteredDates;
+       return filteredDates;
     }
    
    public static List<Charge> filterCategory(List<Charge> cargos, String referenceCategory) {
-    // Obtener el número de semana del año de la fecha de referencia
-    List<Charge> filteredCat = new ArrayList<Charge>();
+        // Obtener el número de semana del año de la fecha de referencia
+        List<Charge> filteredCat = new ArrayList<Charge>();
 
-    for (int i = 0; i < cargos.size() ;i++) {
-    System.out.println("filtrando");
-    String catAFiltrar = cargos.get(i).getCategory().getName();
-        if (catAFiltrar.equals(referenceCategory)) {
-            filteredCat.add(cargos.get(i));
-            System.out.println("Si");
+        for (int i = 0; i < cargos.size() ;i++) {
+            String catAFiltrar = cargos.get(i).getCategory().getName();
+            if (catAFiltrar.equals(referenceCategory)) {
+                filteredCat.add(cargos.get(i));
+            }
         }
-    }
-   return filteredCat;
+       return filteredCat;
     }
 
     @FXML
     private void categoriaElegida(ActionEvent event) {
-        datosGrafica.getData().clear();
-        grafica.getData().clear();
         filtrar();
-        graficaSet();
     }
 
     @FXML
     private void fechaElegida(ActionEvent event) {
-        datosGrafica.getData().clear();
-        grafica.getData().clear();
         filtrar();
-        graficaSet();
     }
     
     @FXML
-    private void periodoElegido(ActionEvent event) throws  IOException {
-        datosGrafica.getData().clear();
-        grafica.getData().clear();
+    private void periodoElegido(ActionEvent event) {
         filtrar();
-        graficaSet();
     }
 
     private void graficaSet() {
         datosGrafica.setName(categoriaChooser.getValue());
         
-        switch (periodoChooser.getValue()) {case "Semana seleccionada":
-            
-            datosGrafica.getData().add(new XYChart.Data<>("L", 0));
-            datosGrafica.getData().add(new XYChart.Data<>("M", 0));
-            datosGrafica.getData().add(new XYChart.Data<>("X", 0));
-            datosGrafica.getData().add(new XYChart.Data<>("J", 0));
-            datosGrafica.getData().add(new XYChart.Data<>("V", 0));
-            datosGrafica.getData().add(new XYChart.Data<>("S", 0));
-            datosGrafica.getData().add(new XYChart.Data<>("D", 0));
-            
+        switch (periodoChooser.getValue()) {
+            case "Semana":
+//                datosGrafica.getData().add(new XYChart.Data<>("L", 0));
+//                datosGrafica.getData().add(new XYChart.Data<>("M", 0));
+//                datosGrafica.getData().add(new XYChart.Data<>("X", 0));
+//                datosGrafica.getData().add(new XYChart.Data<>("J", 0));
+//                datosGrafica.getData().add(new XYChart.Data<>("V", 0));
+//                datosGrafica.getData().add(new XYChart.Data<>("S", 0));
+//                datosGrafica.getData().add(new XYChart.Data<>("D", 0));
                 break;
-            case "Mes seleccionado":
                 
-            int i = 1;
-            double sumaGastoDiaMes;
-            LocalDate fecha = fechaChooser.getValue();
-            int diasMes = fecha.lengthOfMonth();
-            ObservableList<Charge> cargos = tablaFiltrada.getItems();
-            
-            while (i <= diasMes) {
-                int j = 0;
-                sumaGastoDiaMes = 0;
-                
-                while (cargos.size() > j) {
-                    if (cargos.get(j).getDate().getDayOfMonth() == i) {
-                        sumaGastoDiaMes += cargos.get(j).getCost();
+            case "Mes":
+                LocalDate fecha = fechaChooser.getValue();
+                int diasMes = fecha.lengthOfMonth();
+                ObservableList<Charge> cargos = tablaFiltrada.getItems();
+                datosGrafica.getData().clear();
+                for (int i = 1; i <= diasMes; i++) {
+                    double sumaGastoDiaMes = 0;
+                    for (int j = 0; j < cargos.size(); j++) {
+                        Charge gastoAux = cargos.get(j);
+                        if (gastoAux.getDate().getDayOfMonth() == i) {
+                            sumaGastoDiaMes += gastoAux.getCost();
+                        }
                     }
-                    j++;
+                    System.out.println("Dia añadido" + i +": " + sumaGastoDiaMes);
+                    datosGrafica.getData().add(new XYChart.Data<String, Number>(Integer.toString(i), sumaGastoDiaMes));
                 }
-                
-                System.out.println("Dia añadido" + i +": " + sumaGastoDiaMes);
-                
-                datosGrafica.getData().add(new XYChart.Data<>(Integer.toString(i), sumaGastoDiaMes));
-                i++;
-            }
-            
-            break;
-            case "Año seleccionado":
-                
-                
                 break;
+                
+            case "Año":
+                break;
+                
             default:
                 throw new AssertionError();
         }
-        
-        
-        
-        
-//        datosGrafica.getData().add(new XYChart.Data<>("L", 0));
-//        datosGrafica.getData().add(new XYChart.Data<>("M", 0));
-//        datosGrafica.getData().add(new XYChart.Data<>("X", 0));
-//        datosGrafica.getData().add(new XYChart.Data<>("J", 0));
-//        datosGrafica.getData().add(new XYChart.Data<>("V", 0));
-//        datosGrafica.getData().add(new XYChart.Data<>("S", 0));
-//        datosGrafica.getData().add(new XYChart.Data<>("D", 0));
-        
         grafica.getData().addAll(datosGrafica);
     
     }

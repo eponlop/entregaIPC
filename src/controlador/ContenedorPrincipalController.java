@@ -15,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
@@ -41,13 +42,20 @@ public class ContenedorPrincipalController implements Initializable {
     @FXML
     private Button configuracionButton;
     @FXML
-    private ImageView imageView;
+    private ImageView imageView; 
     @FXML
     private Text bienvenidaText;
+    
     
     /**
      * Initializes the controller class.
      */
+    
+//    public void setImage(Image image) {
+//        System.out.println("IMAGE");
+//        imageView.setImage(image);
+//    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         gestionGastoButton.getStyleClass().add("button-bold-hover");

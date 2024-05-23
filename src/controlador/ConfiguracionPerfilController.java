@@ -10,6 +10,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.property.ObjectProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -66,13 +67,13 @@ public class ConfiguracionPerfilController implements Initializable {
     private TextField passText;
 
     private Image image;
+    
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
             // TODO
             cancelarButton.setVisible(false);
             guardarButton.setVisible(false);
-            
         try {
             nombreText.setText(Acount.getInstance().getLoggedUser().getName());
             apellidoText.setText(Acount.getInstance().getLoggedUser().getSurname());
@@ -145,8 +146,8 @@ public class ConfiguracionPerfilController implements Initializable {
 //                FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/ContenedorPrincipal.fxml"));
 //                Parent root = loader.load();
 //                ContenedorPrincipalController principal = loader.getController();
-//                principal.setImage();
-                
+//                principal.setImage(Acount.getInstance().getLoggedUser().getImage());
+
             } catch (AcountDAOException ex) {
                 Logger.getLogger(ConfiguracionPerfilController.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
@@ -157,7 +158,6 @@ public class ConfiguracionPerfilController implements Initializable {
             
         }
     }
-
     @FXML
     private void cancelarClick(MouseEvent event) {
         
