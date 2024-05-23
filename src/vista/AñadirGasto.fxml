@@ -18,7 +18,7 @@
             <HBox maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
             <VBox maxHeight="-Infinity" prefHeight="70.0" prefWidth="600.0" VBox.vgrow="NEVER">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-head" text="Nombre del gasto">
+                  <Text fill="#489fea" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-head" text="Nombre del gasto">
                      <VBox.margin>
                         <Insets bottom="5.0" />
                      </VBox.margin>
@@ -28,7 +28,7 @@
             </VBox>
             <VBox maxHeight="-Infinity" prefHeight="70.0" prefWidth="600.0" VBox.vgrow="NEVER">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-head" text="Descripcion del gasto">
+                  <Text fill="#489fea" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-head" text="Descripcion del gasto">
                      <VBox.margin>
                         <Insets bottom="5.0" />
                      </VBox.margin>
@@ -45,12 +45,12 @@
                      <children>
                         <VBox alignment="CENTER_LEFT" prefHeight="75.0" prefWidth="228.0">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-head" text="Categoria">
+                              <Text fill="#489fea" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-head" text="Categoria">
                                  <VBox.margin>
                                     <Insets bottom="5.0" />
                                  </VBox.margin>
                               </Text>
-                              <ComboBox fx:id="categoriaChooser" prefWidth="218.0" />
+                              <ComboBox fx:id="categoriaChooser" prefWidth="218.0" styleClass="combo-box" />
                            </children>
                         </VBox>
                      </children>
@@ -70,7 +70,7 @@
                <children>
                   <VBox>
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-head" text="Coste">
+                        <Text fill="#489fea" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-head" text="Coste">
                            <VBox.margin>
                               <Insets bottom="3.0" />
                            </VBox.margin>
@@ -85,7 +85,7 @@
                   </VBox>
                   <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="43.0" prefWidth="119.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-head" text="Unidades">
+                        <Text fill="#489fea" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-head" text="Unidades">
                            <VBox.margin>
                               <Insets bottom="3.0" />
                            </VBox.margin>
@@ -103,7 +103,7 @@
                   </VBox>
                   <VBox prefHeight="43.0" prefWidth="142.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-head" text="Fecha">
+                        <Text fill="#489fea" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-head" text="Fecha">
                            <VBox.margin>
                               <Insets bottom="3.0" />
                            </VBox.margin>
@@ -121,7 +121,7 @@
             </HBox>
             <VBox maxHeight="-Infinity" VBox.vgrow="NEVER">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-head" text="Archivo adjunto (opcional)" />
+                  <Text fill="#489fea" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-head" text="Archivo adjunto (opcional)" />
                   <HBox alignment="CENTER_LEFT" prefHeight="26.0" prefWidth="340.0">
                      <children>
                         <Button mnemonicParsing="false" onMouseClicked="#seleccionarArchivo" styleClass="button-bold" text="Seleccionar" />
@@ -140,7 +140,7 @@
                         <Insets top="20.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="cancelarButton" mnemonicParsing="false" onMouseClicked="#cancelar" styleClass="button-normal" text="Cancelar">
+                  <Button fx:id="cancelarButton" mnemonicParsing="false" onMouseClicked="#cancelar" style="-fx-pref-width: 100pt;" styleClass="button-normal" text="Cancelar">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>

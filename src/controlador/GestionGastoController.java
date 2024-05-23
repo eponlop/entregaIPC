@@ -4,6 +4,8 @@
  */
 package controlador;
 
+import com.itextpdf.text.BadElementException;
+import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
@@ -13,6 +15,10 @@ import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.text.Font;
+import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.pdf.BaseFont;
+import com.itextpdf.text.pdf.draw.LineSeparator;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -193,11 +199,11 @@ public class GestionGastoController implements Initializable {
     }
     
     @FXML
-    private void imprimir(MouseEvent event) {
+    private void imprimir(MouseEvent event) throws BadElementException, IOException {
             generatePDF();
     }
     
-    private void generatePDF() {
+    private void generatePDF() throws BadElementException, IOException {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Save PDF");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("PDF Files", "*.pdf"));
@@ -207,45 +213,131 @@ public class GestionGastoController implements Initializable {
         }
     }
     
-    private void writePDF(File file, List<Charge> data) {
+    private void writePDF(File file, List<Charge> data) throws BadElementException, IOException {
         try {
             Document document = new Document();
             PdfWriter.getInstance(document, new FileOutputStream(file));
             document.open();
-            document.add(new Paragraph("Resumen de todos los gastos"));
+            
+            //Image img = Image.getInstance(getClass().getClassLoader().getResource("..\\resources\\images\\Logo.png\""));
+
+
+          //  img.scaleToFit(19, 19); // Escalar la imagen al tamaño deseado
+            //img.setAbsolutePosition(document.getPageSize().getWidth() - 100, document.getPageSize().getHeight() - 100); // Posicionar la imagen en la esquina superior derecha
+          //  document.add(img);
+            
+            BaseColor customColorAzul = new BaseColor(0x48, 0x9f, 0xea); // RGB color #489fea
+            Font titleFont = FontFactory.getFont("YuGothic-Regular.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED, 30, Font.NORMAL, customColorAzul);
+            
+            Paragraph title = new Paragraph("Resumen de todos los gastos", titleFont);
+            title.setAlignment(Element.ALIGN_CENTER);
+            document.add(title);
+            
+            document.add(new Paragraph("\n")); // Párrafo vacío
+            
+            LineSeparator line = new LineSeparator();
+            line.setLineColor(customColorAzul); // Color #489fea
+            line.setLineWidth(1); // Grosor de la línea
+            
+            document.add(line); // Párrafo vacío
+            
+            document.add(new Paragraph("\n")); // Párrafo vacío
             
             PdfPTable table = new PdfPTable(5); // Number of columns
-            Font headFont = new Font(Font.FontFamily.HELVETICA,16,Font.BOLD);
+            
+            Font headFont = FontFactory.getFont("YuGothic-Regular.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED, 12, Font.BOLD, BaseColor.WHITE);
+            
+            BaseColor customColorGris = new BaseColor(155, 155, 155);
+            BaseColor customColorAzulClaro = new BaseColor(128, 196, 255);
+            
             table.setWidthPercentage(100);
             table.setSpacingBefore(10f);
             table.setSpacingAfter(10f);
             
             PdfPCell cell1 = new PdfPCell(new Phrase("Nombre",headFont));
+            cell1.setFixedHeight(20);
             cell1.setHorizontalAlignment(Element.ALIGN_CENTER);
+            cell1.setVerticalAlignment(Element.ALIGN_MIDDLE);
+            cell1.setBackgroundColor(customColorAzul);
+            cell1.setBorderColor(customColorAzulClaro);
             table.addCell(cell1);
             
             PdfPCell cell2 = new PdfPCell(new Phrase("Descripción",headFont));
+            cell2.setFixedHeight(20);
             cell2.setHorizontalAlignment(Element.ALIGN_CENTER);
+            cell2.setVerticalAlignment(Element.ALIGN_MIDDLE);
+            cell2.setBackgroundColor(customColorAzul);
+            cell2.setBorderColor(customColorAzulClaro);
             table.addCell(cell2);
             
-            PdfPCell cell3 = new PdfPCell(new Phrase("Categoria",headFont));
+            PdfPCell cell3 = new PdfPCell(new Phrase("Categoría",headFont));
+            cell3.setFixedHeight(20);
             cell3.setHorizontalAlignment(Element.ALIGN_CENTER);
+            cell3.setVerticalAlignment(Element.ALIGN_MIDDLE);
+            cell3.setBackgroundColor(customColorAzul);
+            cell3.setBorderColor(customColorAzulClaro);
             table.addCell(cell3);
             
             PdfPCell cell4 = new PdfPCell(new Phrase("Coste",headFont));
+            cell4.setFixedHeight(20);
             cell4.setHorizontalAlignment(Element.ALIGN_CENTER);
+            cell4.setVerticalAlignment(Element.ALIGN_MIDDLE);
+            cell4.setBackgroundColor(customColorAzul);
+            cell4.setBorderColor(customColorAzulClaro);
             table.addCell(cell4);
             
             PdfPCell cell5 = new PdfPCell(new Phrase("Fecha",headFont));
+            cell5.setFixedHeight(20);
             cell5.setHorizontalAlignment(Element.ALIGN_CENTER);
+            cell5.setVerticalAlignment(Element.ALIGN_MIDDLE);
+            cell5.setBackgroundColor(customColorAzul);
+            cell5.setBorderColor(customColorAzulClaro);
             table.addCell(cell5);
             
+            Font fontText = FontFactory.getFont("YuGothic-Regular.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED, 12, Font.NORMAL, BaseColor.BLACK);
+            
             for (Charge charge : data) {
-                table.addCell(charge.getName());
-                table.addCell(charge.getDescription());
-                table.addCell(charge.getCategory().getName());
-                table.addCell(Double.toString(charge.getCost()));
-                table.addCell(charge.getDate().toString());
+                
+                PdfPCell cellr1 = new PdfPCell();
+                cellr1.setFixedHeight(20);
+                cellr1.setHorizontalAlignment(Element.ALIGN_CENTER);
+                cellr1.setVerticalAlignment(Element.ALIGN_MIDDLE);
+                cellr1.setBorderColor(customColorGris);
+                cellr1.setPhrase(new Phrase(charge.getName(), fontText));
+                
+                PdfPCell cellr2 = new PdfPCell();
+                cellr2.setFixedHeight(20);
+                cellr2.setHorizontalAlignment(Element.ALIGN_CENTER);
+                cellr2.setVerticalAlignment(Element.ALIGN_MIDDLE);
+                cellr2.setBorderColor(customColorGris);
+                cellr2.setPhrase(new Phrase(charge.getDescription(), fontText));
+                
+                PdfPCell cellr3 = new PdfPCell();
+                cellr3.setFixedHeight(20);
+                cellr3.setHorizontalAlignment(Element.ALIGN_CENTER);
+                cellr3.setVerticalAlignment(Element.ALIGN_MIDDLE);
+                cellr3.setBorderColor(customColorGris);
+                cellr3.setPhrase(new Phrase(charge.getCategory().getName(), fontText));
+                
+                PdfPCell cellr4 = new PdfPCell();
+                cellr4.setFixedHeight(20);
+                cellr4.setHorizontalAlignment(Element.ALIGN_CENTER);
+                cellr4.setVerticalAlignment(Element.ALIGN_MIDDLE);
+                cellr4.setBorderColor(customColorGris);
+                cellr4.setPhrase(new Phrase(Double.toString(charge.getCost()), fontText));
+                
+                PdfPCell cellr5 = new PdfPCell();
+                cellr5.setFixedHeight(20);
+                cellr5.setHorizontalAlignment(Element.ALIGN_CENTER);
+                cellr5.setVerticalAlignment(Element.ALIGN_MIDDLE);
+                cellr5.setBorderColor(customColorGris);
+                cellr5.setPhrase(new Phrase(charge.getDate().toString(), fontText));
+                
+                table.addCell(cellr1);
+                table.addCell(cellr2);
+                table.addCell(cellr3);
+                table.addCell(cellr4);
+                table.addCell(cellr5);
             }
             
             document.add(table);

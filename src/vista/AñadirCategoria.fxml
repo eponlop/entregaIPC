@@ -15,7 +15,7 @@
             <HBox maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
             <VBox prefHeight="70.0" VBox.vgrow="NEVER">
                <children>
-                  <Label styleClass="texto-head" text="Nombre de la categoria">
+                  <Label styleClass="texto-head" text="Nombre de la categoria" textFill="#489fea">
                      <VBox.margin>
                         <Insets bottom="5.0" />
                      </VBox.margin>
@@ -25,7 +25,7 @@
             </VBox>
             <VBox prefHeight="70.0" VBox.vgrow="NEVER">
                <children>
-                  <Label styleClass="texto-head" text="Descripción de la categoria">
+                  <Label styleClass="texto-head" text="Descripción de la categoria" textFill="#489fea">
                      <VBox.margin>
                         <Insets bottom="5.0" />
                      </VBox.margin>

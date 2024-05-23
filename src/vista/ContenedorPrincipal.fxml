@@ -20,19 +20,33 @@
          <children>
             <VBox alignment="CENTER" prefHeight="300.0" prefWidth="224.0">
                <children>
-                  <Button fx:id="gestionGastoButton" mnemonicParsing="false" onMouseClicked="#gestionGasto" style="-fx-pref-width: 150pt;" styleClass="button-bold" text="Gestión de gastos">
+                  <Button fx:id="gestionGastoButton" mnemonicParsing="false" onMouseClicked="#gestionGasto" style="-fx-pref-width: 180pt; -fx-pref-width: hover: 200pt;" styleClass="button-bold" text="Gestión de gastos">
                      <VBox.margin>
                         <Insets bottom="5.0" top="20.0" />
                      </VBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="19.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/images/Gest_Gastos.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </Button>
-                  <Button fx:id="gestionCategoriaButton" mnemonicParsing="false" onMouseClicked="#gestionCategoria" style="-fx-pref-width: 150pt;" styleClass="button-bold" text="Gestión de categorías">
+                  <Button fx:id="gestionCategoriaButton" mnemonicParsing="false" onMouseClicked="#gestionCategoria" style="-fx-pref-width: 180pt; -fx-pref-width: hover: 200pt;" styleClass="button-bold" text="Gestión de categorías">
                      <VBox.margin>
                         <Insets bottom="35.0" top="5.0" />
                      </VBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="19.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/images/Gest_Categorias.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </Button>
                   <VBox VBox.vgrow="ALWAYS" />
                   <VBox />
-                  <Button fx:id="configuracionButton" graphicTextGap="6.0" mnemonicParsing="false" onMouseClicked="#configuracion" style="-fx-pref-width: 150pt;" styleClass="button-bold" text="Configuración de perfil">
+                  <Button fx:id="configuracionButton" graphicTextGap="6.0" mnemonicParsing="false" onMouseClicked="#configuracion" style="-fx-pref-width: 180pt; -fx-pref-width: hover: 200pt;" styleClass="button-bold" text="Configuración de perfil">
                      <VBox.margin>
                         <Insets bottom="5.0" top="35.0" />
                      </VBox.margin>
@@ -44,7 +58,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="salirButton" mnemonicParsing="false" onMouseClicked="#salir" style="-fx-pref-width: 150pt;" styleClass="button-bold" text="Salir">
+                  <Button fx:id="salirButton" mnemonicParsing="false" onMouseClicked="#salir" style="-fx-pref-width: 180pt; -fx-pref-width: hover: 200pt;" styleClass="button-bold" text="Salir">
                      <VBox.margin>
                         <Insets bottom="30.0" top="5.0" />
                      </VBox.margin>
