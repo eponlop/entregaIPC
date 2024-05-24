@@ -82,8 +82,8 @@
                      <children>
                         <StackPane>
                            <children>
-                              <PasswordField fx:id="passTextOculto" />
                               <TextField fx:id="passText" />
+                              <PasswordField fx:id="passTextOculto" text="1234abc" />
                            </children>
                         </StackPane>
                         <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#ver" HBox.hgrow="ALWAYS">

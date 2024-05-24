@@ -45,7 +45,7 @@ public class InicioSesiónController implements Initializable {
     @FXML
     private PasswordField passTextOculto;
     
-    private boolean verPass = true; //CAMBIAR ESTO LUEGO
+    private boolean verPass = false;
     
 
     /**
@@ -57,7 +57,6 @@ public class InicioSesiónController implements Initializable {
         boxUser.prefWidthProperty().bind(boxPass.widthProperty());
         loginText.maxWidthProperty().bind(passText.widthProperty());
         passText.textProperty().bindBidirectional(passTextOculto.textProperty());
-        passText.setText("1234abc");
         
     }    
 
