@@ -65,12 +65,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 
 .text-field {
     
+    -fx-pref-height: 30;
     -fx-background-color: white;
     -fx-border-color: #9b9b9b;
     -fx-text-fill: black;
     -fx-font-family: "Yu Gothic";
     -fx-font-weight: normal;
     -fx-font-size: 10pt;
+    
+}
+
+.password-field {
+    
+    -fx-pref-height: 30;
+    -fx-border-width: 1;
+    -fx-font-size: 8px; /* Cambia el tamaño de la fuente para agrandar los puntos */
     
 }
 
@@ -172,6 +181,34 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-font-weight: bold;
     -fx-font-size: 10pt;
     -fx-button-radius: 0;
+    
+}
+
+.button-visualizar-normal {
+    
+    -fx-button-radius: 0;
+    
+    -fx-pref-width: 30px; /* Ancho preferido del botón */
+    -fx-pref-height: 20px; /* Alto preferido del botón */
+    
+    -fx-background-color: transparent;
+    
+    -fx-border-width: 1;
+    -fx-border-color: #9b9b9b;
+    
+}
+
+.button-visualizar-selected {
+    
+    -fx-button-radius: 0;
+    
+    -fx-pref-width: 30px; /* Ancho preferido del botón */
+    -fx-pref-height: 20px; /* Alto preferido del botón */
+    
+    -fx-background-color: #489FEA;
+    
+    -fx-border-width: 1;
+    -fx-border-color: #489FEA;
     
 }
 
@@ -480,6 +517,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-border-width: 0; /* Grosor del borde */
     
 }
+
+
+/* BAR CHART */
+
 
 
 /* SEPARADORES */
