@@ -17,6 +17,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.FontFactory;
 import com.itextpdf.text.Image;
+import com.itextpdf.text.PageSize;
 import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import java.io.File;
@@ -225,7 +226,7 @@ public class GestionGastoController implements Initializable {
 
 
             img.scaleToFit(60, 60); // Escalar la imagen al tamaño deseado
-            img.setAbsolutePosition(document.getPageSize().getWidth() - 90, document.getPageSize().getHeight() - 70); // Posicionar la imagen en la esquina superior derecha
+            img.setAbsolutePosition(0, PageSize.A4.getHeight() - img.getScaledHeight());
             document.add(img);
             
             BaseColor customColorAzul = new BaseColor(0x48, 0x9f, 0xea); // RGB color #489fea

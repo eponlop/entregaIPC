@@ -98,7 +98,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 
 .button-bold {
     
-    -fx-button-radius: 0;
+    -fx-background-radius: 0; /* Radio de fondo */
+    -fx-border-radius: 0; /* Radio del borde */
     -fx-pref-width: 100pt; /* Ancho preferido del botón */
     -fx-pref-height: 20px; /* Alto preferido del botón */
     
@@ -112,11 +113,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-font-weight: bold;
     -fx-font-size: 10pt;
     
+    -fx-effect: none; /* Elimina cualquier sombra */
+    
 }
 
 .button-bold:hover {
     
-    -fx-button-radius: 0;
+    -fx-background-radius: 0; /* Radio de fondo */
+    -fx-border-radius: 0; /* Radio del borde */
     -fx-pref-width: 100pt;
     -fx-pref-height: 20px;
     
@@ -130,11 +134,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-font-weight: bolder;
     -fx-font-size: 10.5pt;
     
+    -fx-effect: none; /* Elimina cualquier sombra */
+    
 }
 
 .button-bold-hover {
     
-    -fx-button-radius: 0;
+    -fx-background-radius: 0; /* Radio de fondo */
+    -fx-border-radius: 0; /* Radio del borde */
     -fx-pref-width: 150pt;
     -fx-pref-height: 20px;
     
@@ -147,6 +154,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-font-family: "Yu Gothic";
     -fx-font-weight: bolder;
     -fx-font-size: 10.5pt;
+    
+    -fx-effect: none; /* Elimina cualquier sombra */
     
 }
 
@@ -520,6 +529,50 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 
 
 /* BAR CHART */
+.bar-chart {
+    -fx-background-color: transparent; /* Fondo del BarChart */
+}
+
+/* Estilo para el plot del BarChart */
+.chart-plot-background {
+    -fx-background-color: transparent; /* Fondo del área de trazado */
+}
+
+/* Estilo para las líneas de cuadrícula horizontales */
+.chart-horizontal-grid-lines {
+    -fx-stroke: #489FEA; /* Color de las líneas de cuadrícula horizontales */
+}
+
+/* Estilo para las líneas de cuadrícula verticales */
+.chart-vertical-grid-lines {
+    -fx-stroke: transparent; /* Color de las líneas de cuadrícula verticales */
+}
+
+.chart-horizontal-grid-lines {
+    -fx-stroke: #489FEA; /* Color de las líneas de cuadrícula horizontales */
+}
+
+.axis {
+    
+    -fx-tick-label-fill: #489FEA; /* Color de las etiquetas de los ticks */
+    -fx-tick-label-font-size: 12px; /* Tamaño de las etiquetas de los ticks */
+    -fx-tick-label-font-family: "Yu Gothic";
+    
+}
+
+.axis .axis-tick-mark {
+    -fx-stroke: #489FEA; /* Color de las marcas de los ticks */
+}
+
+/* Estilo para el eje horizontal */
+.chart-bar-chart .chart-horizontal-axis .axis {
+    -fx-stroke: #489FEA; /* Color del trazo del eje horizontal */
+}
+
+/* Estilo para el eje vertical */
+.chart-bar-chart .chart-vertical-axis .axis {
+    -fx-stroke: #489FEA; /* Color del trazo del eje vertical */
+}
 
 
 

@@ -9,6 +9,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,6 +22,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -62,11 +65,16 @@ public class InicioSesiónController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        Platform.runLater(() -> {
         boxUser.prefWidthProperty().bind(boxPass.widthProperty());
         loginText.maxWidthProperty().bind(passText.widthProperty());
         passText.textProperty().bindBidirectional(passTextOculto.textProperty());
-        
+
+        loginText.getScene().addEventFilter(KeyEvent.KEY_PRESSED, this::handleEnterPressed);
+    });
     }    
+    
+    
 
     @FXML
     private void registrar(MouseEvent event){
@@ -86,6 +94,12 @@ public class InicioSesiónController implements Initializable {
 
     @FXML
     private void entrar(MouseEvent event) {
+        loginText.getScene().addEventFilter(KeyEvent.KEY_PRESSED, this::handleEnterPressed);
+        enter();
+    }
+    
+    @FXML
+    private void enter() {
         String login = loginText.getText();
         String password = passText.getText();
         try {
@@ -118,6 +132,19 @@ public class InicioSesiónController implements Initializable {
         }
     }
 
+
+    private void handleEnterPressed(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER) {
+            if (loginText.isFocused()) {
+                passTextOculto.requestFocus();
+            } else {
+                enter();
+            }
+            event.consume(); // Evita que otros nodos manejen este evento también
+        }
+    }
+    
+    
     @FXML
     private void ver(MouseEvent event) {
         if (verPass) {
