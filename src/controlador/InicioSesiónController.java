@@ -19,6 +19,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -46,7 +48,13 @@ public class InicioSesiónController implements Initializable {
     private PasswordField passTextOculto;
     
     private boolean verPass = false;
+    @FXML
+    private Button botonVisualizar;
+    @FXML
+    private ImageView imagenVerPassword;
     
+    Image ojo_normal = new Image(getClass().getResourceAsStream("/resources/images/Ojo_normal.png"));
+    Image ojo_selected = new Image(getClass().getResourceAsStream("/resources/images/Ojo_selected.png"));
 
     /**
      * Initializes the controller class.
@@ -114,8 +122,13 @@ public class InicioSesiónController implements Initializable {
     private void ver(MouseEvent event) {
         if (verPass) {
             passTextOculto.toFront();
+            botonVisualizar.getStyleClass().removeAll("button-visualizar-selected");
+            botonVisualizar.getStyleClass().add("button-visualizar-normal");
+            imagenVerPassword.setImage(ojo_normal);
         } else {
             passText.toFront();
+            botonVisualizar.getStyleClass().add("button-visualizar-selected");
+            imagenVerPassword.setImage(ojo_selected);
         }
         verPass = !verPass;
     }

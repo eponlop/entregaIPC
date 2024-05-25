@@ -83,17 +83,20 @@
                         <StackPane>
                            <children>
                               <TextField fx:id="passText" />
-                              <PasswordField fx:id="passTextOculto" text="1234abc" />
+                              <PasswordField fx:id="passTextOculto" styleClass="password-field-inicio" text="1234abc">
+                                 <StackPane.margin>
+                                    <Insets />
+                                 </StackPane.margin></PasswordField>
                            </children>
                         </StackPane>
-                        <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#ver" HBox.hgrow="ALWAYS">
+                        <Button fx:id="botonVisualizar" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#ver" styleClass="button-visualizar-normal" HBox.hgrow="ALWAYS">
                            <HBox.margin>
                               <Insets left="5.0" />
                            </HBox.margin>
                            <graphic>
-                              <ImageView fitHeight="23.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="imagenVerPassword" fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../resources/images/RuedaConfig.png" />
+                                    <Image url="@../resources/images/Ojo_normal.png" />
                                  </image>
                               </ImageView>
                            </graphic>

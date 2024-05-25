@@ -71,11 +71,11 @@
                                     <PasswordField fx:id="passTextOculto" disable="true" editable="false" />
                                  </children>
                               </StackPane>
-                              <Button fx:id="verButton1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#verPass">
+                              <Button fx:id="verButton1" disable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#verPass1" styleClass="button-visualizar-normal" visible="false">
                                  <graphic>
-                                    <ImageView fitHeight="23.0" fitWidth="25.0" onMouseClicked="#verPass" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="imageVerButton1" fitHeight="17.0" fitWidth="17.0" onMouseClicked="#verPass" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../resources/images/RuedaConfig.png" />
+                                          <Image url="@../resources/images/Ojo_normal.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
@@ -105,11 +105,11 @@
                                     <PasswordField fx:id="repitePassTextOculto" disable="true" />
                                  </children>
                               </StackPane>
-                              <Button fx:id="verButton2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#verPass">
+                              <Button fx:id="verButton2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#verPass2" styleClass="button-visualizar-normal">
                                  <graphic>
-                                    <ImageView fitHeight="23.0" fitWidth="25.0" onMouseClicked="#verPass" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="imageVerButton2" fitHeight="17.0" fitWidth="17.0" onMouseClicked="#verPass" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../resources/images/RuedaConfig.png" />
+                                          <Image url="@../resources/images/Ojo_normal.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>

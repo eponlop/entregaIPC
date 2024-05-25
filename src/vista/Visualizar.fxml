@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane minHeight="-Infinity" minWidth="-Infinity" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.VisualizarController">
+<BorderPane minHeight="-Infinity" minWidth="-Infinity" prefWidth="600.0" styleClass="root-2" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.VisualizarController">
    <center>
       <BarChart fx:id="grafica" animated="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="200.0" BorderPane.alignment="CENTER">
         <xAxis>
@@ -31,7 +31,7 @@
       </BarChart>
    </center>
    <right>
-      <ToolBar orientation="VERTICAL" prefHeight="200.0" BorderPane.alignment="CENTER">
+      <ToolBar orientation="VERTICAL" prefHeight="200.0" style="-fx-background-color: f1f6ff;" BorderPane.alignment="CENTER">
          <items>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-head" text="Categoria" />
             <ComboBox fx:id="categoriaChooser" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" onAction="#categoriaElegida" prefHeight="30.0" prefWidth="100.0" />
