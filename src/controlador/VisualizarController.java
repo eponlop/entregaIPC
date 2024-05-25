@@ -58,8 +58,6 @@ public class VisualizarController implements Initializable {
     @FXML
     private DatePicker fechaChooser;
     @FXML
-    private Button atrasButton;
-    @FXML
     private TableColumn<Charge, String> columnaNombre;
     @FXML
     private TableColumn<Charge, String> columnaDescripcion;
@@ -77,6 +75,8 @@ public class VisualizarController implements Initializable {
     private XYChart.Series<String, Number> datosGrafica;
     
     private ObservableList<Charge> datosfiltrados;
+    @FXML
+    private Button atrasBoton;
     /**
      * Initializes the controller class.
      */
@@ -343,5 +343,21 @@ public class VisualizarController implements Initializable {
     public static String getDayOfWeekAbbreviation(int day) {
         DayOfWeek dayOfWeek = DayOfWeek.of(day);
         return dayOfWeek.getDisplayName(TextStyle.SHORT, new Locale("es"));
+    }
+
+    @FXML
+    private void atras(ActionEvent event) {
+        try {
+            // cambia a la opción de añadir gasto            
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/GestionGasto.fxml"));
+            Parent gestionGasto = loader.load();
+
+            // seleccionamos el borderpane del contenedor principal
+            BorderPane principal = (BorderPane) atrasBoton.getParent().getParent().getParent().getParent();
+
+            principal.setCenter(gestionGasto);
+        } catch (IOException ex) {
+            Logger.getLogger(AñadirCategoriaController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
