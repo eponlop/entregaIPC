@@ -15,6 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -74,6 +75,8 @@ public class AñadirGastoController implements Initializable {
     private Charge prevGasto;
     @FXML
     private ImageView imageView;
+    @FXML
+    private Label descripcionCategoria;
     
     
     
@@ -249,6 +252,11 @@ public class AñadirGastoController implements Initializable {
             // poner en el imageview la imagen
             imageView.setImage(scanImage);
         }
+    }
+
+    @FXML
+    private void categoriaSeleccionada(ActionEvent event) {
+        descripcionCategoria.setText(categoriaChooser.getValue().getDescription());
     }
     
 }
