@@ -88,13 +88,6 @@
          <children>
             <HBox alignment="CENTER_LEFT">
                <children>
-                  <ImageView fx:id="imageView" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-                     <HBox.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </HBox.margin></ImageView>
-                  <Text fx:id="bienvenidaText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-title-2" />
-                  <HBox maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
-                  <Label style="-fx-fill: #489fea;" styleClass="text-title" text="Budget Buddy" textFill="#489fea" HBox.hgrow="ALWAYS" />
                   <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../resources/images/Logo.png" />
@@ -103,6 +96,13 @@
                         <Insets left="5.0" right="10.0" />
                      </HBox.margin>
                   </ImageView>
+                  <Label style="-fx-fill: #489fea;" styleClass="text-title" text="Budget Buddy" textFill="#489fea" HBox.hgrow="ALWAYS" />
+                  <HBox maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
+                  <Text fx:id="bienvenidaText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-title-2" />
+                  <ImageView fx:id="imageView" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin></ImageView>
                </children>
             </HBox>
             <Separator prefWidth="200.0" styleClass="separator-custom" />
