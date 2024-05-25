@@ -365,7 +365,11 @@ public class GestionGastoController implements Initializable {
             principal.setCenter(añadirGasto);
             
         } catch (IOException ex) {
-            Logger.getLogger(ContenedorPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
-        }      
+            Alert alerta = new Alert(Alert.AlertType.WARNING);
+            alerta.setTitle("Error al visualizar");
+            alerta.setHeaderText("No se ha podido visualizar");
+            alerta.setContentText("No se puede visualizar porque no hay gastos añadidos");
+            alerta.showAndWait();
+        }
     }
 }
