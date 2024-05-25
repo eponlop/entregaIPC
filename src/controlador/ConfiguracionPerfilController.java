@@ -233,11 +233,11 @@ public class ConfiguracionPerfilController implements Initializable {
             Logger.getLogger(ConfiguracionPerfilController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        Alert alerta = new Alert(Alert.AlertType.WARNING);
-        alerta.setTitle("Cambios en la cuenta");
-        alerta.setHeaderText("No se han guardado los cambios");
-        alerta.setContentText("Los cambios han sido cancelados");
-        alerta.showAndWait();
+//        Alert alerta = new Alert(Alert.AlertType.WARNING);
+//        alerta.setTitle("Cambios en la cuenta");
+//        alerta.setHeaderText("No se han guardado los cambios");
+//        alerta.setContentText("Los cambios han sido cancelados");
+//        alerta.showAndWait();
     }
 
     @FXML
