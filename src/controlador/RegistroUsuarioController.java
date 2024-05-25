@@ -68,6 +68,13 @@ public class RegistroUsuarioController implements Initializable {
     private PasswordField passTextOculto;
     @FXML
     private PasswordField repitePassTextOculto;
+    @FXML
+    private Button botonVisualizar;
+    @FXML
+    private ImageView imagenVerPassword;
+    
+    Image ojo_normal = new Image(getClass().getResourceAsStream("/resources/images/Ojo_normal.png"));
+    Image ojo_selected = new Image(getClass().getResourceAsStream("/resources/images/Ojo_selected.png"));
 
     /**
      * Initializes the controller class.
@@ -235,6 +242,10 @@ public class RegistroUsuarioController implements Initializable {
             repeatPassText.setVisible(false);
             passTextOculto.setVisible(true);
             repitePassTextOculto.setVisible(true);
+            
+            botonVisualizar.getStyleClass().removeAll("button-visualizar-selected");
+            botonVisualizar.getStyleClass().add("button-visualizar-normal");
+            imagenVerPassword.setImage(ojo_normal);
         } else {
             passwordText.toFront();
             repeatPassText.toFront();
@@ -242,6 +253,9 @@ public class RegistroUsuarioController implements Initializable {
             repeatPassText.setVisible(true);
             passTextOculto.setVisible(false);
             repitePassTextOculto.setVisible(false);
+            
+            botonVisualizar.getStyleClass().add("button-visualizar-selected");
+            imagenVerPassword.setImage(ojo_selected);
         }
         verPass = !verPass;
     }

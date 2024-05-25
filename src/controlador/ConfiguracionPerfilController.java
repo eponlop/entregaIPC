@@ -72,23 +72,21 @@ public class ConfiguracionPerfilController implements Initializable {
     private PasswordField passTextOculto;
     
     private boolean verPass = false;
-    private boolean verPass1 = false;
-    private boolean verPass2 = false;
     private boolean editando = false;
     
-    @FXML
-    private Button verButton1;
+
+    
     @FXML
     private PasswordField repitePassTextOculto;
-    @FXML
-    private Button verButton2;
-    @FXML
-    private ImageView imageVerButton1;
-    @FXML
-    private ImageView imageVerButton2;
+
     
     Image ojo_normal = new Image(getClass().getResourceAsStream("/resources/images/Ojo_normal.png"));
     Image ojo_selected = new Image(getClass().getResourceAsStream("/resources/images/Ojo_selected.png"));
+    
+    @FXML
+    private Button botonVisualizar;
+    @FXML
+    private ImageView imagenVerPassword;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -140,7 +138,6 @@ public class ConfiguracionPerfilController implements Initializable {
             repitePassText.setText("");
             passText.requestFocus();
         } else {
-            verButton1.setVisible(true);
             cajaDelStack.toBack();
             guardarButton.setDisable(true);
             guardarButton.setVisible(false);
@@ -150,8 +147,6 @@ public class ConfiguracionPerfilController implements Initializable {
             editarButton.setDisable(false);
             passTextOculto.setEditable(false);
             repitePassTextOculto.setEditable(false);
-            verButton1.setVisible(false);
-            verButton1.setDisable(true);
             
             nombreText.getStyleClass().add("text-field-non-editable");
             apellidoText.getStyleClass().add("text-field-non-editable");
@@ -204,8 +199,6 @@ public class ConfiguracionPerfilController implements Initializable {
         editarButton.setVisible(true);
         editarButton.setDisable(false);
         editarButton.toFront();
-        verButton1.setVisible(false);
-        verButton1.setDisable(true);
 
         nombreText.getStyleClass().add("text-field-non-editable");
         apellidoText.getStyleClass().add("text-field-non-editable");
@@ -259,9 +252,7 @@ public class ConfiguracionPerfilController implements Initializable {
         guardarButton.setVisible(true);
         cancelarButton.setDisable(false);
         cancelarButton.setVisible(true);
-        verButton1.setVisible(true);
-        verButton1.setDisable(false);
-        verButton2.setVisible(true);
+        botonVisualizar.setVisible(true);
         passTextOculto.setDisable(false);
         repitePassTextOculto.setDisable(false);
         
@@ -305,6 +296,9 @@ public class ConfiguracionPerfilController implements Initializable {
             repitePassText.setVisible(false);
             passTextOculto.setVisible(true);
             repitePassTextOculto.setVisible(true);
+            botonVisualizar.getStyleClass().removeAll("button-visualizar-selected");
+            botonVisualizar.getStyleClass().add("button-visualizar-normal");
+            imagenVerPassword.setImage(ojo_normal);
         } else {
             passText.toFront();
             repitePassText.toFront();
@@ -312,46 +306,12 @@ public class ConfiguracionPerfilController implements Initializable {
             repitePassText.setVisible(true);
             passTextOculto.setVisible(false);
             repitePassTextOculto.setVisible(false);
+            botonVisualizar.getStyleClass().add("button-visualizar-selected");
+            imagenVerPassword.setImage(ojo_selected);
         }
         verPass = !verPass;
     }
 
-    @FXML
-    private void verPass1(MouseEvent event) {
-        if (verPass1) {
-            passTextOculto.toFront();
-            passText.setVisible(false);
-            passTextOculto.setVisible(true);
-            verButton1.getStyleClass().removeAll("button-visualizar-selected");
-            verButton1.getStyleClass().add("button-visualizar-normal");
-            imageVerButton1.setImage(ojo_normal);
-        } else {
-            passText.toFront();
-            passText.setVisible(true);
-            passTextOculto.setVisible(false);
-            verButton1.getStyleClass().add("button-visualizar-selected");
-            imageVerButton1.setImage(ojo_selected);
-        }
-        verPass1 = !verPass1;
-    }
 
-    @FXML
-    private void verPass2(MouseEvent event) {
-        if (verPass2) {
-            repitePassTextOculto.toFront();
-            repitePassText.setVisible(false);
-            repitePassTextOculto.setVisible(true);
-            verButton2.getStyleClass().removeAll("button-visualizar-selected");
-            verButton2.getStyleClass().add("button-visualizar-normal");
-            imageVerButton2.setImage(ojo_normal);
-        } else {
-            repitePassText.toFront();
-            repitePassText.setVisible(true);
-            repitePassTextOculto.setVisible(false);
-            verButton2.getStyleClass().add("button-visualizar-selected");
-            imageVerButton2.setImage(ojo_selected);
-        }
-        verPass2 = !verPass2;
-    }
 
 }

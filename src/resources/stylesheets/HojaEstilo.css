@@ -189,7 +189,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-button-radius: 0;
     
     -fx-pref-width: 30px; /* Ancho preferido del botón */
-    -fx-pref-height: 20px; /* Alto preferido del botón */
+    -fx-pref-height: 2px; /* Alto preferido del botón */
     
     -fx-background-color: transparent;
     
