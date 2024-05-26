@@ -19,6 +19,7 @@
                       <TableColumn fx:id="columnaDescripcion" editable="false" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="100.0" text="Descripcion" />
                         <TableColumn fx:id="columnaCategoria" editable="false" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="125.0" resizable="false" text="Categoría" />
                         <TableColumn fx:id="columnaCoste" editable="false" maxWidth="1.7976931348623157E308" minWidth="-1.0" resizable="false" text="Coste" />
+                        <TableColumn fx:id="columnaUnidades" prefWidth="75.0" text="Unidades" />
                         <TableColumn fx:id="columnaFecha" editable="false" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="120.0" resizable="false" text="Fecha" />
                     </columns>
                      <VBox.margin>

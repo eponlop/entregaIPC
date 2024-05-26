@@ -77,6 +77,8 @@ public class VisualizarController implements Initializable {
     private ObservableList<Charge> datosfiltrados;
     @FXML
     private Button atrasBoton;
+    @FXML
+    private TableColumn<Charge, String> columnaUnidades;
     /**
      * Initializes the controller class.
      */
@@ -91,10 +93,12 @@ public class VisualizarController implements Initializable {
             columnaCategoria.setReorderable(false);
             columnaCoste.setReorderable(false);
             columnaFecha.setReorderable(false);
+            columnaUnidades.setReorderable(false);
+            columnaUnidades.prefWidthProperty().bind(tablaFiltrada.widthProperty().multiply(0.1));
             columnaNombre.prefWidthProperty().bind(tablaFiltrada.widthProperty().multiply(0.2));
             columnaDescripcion.prefWidthProperty().bind(tablaFiltrada.widthProperty().multiply(0.2));
             columnaCategoria.prefWidthProperty().bind(tablaFiltrada.widthProperty().multiply(0.2));
-            columnaCoste.prefWidthProperty().bind(tablaFiltrada.widthProperty().multiply(0.2));
+            columnaCoste.prefWidthProperty().bind(tablaFiltrada.widthProperty().multiply(0.1));
             columnaFecha.prefWidthProperty().bind(tablaFiltrada.widthProperty().multiply(0.2));
 
             misDatos = Acount.getInstance().getUserCharges();
@@ -117,6 +121,9 @@ public class VisualizarController implements Initializable {
             });
             columnaCoste.setCellValueFactory((gastoFila) -> {
                 return new SimpleStringProperty(Double.toString(gastoFila.getValue().getCost()));
+            });
+            columnaUnidades.setCellValueFactory((gastoFila) -> {
+                return new SimpleStringProperty(Integer.toString(gastoFila.getValue().getUnits()));
             });
             
             

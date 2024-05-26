@@ -89,6 +89,8 @@ public class GestionGastoController implements Initializable {
     private Button editarButton;
     @FXML
     private Button eliminarButton;
+    @FXML
+    private TableColumn<Charge, String> columnaUnidades;
 
 
     /**
@@ -106,10 +108,12 @@ public class GestionGastoController implements Initializable {
         columnaCategoria.setReorderable(false);
         columnaCoste.setReorderable(false);
         columnaFecha.setReorderable(false);
+        columnaUnidades.setReorderable(false);
+        columnaUnidades.prefWidthProperty().bind(tablaGastos.widthProperty().multiply(0.1));
         columnaNombre.prefWidthProperty().bind(tablaGastos.widthProperty().multiply(0.2));
         columnaDescripcion.prefWidthProperty().bind(tablaGastos.widthProperty().multiply(0.2));
         columnaCategoria.prefWidthProperty().bind(tablaGastos.widthProperty().multiply(0.2));
-        columnaCoste.prefWidthProperty().bind(tablaGastos.widthProperty().multiply(0.2));
+        columnaCoste.prefWidthProperty().bind(tablaGastos.widthProperty().multiply(0.1));
         columnaFecha.prefWidthProperty().bind(tablaGastos.widthProperty().multiply(0.2));
         tablaGastos.prefWidthProperty().bind(contenedorTabla.widthProperty());
         
@@ -132,6 +136,9 @@ public class GestionGastoController implements Initializable {
             });
             columnaCoste.setCellValueFactory((gastoFila) -> {
                 return new SimpleStringProperty(Double.toString(gastoFila.getValue().getCost()));
+            });
+            columnaUnidades.setCellValueFactory((gastoFila) -> {
+                return new SimpleStringProperty(Integer.toString(gastoFila.getValue().getUnits()));
             });
         } catch (AcountDAOException ex) {
             Logger.getLogger(GestionCategoriaController.class.getName()).log(Level.SEVERE, null, ex);
@@ -289,13 +296,21 @@ public class GestionGastoController implements Initializable {
             cell4.setBorderColor(customColorAzulClaro);
             table.addCell(cell4);
             
-            PdfPCell cell5 = new PdfPCell(new Phrase("Fecha",headFont));
+            PdfPCell cell5 = new PdfPCell(new Phrase("Unidades",headFont));
             cell5.setFixedHeight(20);
             cell5.setHorizontalAlignment(Element.ALIGN_CENTER);
             cell5.setVerticalAlignment(Element.ALIGN_MIDDLE);
             cell5.setBackgroundColor(customColorAzul);
             cell5.setBorderColor(customColorAzulClaro);
             table.addCell(cell5);
+            
+            PdfPCell cell6 = new PdfPCell(new Phrase("Fecha",headFont));
+            cell6.setFixedHeight(20);
+            cell6.setHorizontalAlignment(Element.ALIGN_CENTER);
+            cell6.setVerticalAlignment(Element.ALIGN_MIDDLE);
+            cell6.setBackgroundColor(customColorAzul);
+            cell6.setBorderColor(customColorAzulClaro);
+            table.addCell(cell6);
             
             Font fontText = FontFactory.getFont("YuGothic-Regular.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED, 12, Font.NORMAL, BaseColor.BLACK);
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -335,13 +350,21 @@ public class GestionGastoController implements Initializable {
                 cellr5.setHorizontalAlignment(Element.ALIGN_CENTER);
                 cellr5.setVerticalAlignment(Element.ALIGN_MIDDLE);
                 cellr5.setBorderColor(customColorGris);
-                cellr5.setPhrase(new Phrase(charge.getDate().format(formatter), fontText));
+                cellr5.setPhrase(new Phrase(Integer.toString(charge.getUnits()), fontText));
+                
+                PdfPCell cellr6 = new PdfPCell();
+                cellr6.setFixedHeight(20);
+                cellr6.setHorizontalAlignment(Element.ALIGN_CENTER);
+                cellr6.setVerticalAlignment(Element.ALIGN_MIDDLE);
+                cellr6.setBorderColor(customColorGris);
+                cellr6.setPhrase(new Phrase(charge.getDate().format(formatter), fontText));
                 
                 table.addCell(cellr1);
                 table.addCell(cellr2);
                 table.addCell(cellr3);
                 table.addCell(cellr4);
                 table.addCell(cellr5);
+                table.addCell(cellr6);
             }
             
             document.add(table);

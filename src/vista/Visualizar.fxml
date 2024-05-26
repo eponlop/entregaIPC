@@ -64,6 +64,7 @@
                 <TableColumn fx:id="columnaDescripcion" prefWidth="83.20001220703125" text="Descripcion" />
                   <TableColumn fx:id="columnaCategoria" prefWidth="67.20001220703125" text="Categoria" />
                   <TableColumn fx:id="columnaCoste" prefWidth="75.0" text="Coste" />
+                  <TableColumn fx:id="columnaUnidades" prefWidth="75.0" text="Unidades" />
                   <TableColumn fx:id="columnaFecha" prefWidth="75.0" text="Fecha" />
               </columns>
                <VBox.margin>
