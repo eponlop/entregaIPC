@@ -20,11 +20,6 @@
       <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
       <HBox alignment="CENTER">
          <children>
-            <Text fill="#020202" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-title" text="Bienvenido a Budget Buddy">
-               <font>
-                  <Font name="Yu Gothic Regular" size="30.0" />
-               </font>
-            </Text>
             <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../resources/images/Logo.png" />
@@ -33,6 +28,11 @@
                   <Insets left="5.0" right="10.0" top="10.0" />
                </HBox.margin>
             </ImageView>
+            <Text fill="#020202" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-title" text="Bienvenido a Budget Buddy">
+               <font>
+                  <Font name="Yu Gothic Regular" size="30.0" />
+               </font>
+            </Text>
          </children>
       </HBox>
       <HBox alignment="CENTER">
