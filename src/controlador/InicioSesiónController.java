@@ -106,9 +106,9 @@ public class InicioSesiónController implements Initializable {
             newStage.show();
 
             // Cierra la ventana actual si es necesario
-            if (!isMaximized) {
-                stage.close();
-            }
+            
+            stage.close();
+            
             
         } catch (IOException ex) {
             Logger.getLogger(ContenedorPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
