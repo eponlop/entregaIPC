@@ -253,7 +253,7 @@ public class GestionGastoController implements Initializable {
             
             document.add(new Paragraph("\n")); // Párrafo vacío
             
-            PdfPTable table = new PdfPTable(5); // Number of columns
+            PdfPTable table = new PdfPTable(6); // Number of columns
             
             Font headFont = FontFactory.getFont("YuGothic-Regular.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED, 12, Font.BOLD, BaseColor.WHITE);
             
