@@ -10,7 +10,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.beans.property.ObjectProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -74,6 +73,7 @@ public class ConfiguracionPerfilController implements Initializable {
     private boolean verPass = false;
     private boolean editando = false;
     
+    
 
     
     @FXML
@@ -94,6 +94,7 @@ public class ConfiguracionPerfilController implements Initializable {
             cancelarButton.setVisible(false);
             guardarButton.setVisible(false);
             
+            
             passText.textProperty().bindBidirectional(passTextOculto.textProperty());
             repitePassTextOculto.textProperty().bindBidirectional(repitePassText.textProperty());
             
@@ -113,6 +114,8 @@ public class ConfiguracionPerfilController implements Initializable {
         }
         
     } 
+    
+    
     
    
     @FXML
@@ -165,16 +168,46 @@ public class ConfiguracionPerfilController implements Initializable {
             repitePassTextOculto.setDisable(true);
             
             try {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Cambios realizados");
+                alert.setHeaderText("Los cambios han sido actualizados");
+                alert.setContentText("Por favor vuelva a iniciar sesión");
+                alert.showAndWait();
+                
                 Acount.getInstance().getLoggedUser().setName(nombreText.getText());
                 Acount.getInstance().getLoggedUser().setSurname(apellidoText.getText());
                 Acount.getInstance().getLoggedUser().setEmail(correoText.getText());
                 Acount.getInstance().getLoggedUser().setPassword(passText.getText());
                 Acount.getInstance().getLoggedUser().setImage(image);
                 
-//                FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/ContenedorPrincipal.fxml"));
-//                Parent root = loader.load();
-//                ContenedorPrincipalController principal = loader.getController();
-//                principal.setImage(Acount.getInstance().getLoggedUser().getImage());
+                Stage stage = (Stage) cancelarButton.getScene().getWindow();
+                boolean isMaximized = stage.isMaximized();
+                
+                
+                // cambia a la opción de registrar usuario            
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/InicioSesión.fxml"));
+                Parent inicioSesion = loader.load();
+                Scene scene = new Scene(inicioSesion);
+
+                Acount.getInstance().logOutUser();
+
+
+                Stage newStage = (Stage) cancelarButton.getScene().getWindow();
+                newStage.setTitle("Iniciar Sesión");
+                Image logo = new Image("resources/images/Logo.png");
+                newStage.getIcons().add(logo);
+                newStage.setScene(scene);
+
+
+                newStage.setMaximized(isMaximized);
+
+                // Cierra la ventana actual si es necesario
+                stage.close();
+                // Muestra la nueva ventana
+                newStage.show();
+                
+                
+                
 
             } catch (AcountDAOException ex) {
                 Logger.getLogger(ConfiguracionPerfilController.class.getName()).log(Level.SEVERE, null, ex);

@@ -46,6 +46,8 @@ public class ContenedorPrincipalController implements Initializable {
     @FXML
     private Text bienvenidaText;
     
+    private Image image;
+    
     
     /**
      * Initializes the controller class.
@@ -61,13 +63,15 @@ public class ContenedorPrincipalController implements Initializable {
         gestionGastoButton.getStyleClass().add("button-bold-hover");
         
         try {
-            imageView.setImage(Acount.getInstance().getLoggedUser().getImage());
+            image = Acount.getInstance().getLoggedUser().getImage();
+            imageView.setImage(image);
             bienvenidaText.setText("Bienvenido " + Acount.getInstance().getLoggedUser().getNickName() + "!");
         } catch (AcountDAOException ex) {
             Logger.getLogger(ContenedorPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(ContenedorPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         
         try {
             // inicia la app con la opción de gestión de gasto
@@ -77,8 +81,8 @@ public class ContenedorPrincipalController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(ContenedorPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }    
-
+    }
+    
     @FXML
     private void salir(MouseEvent event) {
         try {
@@ -89,6 +93,8 @@ public class ContenedorPrincipalController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/InicioSesión.fxml"));
             Parent inicioSesion = loader.load();
             Scene scene = new Scene(inicioSesion);
+            
+            Acount.getInstance().logOutUser();
             
             
             Stage newStage = (Stage) salirButton.getScene().getWindow();
@@ -106,6 +112,8 @@ public class ContenedorPrincipalController implements Initializable {
             newStage.show();
             
         } catch (IOException ex) {
+            Logger.getLogger(ContenedorPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (AcountDAOException ex) {
             Logger.getLogger(ContenedorPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         }       
     }
