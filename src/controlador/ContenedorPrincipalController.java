@@ -81,14 +81,24 @@ public class ContenedorPrincipalController implements Initializable {
     @FXML
     private void salir(MouseEvent event) {
         try {
+            Stage stage = (Stage) gestionCategoriaButton.getScene().getWindow();
+            boolean isMaximized = stage.isMaximized(); // Guarda el estado de maximización
+
             // cambia a la opción de registrar usuario            
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/InicioSesión.fxml"));
             Parent inicioSesion = loader.load();
             Scene scene = new Scene(inicioSesion);
             
-            Stage stage = (Stage) salirButton.getScene().getWindow();
-            stage.setScene(scene);
+            Stage newStage = (Stage) salirButton.getScene().getWindow();
+            newStage.setScene(scene);
             
+            
+            newStage.setMaximized(isMaximized);
+            
+            // Cierra la ventana actual si es necesario
+            stage.close();
+            // Muestra la nueva ventana
+            newStage.show();
             
         } catch (IOException ex) {
             Logger.getLogger(ContenedorPrincipalController.class.getName()).log(Level.SEVERE, null, ex);

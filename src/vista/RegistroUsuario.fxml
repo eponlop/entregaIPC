@@ -152,7 +152,7 @@
             <HBox alignment="BOTTOM_LEFT" maxHeight="-Infinity" prefHeight="46.0" prefWidth="600.0">
                <children>
                   <HBox prefWidth="200.0" />
-                  <Button mnemonicParsing="false" onMouseClicked="#aceptar" style="-fx-pref-width: 100pt;" styleClass="button-bold" text="Aceptar">
+                  <Button fx:id="aceptarButton" mnemonicParsing="false" onMouseClicked="#aceptar" style="-fx-pref-width: 100pt;" styleClass="button-bold" text="Aceptar">
                      <HBox.margin>
                         <Insets left="20.0" />
                      </HBox.margin>

@@ -56,6 +56,8 @@ public class InicioSesiónController implements Initializable {
     @FXML
     private ImageView imagenVerPassword;
     
+    private Stage primaryStage;
+    
     Image ojo_normal = new Image(getClass().getResourceAsStream("/resources/images/Ojo_normal.png"));
     Image ojo_selected = new Image(getClass().getResourceAsStream("/resources/images/Ojo_selected.png"));
 
@@ -78,14 +80,32 @@ public class InicioSesiónController implements Initializable {
 
     @FXML
     private void registrar(MouseEvent event){
+        final boolean isMaximized;
         try {
-            // cambia a la opción de registrar usuario           
+            // Obtiene la ventana actual
+            Stage stage = (Stage) entrarButton.getScene().getWindow();
+            isMaximized = stage.isMaximized(); // Verifica si la ventana actual está maximizada
+
+            // Cambia a la opción de registrar usuario           
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/RegistroUsuario.fxml"));
             Parent registroUsuario = loader.load();
             Scene scene = new Scene(registroUsuario);
 
-            Stage stage = (Stage) entrarButton.getScene().getWindow();
-            stage.setScene(scene);
+            Stage newStage = new Stage(); // Crea una nueva ventana
+            newStage.setScene(scene);
+
+            // Aplica el estado de maximización a la nueva ventana
+            if (isMaximized) {
+                newStage.setMaximized(true);
+            }
+
+            // Muestra la nueva ventana
+            newStage.show();
+
+            // Cierra la ventana actual si es necesario
+            if (!isMaximized) {
+                stage.close();
+            }
             
         } catch (IOException ex) {
             Logger.getLogger(ContenedorPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
@@ -106,14 +126,30 @@ public class InicioSesiónController implements Initializable {
             boolean isOK = Acount.getInstance().logInUserByCredentials(login, password);
             if (isOK) {
                 System.out.println("OK");
+                
+                Stage stage = (Stage) botonVisualizar.getScene().getWindow();
+                boolean isMaximized = stage.isMaximized(); // Guarda el estado de maximización
+                
                 // cambia a la opción de registrar usuario            
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/ContenedorPrincipal.fxml"));
                 Parent principal = loader.load();
                 Scene scene = new Scene(principal);
 
-                Stage stage = (Stage) entrarButton.getScene().getWindow();
-                stage.setScene(scene);
-                stage.setScene(scene);
+                // Muestra la nueva ventana
+                Stage newStage = new Stage();
+                newStage.setScene(scene);
+
+                // Aplica el estado de maximización a la nueva ventana
+                newStage.setMaximized(isMaximized);
+                
+
+                // Cierra la ventana actual si es necesario
+                stage.close();
+
+                // Muestra la nueva ventana
+                newStage.show();
+                
+                
             } else {
                 // login failed
                 Alert alert = new Alert(Alert.AlertType.ERROR);
