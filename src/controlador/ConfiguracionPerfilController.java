@@ -265,12 +265,6 @@ public class ConfiguracionPerfilController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(ConfiguracionPerfilController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-//        Alert alerta = new Alert(Alert.AlertType.WARNING);
-//        alerta.setTitle("Cambios en la cuenta");
-//        alerta.setHeaderText("No se han guardado los cambios");
-//        alerta.setContentText("Los cambios han sido cancelados");
-//        alerta.showAndWait();
     }
 
     @FXML
@@ -344,7 +338,4 @@ public class ConfiguracionPerfilController implements Initializable {
         }
         verPass = !verPass;
     }
-
-
-
 }

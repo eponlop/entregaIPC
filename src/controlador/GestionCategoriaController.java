@@ -62,8 +62,6 @@ public class GestionCategoriaController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        url = url;
-        rb = rb;
         // TODO
         columnaCategoria.setReorderable(false);
         columnaDescripcion.setReorderable(false);

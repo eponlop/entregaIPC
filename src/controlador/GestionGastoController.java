@@ -372,7 +372,6 @@ public class GestionGastoController implements Initializable {
         } catch (DocumentException ex) {
             Logger.getLogger(GestionGastoController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (FileNotFoundException ex) {
-         //JIJI
         }
     }
 

@@ -51,7 +51,7 @@
                         <Insets bottom="5.0" />
                      </VBox.margin>
                   </Text>
-                  <TextField fx:id="loginText" text="eponlop" VBox.vgrow="NEVER" />
+                  <TextField fx:id="loginText" VBox.vgrow="NEVER" />
                </children>
             </VBox>
          </children>
@@ -83,7 +83,7 @@
                         <StackPane>
                            <children>
                               <TextField fx:id="passText" />
-                              <PasswordField fx:id="passTextOculto" styleClass="password-field-inicio" text="1234abc">
+                              <PasswordField fx:id="passTextOculto" styleClass="password-field-inicio">
                                  <StackPane.margin>
                                     <Insets />
                                  </StackPane.margin></PasswordField>

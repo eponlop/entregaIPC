@@ -81,6 +81,5 @@
    </bottom>
    <stylesheets>
       <URL value="@../resources/stylesheets/HojaEstilo.css" />
-      <URL value="@../resources/stylesheets/HojaEstilo_Contenedor.css" />
    </stylesheets>
 </BorderPane>
