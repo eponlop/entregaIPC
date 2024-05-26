@@ -59,6 +59,7 @@ public class ContenedorPrincipalController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         gestionGastoButton.getStyleClass().add("button-bold-hover");
+        
         try {
             imageView.setImage(Acount.getInstance().getLoggedUser().getImage());
             bienvenidaText.setText("Bienvenido " + Acount.getInstance().getLoggedUser().getNickName() + "!");

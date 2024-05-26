@@ -10,8 +10,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
 
-<HBox alignment="CENTER" styleClass="root-2" stylesheets="@../resources/stylesheets/HojaEstilo.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.RegistroUsuarioController">
+<HBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" styleClass="root-2" stylesheets="@../resources/stylesheets/HojaEstilo.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.RegistroUsuarioController">
    <children>
       <VBox maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
       <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../resources/stylesheets/HojaEstilo.css">
@@ -21,7 +22,7 @@
                <children>
                   <VBox maxHeight="-Infinity" prefHeight="70.0">
                      <children>
-                        <Label style="-fx-text-fill: #489FEA;" styleClass="texto-head" text="Nombre" textFill="#ff6363">
+                        <Label fx:id="nombreLabel" style="-fx-text-fill: #489FEA;" styleClass="texto-head" text="Nombre" textFill="#ff6363">
                            <VBox.margin>
                               <Insets bottom="5.0" />
                            </VBox.margin>
@@ -34,7 +35,7 @@
                   </VBox>
                   <VBox maxHeight="-Infinity" prefHeight="70.0">
                      <children>
-                        <Label style="-fx-text-fill: #489FEA;" styleClass="texto-head" text="Primer apellido" textFill="#ff6363">
+                        <Label fx:id="apellidoLabel" style="-fx-text-fill: #489FEA;" styleClass="texto-head" text="Primer apellido" textFill="#ff6363">
                            <VBox.margin>
                               <Insets bottom="5.0" />
                            </VBox.margin>
@@ -46,7 +47,7 @@
             </HBox>
             <VBox maxHeight="-Infinity" prefHeight="70.0" VBox.vgrow="NEVER">
                <children>
-                  <Label style="-fx-text-fill: #489FEA;" styleClass="texto-head" text="Correo electronico" textFill="#ff6363">
+                  <Label fx:id="correoLabel" style="-fx-text-fill: #489FEA;" styleClass="texto-head" text="Correo electronico" textFill="#ff6363">
                      <VBox.margin>
                         <Insets bottom="5.0" />
                      </VBox.margin>
@@ -54,24 +55,30 @@
                   <TextField fx:id="emailText" maxWidth="-Infinity" prefHeight="26.0" prefWidth="220.0" />
                </children>
             </VBox>
-            <VBox maxHeight="-Infinity" prefHeight="70.0">
+            <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label style="-fx-text-fill: #489FEA;" styleClass="texto-head" text="Nickname" textFill="#ff6363">
-                     <VBox.margin>
-                        <Insets bottom="5.0" />
-                     </VBox.margin>
-                  </Label>
-                  <TextField fx:id="loginText" maxWidth="-Infinity" prefHeight="27.0" prefWidth="115.0" />
+                  <VBox maxHeight="-Infinity" prefHeight="70.0">
+                     <children>
+                        <Label fx:id="nickLabel" style="-fx-text-fill: #489FEA;" styleClass="texto-head" text="Nickname" textFill="#ff6363">
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="loginText" maxWidth="-Infinity" prefHeight="27.0" prefWidth="115.0" />
+                     </children>
+                  </VBox>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #9b9b9b; -fx-font-size: 11px;" styleClass="texto-normal" text="No se podrá modificar el Nickname una vez registrado" textAlignment="JUSTIFY" wrappingWidth="147.5924530029297">
+                     <HBox.margin>
+                        <Insets left="10.0" top="20.0" />
+                     </HBox.margin>
+                  </Text>
                </children>
-               <VBox.margin>
-                  <Insets top="30.0" />
-               </VBox.margin>
-            </VBox>
+            </HBox>
             <HBox>
                <children>
                   <VBox maxHeight="-Infinity" prefHeight="70.0">
                      <children>
-                        <Label style="-fx-text-fill: #489FEA;" styleClass="texto-head" text="Contraseña" textFill="#ff6363">
+                        <Label fx:id="passwordLabel" style="-fx-text-fill: #489FEA;" styleClass="texto-head" text="Contraseña" textFill="#ff6363">
                            <VBox.margin>
                               <Insets bottom="5.0" />
                            </VBox.margin>
@@ -89,7 +96,7 @@
                   </VBox>
                   <VBox maxHeight="-Infinity" prefHeight="70.0">
                      <children>
-                        <Label style="-fx-text-fill: #489FEA;" styleClass="texto-head" text="Repite tu contraseña" textFill="#ff6363">
+                        <Label fx:id="repetirLabel" style="-fx-text-fill: #489FEA;" styleClass="texto-head" text="Repite tu contraseña" textFill="#ff6363">
                            <VBox.margin>
                               <Insets bottom="5.0" />
                            </VBox.margin>
@@ -127,7 +134,7 @@
                <children>
                   <VBox maxHeight="-Infinity">
                      <children>
-                        <Label style="-fx-text-fill: #489FEA;" styleClass="texto-head" text="Foto de perfil (opcional)" textFill="#ff6363">
+                        <Label fx:id="fotoLabel" style="-fx-text-fill: #489FEA;" styleClass="texto-head" text="Foto de perfil (opcional)" textFill="#ff6363">
                            <VBox.margin>
                               <Insets bottom="5.0" />
                            </VBox.margin>

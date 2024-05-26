@@ -552,6 +552,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-stroke: #489FEA; /* Color de las líneas de cuadrícula horizontales */
 }
 
+/* Cambiar el color de las barras */
+.default-color0.chart-bar {
+    -fx-bar-fill: #3498db; /* Color azul para la primera serie */
+}
+
+.default-color1.chart-bar {
+    -fx-bar-fill: #e74c3c; /* Color rojo para la segunda serie */
+}
+
+.default-color2.chart-bar {
+    -fx-bar-fill: #2ecc71; /* Color verde para la tercera serie */
+}
+
 .axis {
     
     -fx-tick-label-fill: #489FEA; /* Color de las etiquetas de los ticks */
@@ -564,16 +577,28 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-stroke: #489FEA; /* Color de las marcas de los ticks */
 }
 
-/* Estilo para el eje horizontal */
-.chart-bar-chart .chart-horizontal-axis .axis {
-    -fx-stroke: #489FEA; /* Color del trazo del eje horizontal */
+.chart-axis {
+    -fx-tick-label-fill: #489FEA; /* Color de los números y etiquetas en los ejes */
+    -fx-axis-line-visible: true; /* Asegúrate de que la línea del eje sea visible */
+    -fx-axis-line: #489FEA; /* Color de la línea principal del eje */
+    -fx-tick-mark-stroke: #489FEA; /* Color de las marcas de las divisiones */
 }
 
-/* Estilo para el eje vertical */
-.chart-bar-chart .chart-vertical-axis .axis {
-    -fx-stroke: #489FEA; /* Color del trazo del eje vertical */
+.chart-legend {
+    -fx-background-color: transparent; /* Fondo transparente */
+    -fx-border-width: 1;
+    -fx-border-color: #9b9b9b;
+    -fx-border-radius: 0;
 }
 
+
+.chart-legend-item {
+
+    -fx-border-width: 0px; /* Cambia el grosor del borde */
+    -fx-font-family: "Yu Gothic"; /* Cambia la familia de fuentes */
+    -fx-font-size: 12px; /* Cambia el tamaño de la letra */
+    -fx-text-fill: black; /* Cambia el color del texto */
+}
 
 
 /* SEPARADORES */
@@ -586,7 +611,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 
 .separator-custom .line {
     
-    /* -fx-background-color: #9B0000; /* Opción rojo oscuro */
     -fx-background-color: #489FEA; /* Opción rojo claro  */
     -fx-padding: 0.3px;
     -fx-background-radius: 0;

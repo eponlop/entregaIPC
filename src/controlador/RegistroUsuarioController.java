@@ -31,6 +31,7 @@ import model.Acount;
 import model.AcountDAOException;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 
 /**
@@ -77,6 +78,20 @@ public class RegistroUsuarioController implements Initializable {
     Image ojo_selected = new Image(getClass().getResourceAsStream("/resources/images/Ojo_selected.png"));
     @FXML
     private Button aceptarButton;
+    @FXML
+    private Label nombreLabel;
+    @FXML
+    private Label apellidoLabel;
+    @FXML
+    private Label correoLabel;
+    @FXML
+    private Label nickLabel;
+    @FXML
+    private Label passwordLabel;
+    @FXML
+    private Label repetirLabel;
+    @FXML
+    private Label fotoLabel;
 
     /**
      * Initializes the controller class.
