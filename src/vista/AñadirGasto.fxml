@@ -122,12 +122,15 @@
             </HBox>
             <HBox prefHeight="111.0" prefWidth="600.0" VBox.vgrow="NEVER">
                <VBox.margin>
-                  <Insets top="25.0" />
+                  <Insets top="20.0" />
                </VBox.margin>
                <children>
                   <VBox maxHeight="-Infinity">
                      <children>
-                        <Text fill="#489fea" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-head" text="Archivo adjunto (opcional)" />
+                        <Text fill="#489fea" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-head" text="Archivo adjunto (opcional)">
+                           <VBox.margin>
+                              <Insets bottom="3.0" />
+                           </VBox.margin></Text>
                         <HBox alignment="CENTER_LEFT">
                            <children>
                               <Button mnemonicParsing="false" onMouseClicked="#seleccionarArchivo" styleClass="button-bold" text="Seleccionar" />
