@@ -30,8 +30,9 @@ public class JavaFXMLApplication extends Application {
         //     - configuracion del stage
         //     - se muestra el stage de manera no modal mediante el metodo show()
         stage.setScene(scene);
-        stage.setTitle("Budget Buddy");
-        stage.getIcons().add(new Image("/resources/images/Logo.png"));
+        stage.setTitle("Iniciar Sesión");
+        Image logo = new Image("resources/images/Logo.png");
+        stage.getIcons().add(logo);
         stage.show();
     }
 

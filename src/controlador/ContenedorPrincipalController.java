@@ -89,7 +89,11 @@ public class ContenedorPrincipalController implements Initializable {
             Parent inicioSesion = loader.load();
             Scene scene = new Scene(inicioSesion);
             
+            
             Stage newStage = (Stage) salirButton.getScene().getWindow();
+            newStage.setTitle("Iniciar Sesión");
+            Image logo = new Image("resources/images/Logo.png");
+            newStage.getIcons().add(logo);
             newStage.setScene(scene);
             
             

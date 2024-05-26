@@ -113,6 +113,9 @@ public class RegistroUsuarioController implements Initializable {
 
             // Muestra la nueva ventana
             Stage newStage = new Stage();
+            newStage.setTitle("Iniciar Sesión");
+            Image logo = new Image("resources/images/Logo.png");
+            newStage.getIcons().add(logo);
             newStage.setScene(scene);
 
             // Aplica el estado de maximización a la nueva ventana
@@ -217,6 +220,10 @@ public class RegistroUsuarioController implements Initializable {
 
                     // Muestra la nueva ventana
                     Stage newStage = new Stage();
+                    
+                    newStage.setTitle("Iniciar Sesión");
+                    Image logo = new Image("resources/images/Logo.png");
+                    newStage.getIcons().add(logo);
                     newStage.setScene(scene);
 
                     // Aplica el estado de maximización a la nueva ventana

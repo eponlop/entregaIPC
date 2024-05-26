@@ -92,6 +92,9 @@ public class InicioSesiónController implements Initializable {
             Scene scene = new Scene(registroUsuario);
 
             Stage newStage = new Stage(); // Crea una nueva ventana
+            newStage.setTitle("Registrarse");
+            Image logo = new Image("resources/images/Logo.png");
+            newStage.getIcons().add(logo);
             newStage.setScene(scene);
 
             // Aplica el estado de maximización a la nueva ventana
@@ -137,6 +140,9 @@ public class InicioSesiónController implements Initializable {
 
                 // Muestra la nueva ventana
                 Stage newStage = new Stage();
+                newStage.setTitle("Budget Buddy");
+                Image logo = new Image("resources/images/Logo.png");
+                newStage.getIcons().add(logo);
                 newStage.setScene(scene);
 
                 // Aplica el estado de maximización a la nueva ventana
