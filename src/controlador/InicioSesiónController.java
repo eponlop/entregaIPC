@@ -128,7 +128,6 @@ public class InicioSesiónController implements Initializable {
         try {
             boolean isOK = Acount.getInstance().logInUserByCredentials(login, password);
             if (isOK) {
-                System.out.println("OK");
                 
                 Stage stage = (Stage) botonVisualizar.getScene().getWindow();
                 boolean isMaximized = stage.isMaximized(); // Guarda el estado de maximización
